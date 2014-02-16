@@ -16,25 +16,25 @@
  * no message
  *
  * Revision 1.60  2002/07/21 15:03:12  msell
- * ƒ‰net disabloitu
+ * √Ñ√§net disabloitu
  *
  * Revision 1.59  2002/07/19 22:48:09  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.58  2002/07/19 18:59:46  msell
- * Alkuhommaa ja s‰‰tˆ‰
+ * Alkuhommaa ja s√§√§t√∂√§
  *
  * Revision 1.57  2002/07/19 14:05:51  msell
- * Damagetextuurit n‰kyy
+ * Damagetextuurit n√§kyy
  *
  * Revision 1.56  2002/07/19 12:48:31  jkaarlas
- * damagep‰‰
+ * damagep√§√§
  *
  * Revision 1.55  2002/07/18 23:05:31  msell
  * Partikkelit ja kakkospelaajan liike
  *
  * Revision 1.54  2002/07/17 22:45:53  msell
- * ƒ‰ni‰ v‰h‰n
+ * √Ñ√§ni√§ v√§h√§n
  *
  * Revision 1.53  2002/07/17 19:06:39  jkaarlas
  * skyboxin keskitys
@@ -46,7 +46,7 @@
  * Resoluution vaihto
  *
  * Revision 1.50  2002/07/16 19:54:38  jkaarlas
- * poistettu turhaa roinaa ja lis‰tty DATAPATH tiedostonimien eteen
+ * poistettu turhaa roinaa ja lis√§tty DATAPATH tiedostonimien eteen
  *
  * Revision 1.49  2002/07/16 17:16:34  msell
  * Fontit ja valikot
@@ -55,7 +55,7 @@
  * Pikkufixi
  *
  * Revision 1.47  2002/07/16 00:42:43  msell
- * Uusia skyboxeja ja areenan s‰‰tˆ‰
+ * Uusia skyboxeja ja areenan s√§√§t√∂√§
  *
  * Revision 1.46  2002/07/15 21:42:58  msell
  * Skybox-testi
@@ -67,28 +67,28 @@
  * Parantelua
  *
  * Revision 1.43  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, k‰vely, lyˆnti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, k√§vely, ly√∂nti), uusi areena
  *
  * Revision 1.42  2002/07/14 21:22:40  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.41  2002/07/10 22:22:53  msell
  * Cartoon-rendaus
  *
  * Revision 1.40  2002/07/10 22:07:23  jkaarlas
- * skaalatut ja k‰‰nnellyt ruumiinosat
+ * skaalatut ja k√§√§nnellyt ruumiinosat
  *
  * Revision 1.39  2002/07/10 17:13:44  msell
- * Tˆrm‰ystarkastelun parantelua
+ * T√∂rm√§ystarkastelun parantelua
  *
  * Revision 1.38  2002/07/08 22:53:38  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.37  2002/07/08 18:28:47  msell
- * Tˆrm‰yst‰ ja ukkoja
+ * T√∂rm√§yst√§ ja ukkoja
  *
  * Revision 1.36  2002/07/07 23:21:11  msell
- * Pient‰ parantelua
+ * Pient√§ parantelua
  *
  * Revision 1.35  2002/07/07 23:05:22  msell
  * Osien liimaaminen toisiinsa (kesken)
@@ -97,36 +97,36 @@
  * Legoukon alku
  *
  * Revision 1.33  2002/07/07 15:29:07  msell
- * Tˆrm‰yksien parantelua
+ * T√∂rm√§yksien parantelua
  *
  * Revision 1.32  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Tˆrm‰ystarkistukset siis
+ * T√∂rm√§ystarkistukset siis
  *
  * Revision 1.31  2002/06/30 16:05:04  msell
- * Tˆrm‰yksien parantelua, transformaatioita mukana
+ * T√∂rm√§yksien parantelua, transformaatioita mukana
  *
  * Revision 1.30  2002/06/27 21:57:06  msell
- * glEnd(); lis‰tty tekstuuritestaukseen
+ * glEnd(); lis√§tty tekstuuritestaukseen
  *
  * Revision 1.29  2002/06/27 21:46:55  jkaarlas
- * lis‰tty testikoodi transparentille tekstuurille (kommentoitu) vaihdettu tekstuuriquadin koordinaatit oikein p‰in
+ * lis√§tty testikoodi transparentille tekstuurille (kommentoitu) vaihdettu tekstuuriquadin koordinaatit oikein p√§in
  *
  * Revision 1.28  2002/06/27 14:39:48  msell
  * Toimiva maila :)
- * Pyˆriv‰t kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin p‰in viel‰)
+ * Py√∂riv√§t kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin p√§in viel√§)
  *
  * Revision 1.27  2002/06/27 00:08:04  msell
- * Kimmotukset palloille myˆs pyˆritettyihin mesheihin
+ * Kimmotukset palloille my√∂s py√∂ritettyihin mesheihin
  *
  * Revision 1.26  2002/06/26 22:32:20  jkaarlas
- * mukana initiss‰ asc-mallin lataus, tosin kommentoituna. samoin yksinkertainen quad, johon voi kokeilla tekstuurin lataamista
+ * mukana initiss√§ asc-mallin lataus, tosin kommentoituna. samoin yksinkertainen quad, johon voi kokeilla tekstuurin lataamista
  *
  * Revision 1.25  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -tˆrm‰ykset, ihan tosi
+ * Nyt toimii sphere -> mesh -t√∂rm√§ykset, ihan tosi
  *
  * Revision 1.24  2002/06/23 20:12:19  msell
- * Parempi tˆrm‰ystarkistus palloista mesheihin
+ * Parempi t√∂rm√§ystarkistus palloista mesheihin
  *
  * Revision 1.23  2002/06/20 22:50:12  msell
  * Meshit
@@ -147,25 +147,25 @@
  * #includeiden parantelua
  *
  * Revision 1.17  2002/06/16 01:04:58  jkaarlas
- * tulipa s‰‰detty‰ includejen kanssa. oon tod.n‰k. eri mielt‰ aamulla
+ * tulipa s√§√§detty√§ includejen kanssa. oon tod.n√§k. eri mielt√§ aamulla
  *
  * Revision 1.16  2002/06/15 22:56:37  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.15  2002/06/15 17:18:37  msell
- * Toimiva tˆrm‰ystarkastus kiinteille laatikoille
+ * Toimiva t√∂rm√§ystarkastus kiinteille laatikoille
  *
  * Revision 1.14  2002/06/14 19:01:09  msell
- * S‰‰t‰mist‰ ja testailua
+ * S√§√§t√§mist√§ ja testailua
  *
  * Revision 1.13  2002/06/14 00:26:17  msell
- * 100 kimpoilevaa palloa ja v‰h‰n vaimennusta
+ * 100 kimpoilevaa palloa ja v√§h√§n vaimennusta
  *
  * Revision 1.12  2002/06/14 00:05:05  msell
- * Tˆrm‰yssimulaatio kunnossa toivon mukaan
+ * T√∂rm√§yssimulaatio kunnossa toivon mukaan
  *
  * Revision 1.11  2002/06/11 23:11:45  msell
- * Tˆrm‰ystarkistusta
+ * T√∂rm√§ystarkistusta
  *
  * Revision 1.10  2002/06/07 21:16:51  msell
  * Fysiikkaenginen alkua
@@ -174,10 +174,10 @@
  * Pallo
  *
  * Revision 1.8  2002/06/05 18:39:04  msell
- * Jotain pient‰
+ * Jotain pient√§
  *
  * Revision 1.7  2002/06/05 15:00:41  msell
- * Palikoihin lis‰‰ detailia, facet jaetaan halutun kokosiin osiin
+ * Palikoihin lis√§√§ detailia, facet jaetaan halutun kokosiin osiin
  *
  * Revision 1.6  2002/06/03 23:06:38  msell
  * no message
@@ -186,10 +186,10 @@
  * Objektirakenteen pohja
  *
  * Revision 1.4  2002/05/19 13:40:19  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.3  2002/05/18 12:29:35  msell
- * Valot ja ‰‰nij‰rjestelm‰n parantelua
+ * Valot ja √§√§nij√§rjestelm√§n parantelua
  *
  * Revision 1.2  2002/05/17 23:13:30  msell
  * Valot

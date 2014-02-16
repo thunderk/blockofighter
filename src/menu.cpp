@@ -19,7 +19,7 @@
  * Pingviini
  *
  * Revision 1.9  2002/07/19 14:05:52  msell
- * Damagetextuurit n‰kyy
+ * Damagetextuurit n√§kyy
  *
  * Revision 1.8  2002/07/19 12:28:29  msell
  * 2D-mode
@@ -31,7 +31,7 @@
  * Partikkelit ja kakkospelaajan liike
  *
  * Revision 1.5  2002/07/17 22:45:54  msell
- * ƒ‰ni‰ v‰h‰n
+ * √Ñ√§ni√§ v√§h√§n
  *
  * Revision 1.4  2002/07/17 20:32:47  msell
  * Detail-optio toimii
@@ -40,7 +40,7 @@
  * Resoluution vaihto
  *
  * Revision 1.2  2002/07/16 18:55:16  msell
- * ƒ‰net valikkoon
+ * √Ñ√§net valikkoon
  *
  * Revision 1.1  2002/07/16 17:16:35  msell
  * Fontit ja valikot

@@ -4,10 +4,10 @@
  *
  * $Log: graphics.cpp,v $
  * Revision 1.17  2002/07/21 15:03:12  msell
- * ƒ‰net disabloitu
+ * √Ñ√§net disabloitu
  *
  * Revision 1.16  2002/07/19 22:01:35  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.15  2002/07/19 21:32:54  msell
  * Mipmap pois
@@ -19,22 +19,22 @@
  * Resoluution vaihto
  *
  * Revision 1.12  2002/07/14 21:22:39  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.11  2002/06/28 14:51:40  jkaarlas
  * transparenttilatausta korjailtu
  *
  * Revision 1.10  2002/06/27 21:42:32  jkaarlas
- * lis‰tty transparentin tekstuurin lataus
+ * lis√§tty transparentin tekstuurin lataus
  *
  * Revision 1.9  2002/06/26 18:54:43  jkaarlas
  * Nyt se lataus vihdoin toimii
  *
  * Revision 1.8  2002/06/20 15:30:22  jkaarlas
- * tekstuuris‰‰tˆ‰
+ * tekstuuris√§√§t√∂√§
  *
  * Revision 1.7  2002/06/19 22:44:56  jkaarlas
- * lis‰tty glTexEnvf lataukseen
+ * lis√§tty glTexEnvf lataukseen
  *
  * Revision 1.6  2002/06/17 20:49:04  msell
  * free -> SDL_FreeSurface
@@ -49,7 +49,7 @@
  * realloc korjattu
  *
  * Revision 1.2  2002/06/16 01:05:18  jkaarlas
- * v‰h‰n lihaa luiden ymp‰rille n‰ihinkin
+ * v√§h√§n lihaa luiden ymp√§rille n√§ihinkin
  *
  * 
  *

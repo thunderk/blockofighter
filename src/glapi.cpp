@@ -4,7 +4,7 @@
  *
  * $Log: glapi.cpp,v $
  * Revision 1.9  2002/07/21 15:03:12  msell
- * ƒ‰net disabloitu
+ * √Ñ√§net disabloitu
  *
  * Revision 1.8  2002/07/15 20:32:35  msell
  * Uudet valot ja ulkoasun parantelua
@@ -13,10 +13,10 @@
  * #includeiden parantelua
  *
  * Revision 1.6  2002/06/05 18:39:04  msell
- * Jotain pient‰
+ * Jotain pient√§
  *
  * Revision 1.5  2002/06/05 15:00:41  msell
- * Palikoihin lis‰‰ detailia, facet jaetaan halutun kokosiin osiin
+ * Palikoihin lis√§√§ detailia, facet jaetaan halutun kokosiin osiin
  *
  * Revision 1.4  2002/06/03 23:06:38  msell
  * no message
@@ -28,8 +28,8 @@
  * Vektorifunctioita ja kamera
  *
  * Revision 1.1  2002/05/15 14:36:39  msell
- * Yksinkertainen SDL-runko (K‰‰ntyy toistaiseksi vain windowsissa).
- * Mukana myˆs musiikinsoitto fmodilla.
+ * Yksinkertainen SDL-runko (K√§√§ntyy toistaiseksi vain windowsissa).
+ * Mukana my√∂s musiikinsoitto fmodilla.
  *
  *
  *

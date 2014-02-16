@@ -13,7 +13,7 @@
  * Parantelua
  *
  * Revision 1.9  2002/07/14 21:22:39  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.8  2002/07/11 18:33:07  jkaarlas
  * ascloaderi palauttaa nyt meshin
@@ -22,19 +22,19 @@
  * Cartoon-rendaus
  *
  * Revision 1.6  2002/07/10 22:07:23  jkaarlas
- * skaalatut ja k‰‰nnellyt ruumiinosat
+ * skaalatut ja k√§√§nnellyt ruumiinosat
  *
  * Revision 1.5  2002/07/09 19:54:35  msell
  * intit floateiks asc-loaderista
  *
  * Revision 1.4  2002/06/26 22:30:02  jkaarlas
- * lis‰tty asc-loaderi
+ * lis√§tty asc-loaderi
  *
  * Revision 1.3  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -tˆrm‰ykset, ihan tosi
+ * Nyt toimii sphere -> mesh -t√∂rm√§ykset, ihan tosi
  *
  * Revision 1.2  2002/06/23 20:12:19  msell
- * Parempi tˆrm‰ystarkistus palloista mesheihin
+ * Parempi t√∂rm√§ystarkistus palloista mesheihin
  *
  * Revision 1.1  2002/06/20 22:50:12  msell
  * Meshit

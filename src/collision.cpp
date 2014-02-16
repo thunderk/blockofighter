@@ -4,78 +4,78 @@
  *
  * $Log: collision.cpp,v $
  * Revision 1.24  2002/07/21 15:03:12  msell
- * Äänet disabloitu
+ * Ã„Ã¤net disabloitu
  *
  * Revision 1.23  2002/07/19 18:59:46  msell
- * Alkuhommaa ja säätöä
+ * Alkuhommaa ja sÃ¤Ã¤tÃ¶Ã¤
  *
  * Revision 1.22  2002/07/18 23:05:31  msell
  * Partikkelit ja kakkospelaajan liike
  *
  * Revision 1.21  2002/07/17 22:45:53  msell
- * Ääniä vähän
+ * Ã„Ã¤niÃ¤ vÃ¤hÃ¤n
  *
  * Revision 1.20  2002/07/15 15:22:07  msell
  * Parantelua
  *
  * Revision 1.19  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, kävely, lyönti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, kÃ¤vely, lyÃ¶nti), uusi areena
  *
  * Revision 1.18  2002/07/10 17:13:44  msell
- * Törmäystarkastelun parantelua
+ * TÃ¶rmÃ¤ystarkastelun parantelua
  *
  * Revision 1.17  2002/07/08 22:53:38  msell
- * Säätöä
+ * SÃ¤Ã¤tÃ¶Ã¤
  *
  * Revision 1.16  2002/07/08 18:28:47  msell
- * Törmäystä ja ukkoja
+ * TÃ¶rmÃ¤ystÃ¤ ja ukkoja
  *
  * Revision 1.15  2002/07/07 23:21:11  msell
- * Pientä parantelua
+ * PientÃ¤ parantelua
  *
  * Revision 1.14  2002/07/07 23:05:22  msell
  * Osien liimaaminen toisiinsa (kesken)
  *
  * Revision 1.13  2002/07/07 15:29:07  msell
- * Törmäyksien parantelua
+ * TÃ¶rmÃ¤yksien parantelua
  *
  * Revision 1.12  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Törmäystarkistukset siis
+ * TÃ¶rmÃ¤ystarkistukset siis
  *
  * Revision 1.11  2002/06/30 16:05:04  msell
- * Törmäyksien parantelua, transformaatioita mukana
+ * TÃ¶rmÃ¤yksien parantelua, transformaatioita mukana
  *
  * Revision 1.10  2002/06/27 14:39:48  msell
  * Toimiva maila :)
- * Pyörivät kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin päin vielä)
+ * PyÃ¶rivÃ¤t kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin pÃ¤in vielÃ¤)
  *
  * Revision 1.9  2002/06/27 00:08:04  msell
- * Kimmotukset palloille myös pyöritettyihin mesheihin
+ * Kimmotukset palloille myÃ¶s pyÃ¶ritettyihin mesheihin
  *
  * Revision 1.8  2002/06/23 20:12:19  msell
- * Parempi törmäystarkistus palloista mesheihin
+ * Parempi tÃ¶rmÃ¤ystarkistus palloista mesheihin
  *
  * Revision 1.7  2002/06/20 22:50:12  msell
  * Meshit
  *
  * Revision 1.6  2002/06/17 12:42:46  msell
- * Hieman parempi törmäysmallinnus taas
+ * Hieman parempi tÃ¶rmÃ¤ysmallinnus taas
  *
  * Revision 1.5  2002/06/15 22:56:37  msell
- * Säätöä
+ * SÃ¤Ã¤tÃ¶Ã¤
  *
  * Revision 1.4  2002/06/15 17:18:37  msell
- * Toimiva törmäystarkastus kiinteille laatikoille
+ * Toimiva tÃ¶rmÃ¤ystarkastus kiinteille laatikoille
  *
  * Revision 1.3  2002/06/14 00:26:17  msell
- * 100 kimpoilevaa palloa ja vähän vaimennusta
+ * 100 kimpoilevaa palloa ja vÃ¤hÃ¤n vaimennusta
  *
  * Revision 1.2  2002/06/14 00:05:05  msell
- * Törmäyssimulaatio kunnossa toivon mukaan
+ * TÃ¶rmÃ¤yssimulaatio kunnossa toivon mukaan
  *
  * Revision 1.1  2002/06/11 23:11:45  msell
- * Törmäystarkistusta
+ * TÃ¶rmÃ¤ystarkistusta
  *
  *
  *

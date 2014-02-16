@@ -4,44 +4,44 @@
  *
  * $Log: audio.h,v $
  * Revision 1.13  2002/07/21 15:12:16  msell
- * ƒ‰net enabloitu :)
+ * √Ñ√§net enabloitu :)
  *
  * Revision 1.12  2002/07/21 15:03:12  msell
- * ƒ‰net disabloitu
+ * √Ñ√§net disabloitu
  *
  * Revision 1.11  2002/07/19 20:33:28  msell
  * #pragma once -> #ifndef
  *
  * Revision 1.10  2002/07/19 18:59:46  msell
- * Alkuhommaa ja s‰‰tˆ‰
+ * Alkuhommaa ja s√§√§t√∂√§
  *
  * Revision 1.9  2002/07/18 23:05:31  msell
  * Partikkelit ja kakkospelaajan liike
  *
  * Revision 1.8  2002/07/14 21:22:40  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.7  2002/06/04 16:28:32  msell
  * #pragma once
  *
  * Revision 1.6  2002/05/19 13:40:19  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.5  2002/05/18 12:29:35  msell
- * Valot ja ‰‰nij‰rjestelm‰n parantelua
+ * Valot ja √§√§nij√§rjestelm√§n parantelua
  *
  * Revision 1.4  2002/05/16 18:41:16  msell
  * Vektorifunctioita ja kamera
  *
  * Revision 1.3  2002/05/15 21:07:23  msell
- * ƒ‰nis‰‰tˆ‰
+ * √Ñ√§nis√§√§t√∂√§
  *
  * Revision 1.2  2002/05/15 15:21:00  msell
- * ƒ‰nis‰‰tˆ‰
+ * √Ñ√§nis√§√§t√∂√§
  *
  * Revision 1.1  2002/05/15 14:36:39  msell
- * Yksinkertainen SDL-runko (K‰‰ntyy toistaiseksi vain windowsissa).
- * Mukana myˆs musiikinsoitto fmodilla.
+ * Yksinkertainen SDL-runko (K√§√§ntyy toistaiseksi vain windowsissa).
+ * Mukana my√∂s musiikinsoitto fmodilla.
  *
  *
  *

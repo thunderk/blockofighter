@@ -16,26 +16,26 @@
  * Parantelua
  *
  * Revision 1.8  2002/07/14 21:22:39  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.7  2002/07/10 17:13:44  msell
- * Tˆrm‰ystarkastelun parantelua
+ * T√∂rm√§ystarkastelun parantelua
  *
  * Revision 1.6  2002/07/07 17:53:21  msell
  * Legoukon alku
  *
  * Revision 1.5  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Tˆrm‰ystarkistukset siis
+ * T√∂rm√§ystarkistukset siis
  *
  * Revision 1.4  2002/06/30 16:05:04  msell
- * Tˆrm‰yksien parantelua, transformaatioita mukana
+ * T√∂rm√§yksien parantelua, transformaatioita mukana
  *
  * Revision 1.3  2002/06/26 22:30:29  jkaarlas
- * lis‰tty Vertexiin tekstuurikoordinaatit
+ * lis√§tty Vertexiin tekstuurikoordinaatit
  *
  * Revision 1.2  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -tˆrm‰ykset, ihan tosi
+ * Nyt toimii sphere -> mesh -t√∂rm√§ykset, ihan tosi
  *
  * Revision 1.1  2002/06/20 22:50:12  msell
  * Meshit

@@ -13,10 +13,10 @@
  * #pragma once -> #ifndef
  *
  * Revision 1.19  2002/07/19 18:59:46  msell
- * Alkuhommaa ja s‰‰tˆ‰
+ * Alkuhommaa ja s√§√§t√∂√§
  *
  * Revision 1.18  2002/07/19 14:05:51  msell
- * Damagetextuurit n‰kyy
+ * Damagetextuurit n√§kyy
  *
  * Revision 1.17  2002/07/19 12:28:29  msell
  * 2D-mode
@@ -34,7 +34,7 @@
  * Fontit ja valikot
  *
  * Revision 1.12  2002/07/16 00:42:43  msell
- * Uusia skyboxeja ja areenan s‰‰tˆ‰
+ * Uusia skyboxeja ja areenan s√§√§t√∂√§
  *
  * Revision 1.11  2002/07/15 22:03:22  msell
  * MultiAppearance
@@ -49,7 +49,7 @@
  * uudet tekstuurit
  *
  * Revision 1.7  2002/07/14 21:22:40  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.6  2002/06/20 22:50:12  msell
  * Meshit
@@ -58,7 +58,7 @@
  * #includeiden parantelua
  *
  * Revision 1.4  2002/06/16 01:04:58  jkaarlas
- * tulipa s‰‰detty‰ includejen kanssa. oon tod.n‰k. eri mielt‰ aamulla
+ * tulipa s√§√§detty√§ includejen kanssa. oon tod.n√§k. eri mielt√§ aamulla
  *
  * Revision 1.3  2002/06/05 23:55:46  msell
  * Pallo

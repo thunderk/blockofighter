@@ -7,7 +7,7 @@
  * #pragma once -> #ifndef
  *
  * Revision 1.2  2002/07/19 14:05:52  msell
- * Damagetextuurit n‰kyy
+ * Damagetextuurit n√§kyy
  *
  * Revision 1.1  2002/07/16 17:16:34  msell
  * Fontit ja valikot

@@ -28,8 +28,8 @@
  * Vektorifunctioita ja kamera
  *
  * Revision 1.1  2002/05/15 14:36:39  msell
- * Yksinkertainen SDL-runko (Kääntyy toistaiseksi vain windowsissa).
- * Mukana myös musiikinsoitto fmodilla.
+ * Yksinkertainen SDL-runko (KÃ¤Ã¤ntyy toistaiseksi vain windowsissa).
+ * Mukana myÃ¶s musiikinsoitto fmodilla.
  *
  *
  *

@@ -4,7 +4,7 @@
  *
  * $Log: main.cpp,v $
  * Revision 1.30  2002/07/21 15:03:12  msell
- * ƒ‰net disabloitu
+ * √Ñ√§net disabloitu
  *
  * Revision 1.29  2002/07/19 20:39:31  msell
  * Linux-porttausta
@@ -16,7 +16,7 @@
  * Linux-porttausta
  *
  * Revision 1.26  2002/07/19 18:59:46  msell
- * Alkuhommaa ja s‰‰tˆ‰
+ * Alkuhommaa ja s√§√§t√∂√§
  *
  * Revision 1.25  2002/07/19 12:42:44  msell
  * Loading...
@@ -34,20 +34,20 @@
  * Fontit ja valikot
  *
  * Revision 1.20  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, k‰vely, lyˆnti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, k√§vely, ly√∂nti), uusi areena
  *
  * Revision 1.19  2002/07/14 21:22:39  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.18  2002/07/11 18:33:30  jkaarlas
- * turhat ‰‰net pois
+ * turhat √§√§net pois
  *
  * Revision 1.17  2002/07/08 22:53:38  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.16  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Tˆrm‰ystarkistukset siis
+ * T√∂rm√§ystarkistukset siis
  *
  * Revision 1.15  2002/06/20 22:50:12  msell
  * Meshit
@@ -59,13 +59,13 @@
  * #includeiden parantelua
  *
  * Revision 1.12  2002/06/16 01:04:58  jkaarlas
- * tulipa s‰‰detty‰ includejen kanssa. oon tod.n‰k. eri mielt‰ aamulla
+ * tulipa s√§√§detty√§ includejen kanssa. oon tod.n√§k. eri mielt√§ aamulla
  *
  * Revision 1.11  2002/06/15 22:56:37  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.10  2002/06/11 23:11:45  msell
- * Tˆrm‰ystarkistusta
+ * T√∂rm√§ystarkistusta
  *
  * Revision 1.9  2002/06/07 21:16:51  msell
  * Fysiikkaenginen alkua
@@ -74,10 +74,10 @@
  * Objektirakenteen pohja
  *
  * Revision 1.7  2002/05/19 13:40:19  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.6  2002/05/18 12:29:35  msell
- * Valot ja ‰‰nij‰rjestelm‰n parantelua
+ * Valot ja √§√§nij√§rjestelm√§n parantelua
  *
  * Revision 1.5  2002/05/17 23:13:30  msell
  * Valot
@@ -86,14 +86,14 @@
  * Vektorifunctioita ja kamera
  *
  * Revision 1.3  2002/05/15 21:07:23  msell
- * ƒ‰nis‰‰tˆ‰
+ * √Ñ√§nis√§√§t√∂√§
  *
  * Revision 1.2  2002/05/15 15:21:00  msell
- * ƒ‰nis‰‰tˆ‰
+ * √Ñ√§nis√§√§t√∂√§
  *
  * Revision 1.1  2002/05/15 14:36:39  msell
- * Yksinkertainen SDL-runko (K‰‰ntyy toistaiseksi vain windowsissa).
- * Mukana myˆs musiikinsoitto fmodilla.
+ * Yksinkertainen SDL-runko (K√§√§ntyy toistaiseksi vain windowsissa).
+ * Mukana my√∂s musiikinsoitto fmodilla.
  *
  *
  *

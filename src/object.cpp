@@ -7,60 +7,60 @@
  * Partikkelit ja kakkospelaajan liike
  *
  * Revision 1.21  2002/07/17 22:45:54  msell
- * ƒ‰ni‰ v‰h‰n
+ * √Ñ√§ni√§ v√§h√§n
  *
  * Revision 1.20  2002/07/15 15:22:08  msell
  * Parantelua
  *
  * Revision 1.19  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, k‰vely, lyˆnti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, k√§vely, ly√∂nti), uusi areena
  *
  * Revision 1.18  2002/07/14 21:22:39  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.17  2002/07/07 15:29:07  msell
- * Tˆrm‰yksien parantelua
+ * T√∂rm√§yksien parantelua
  *
  * Revision 1.16  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Tˆrm‰ystarkistukset siis
+ * T√∂rm√§ystarkistukset siis
  *
  * Revision 1.15  2002/06/30 16:05:04  msell
- * Tˆrm‰yksien parantelua, transformaatioita mukana
+ * T√∂rm√§yksien parantelua, transformaatioita mukana
  *
  * Revision 1.14  2002/06/27 14:39:48  msell
  * Toimiva maila :)
- * Pyˆriv‰t kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin p‰in viel‰)
+ * Py√∂riv√§t kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin p√§in viel√§)
  *
  * Revision 1.13  2002/06/27 00:08:04  msell
- * Kimmotukset palloille myˆs pyˆritettyihin mesheihin
+ * Kimmotukset palloille my√∂s py√∂ritettyihin mesheihin
  *
  * Revision 1.12  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -tˆrm‰ykset, ihan tosi
+ * Nyt toimii sphere -> mesh -t√∂rm√§ykset, ihan tosi
  *
  * Revision 1.11  2002/06/17 20:49:05  msell
  * free -> SDL_FreeSurface
  *
  * Revision 1.10  2002/06/16 01:04:58  jkaarlas
- * tulipa s‰‰detty‰ includejen kanssa. oon tod.n‰k. eri mielt‰ aamulla
+ * tulipa s√§√§detty√§ includejen kanssa. oon tod.n√§k. eri mielt√§ aamulla
  *
  * Revision 1.9  2002/06/15 17:18:37  msell
- * Toimiva tˆrm‰ystarkastus kiinteille laatikoille
+ * Toimiva t√∂rm√§ystarkastus kiinteille laatikoille
  *
  * Revision 1.8  2002/06/14 00:05:05  msell
- * Tˆrm‰yssimulaatio kunnossa toivon mukaan
+ * T√∂rm√§yssimulaatio kunnossa toivon mukaan
  *
  * Revision 1.7  2002/06/11 23:11:45  msell
- * Tˆrm‰ystarkistusta
+ * T√∂rm√§ystarkistusta
  *
  * Revision 1.6  2002/06/07 21:16:51  msell
  * Fysiikkaenginen alkua
  *
  * Revision 1.5  2002/06/05 18:39:05  msell
- * Jotain pient‰
+ * Jotain pient√§
  *
  * Revision 1.4  2002/06/05 15:00:41  msell
- * Palikoihin lis‰‰ detailia, facet jaetaan halutun kokosiin osiin
+ * Palikoihin lis√§√§ detailia, facet jaetaan halutun kokosiin osiin
  *
  * Revision 1.3  2002/06/03 23:20:43  msell
  * no message

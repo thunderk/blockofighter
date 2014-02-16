@@ -13,14 +13,14 @@
  * Parantelua
  *
  * Revision 1.3  2002/07/10 17:13:44  msell
- * Törmäystarkastelun parantelua
+ * TÃ¶rmÃ¤ystarkastelun parantelua
  *
  * Revision 1.2  2002/07/07 23:05:22  msell
  * Osien liimaaminen toisiinsa (kesken)
  *
  * Revision 1.1  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Törmäystarkistukset siis
+ * TÃ¶rmÃ¤ystarkistukset siis
  *
  *
  *

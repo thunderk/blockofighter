@@ -10,45 +10,45 @@
  * Uudet valot ja ulkoasun parantelua
  *
  * Revision 1.13  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, kävely, lyönti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, kÃ¤vely, lyÃ¶nti), uusi areena
  *
  * Revision 1.12  2002/07/10 17:13:44  msell
- * Törmäystarkastelun parantelua
+ * TÃ¶rmÃ¤ystarkastelun parantelua
  *
  * Revision 1.11  2002/07/08 22:53:38  msell
- * Säätöä
+ * SÃ¤Ã¤tÃ¶Ã¤
  *
  * Revision 1.10  2002/07/08 18:28:47  msell
- * Törmäystä ja ukkoja
+ * TÃ¶rmÃ¤ystÃ¤ ja ukkoja
  *
  * Revision 1.9  2002/07/07 23:05:22  msell
  * Osien liimaaminen toisiinsa (kesken)
  *
  * Revision 1.8  2002/07/07 15:29:07  msell
- * Törmäyksien parantelua
+ * TÃ¶rmÃ¤yksien parantelua
  *
  * Revision 1.7  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Törmäystarkistukset siis
+ * TÃ¶rmÃ¤ystarkistukset siis
  *
  * Revision 1.6  2002/06/30 16:05:04  msell
- * Törmäyksien parantelua, transformaatioita mukana
+ * TÃ¶rmÃ¤yksien parantelua, transformaatioita mukana
  *
  * Revision 1.5  2002/06/27 14:39:48  msell
  * Toimiva maila :)
- * Pyörivät kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin päin vielä)
+ * PyÃ¶rivÃ¤t kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin pÃ¤in vielÃ¤)
  *
  * Revision 1.4  2002/06/27 00:08:04  msell
- * Kimmotukset palloille myös pyöritettyihin mesheihin
+ * Kimmotukset palloille myÃ¶s pyÃ¶ritettyihin mesheihin
  *
  * Revision 1.3  2002/06/23 20:12:19  msell
- * Parempi törmäystarkistus palloista mesheihin
+ * Parempi tÃ¶rmÃ¤ystarkistus palloista mesheihin
  *
  * Revision 1.2  2002/06/14 00:05:05  msell
- * Törmäyssimulaatio kunnossa toivon mukaan
+ * TÃ¶rmÃ¤yssimulaatio kunnossa toivon mukaan
  *
  * Revision 1.1  2002/06/11 23:11:45  msell
- * Törmäystarkistusta
+ * TÃ¶rmÃ¤ystarkistusta
  *
  *
  *

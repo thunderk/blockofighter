@@ -13,7 +13,7 @@
  * transparenttilatausta korjailtu
  *
  * Revision 1.6  2002/06/27 21:42:32  jkaarlas
- * lis‰tty transparentin tekstuurin lataus
+ * lis√§tty transparentin tekstuurin lataus
  *
  * Revision 1.5  2002/06/17 20:49:04  msell
  * free -> SDL_FreeSurface
@@ -25,7 +25,7 @@
  * realloc korjattu
  *
  * Revision 1.2  2002/06/16 01:05:18  jkaarlas
- * v‰h‰n lihaa luiden ymp‰rille n‰ihinkin
+ * v√§h√§n lihaa luiden ymp√§rille n√§ihinkin
  *
  * 
  *

@@ -10,13 +10,13 @@
  * free -> SDL_FreeSurface
  *
  * Revision 1.3  2002/06/16 01:04:58  jkaarlas
- * tulipa s‰‰detty‰ includejen kanssa. oon tod.n‰k. eri mielt‰ aamulla
+ * tulipa s√§√§detty√§ includejen kanssa. oon tod.n√§k. eri mielt√§ aamulla
  *
  * Revision 1.2  2002/06/03 23:20:43  msell
  * no message
  *
  * Revision 1.1  2002/05/18 12:29:35  msell
- * Valot ja ‰‰nij‰rjestelm‰n parantelua
+ * Valot ja √§√§nij√§rjestelm√§n parantelua
  *
  *
  *

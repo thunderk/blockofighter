@@ -10,13 +10,13 @@
  * getColor
  *
  * Revision 1.6  2002/06/27 21:43:29  jkaarlas
- * lis‰tty setTexture-funktio
+ * lis√§tty setTexture-funktio
  *
  * Revision 1.5  2002/06/20 00:21:01  jkaarlas
  * materiaali- ja tekstuurihommia edistetty
  *
  * Revision 1.4  2002/06/19 22:45:29  jkaarlas
- * nyt n‰m‰ menee j‰rkev‰sti
+ * nyt n√§m√§ menee j√§rkev√§sti
  *
  * Revision 1.3  2002/06/04 16:28:32  msell
  * #pragma once

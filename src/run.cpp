@@ -22,13 +22,13 @@
  * Makefile
  *
  * Revision 1.18  2002/07/19 18:59:46  msell
- * Alkuhommaa ja s‰‰tˆ‰
+ * Alkuhommaa ja s√§√§t√∂√§
  *
  * Revision 1.17  2002/07/19 14:05:52  msell
- * Damagetextuurit n‰kyy
+ * Damagetextuurit n√§kyy
  *
  * Revision 1.16  2002/07/19 12:48:57  jkaarlas
- * damagep‰‰
+ * damagep√§√§
  *
  * Revision 1.15  2002/07/19 12:42:44  msell
  * Loading...
@@ -40,14 +40,14 @@
  * Resoluution vaihto
  *
  * Revision 1.12  2002/07/16 19:57:14  jkaarlas
- * lis‰tty DATAPATH tiedostonimien eteen
+ * lis√§tty DATAPATH tiedostonimien eteen
  *
  * Revision 1.11  2002/07/16 17:16:35  msell
  * Fontit ja valikot
  *
  * Revision 1.10  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Tˆrm‰ystarkistukset siis
+ * T√∂rm√§ystarkistukset siis
  *
  * Revision 1.9  2002/06/17 20:49:05  msell
  * free -> SDL_FreeSurface
@@ -56,13 +56,13 @@
  * #includeiden parantelua
  *
  * Revision 1.7  2002/06/16 01:04:58  jkaarlas
- * tulipa s‰‰detty‰ includejen kanssa. oon tod.n‰k. eri mielt‰ aamulla
+ * tulipa s√§√§detty√§ includejen kanssa. oon tod.n√§k. eri mielt√§ aamulla
  *
  * Revision 1.6  2002/06/02 16:57:37  msell
  * Objektirakenteen pohja
  *
  * Revision 1.5  2002/05/18 12:29:35  msell
- * Valot ja ‰‰nij‰rjestelm‰n parantelua
+ * Valot ja √§√§nij√§rjestelm√§n parantelua
  *
  * Revision 1.4  2002/05/17 12:30:26  msell
  * no message
@@ -71,11 +71,11 @@
  * Vektorifunctioita ja kamera
  *
  * Revision 1.2  2002/05/15 21:07:23  msell
- * ƒ‰nis‰‰tˆ‰
+ * √Ñ√§nis√§√§t√∂√§
  *
  * Revision 1.1  2002/05/15 14:36:39  msell
- * Yksinkertainen SDL-runko (K‰‰ntyy toistaiseksi vain windowsissa).
- * Mukana myˆs musiikinsoitto fmodilla.
+ * Yksinkertainen SDL-runko (K√§√§ntyy toistaiseksi vain windowsissa).
+ * Mukana my√∂s musiikinsoitto fmodilla.
  *
  *
  *

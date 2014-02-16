@@ -10,16 +10,16 @@
  * Resoluution vaihto
  *
  * Revision 1.6  2002/06/27 21:43:50  jkaarlas
- * lis‰tty setId-funktio
+ * lis√§tty setId-funktio
  *
  * Revision 1.5  2002/06/20 00:21:01  jkaarlas
  * materiaali- ja tekstuurihommia edistetty
  *
  * Revision 1.4  2002/06/19 22:45:29  jkaarlas
- * nyt n‰m‰ menee j‰rkev‰sti
+ * nyt n√§m√§ menee j√§rkev√§sti
  *
  * Revision 1.3  2002/06/15 22:52:32  jkaarlas
- * tekstuurimanageri ja tyˆkalupakki
+ * tekstuurimanageri ja ty√∂kalupakki
  *
  * 
  *

@@ -10,7 +10,7 @@
  * #includeiden parantelua
  *
  * Revision 1.4  2002/06/16 01:04:58  jkaarlas
- * tulipa s‰‰detty‰ includejen kanssa. oon tod.n‰k. eri mielt‰ aamulla
+ * tulipa s√§√§detty√§ includejen kanssa. oon tod.n√§k. eri mielt√§ aamulla
  *
  * Revision 1.3  2002/06/04 16:28:32  msell
  * #pragma once
@@ -19,8 +19,8 @@
  * Vektorifunctioita ja kamera
  *
  * Revision 1.1  2002/05/15 14:36:39  msell
- * Yksinkertainen SDL-runko (K‰‰ntyy toistaiseksi vain windowsissa).
- * Mukana myˆs musiikinsoitto fmodilla.
+ * Yksinkertainen SDL-runko (K√§√§ntyy toistaiseksi vain windowsissa).
+ * Mukana my√∂s musiikinsoitto fmodilla.
  *
  *
  *

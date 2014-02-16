@@ -16,7 +16,7 @@
  * Fontit ja valikot
  *
  * Revision 1.16  2002/07/16 00:42:43  msell
- * Uusia skyboxeja ja areenan s‰‰tˆ‰
+ * Uusia skyboxeja ja areenan s√§√§t√∂√§
  *
  * Revision 1.15  2002/07/15 20:32:35  msell
  * Uudet valot ja ulkoasun parantelua
@@ -25,16 +25,16 @@
  * Parantelua
  *
  * Revision 1.13  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, k‰vely, lyˆnti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, k√§vely, ly√∂nti), uusi areena
  *
  * Revision 1.12  2002/06/30 16:05:04  msell
- * Tˆrm‰yksien parantelua, transformaatioita mukana
+ * T√∂rm√§yksien parantelua, transformaatioita mukana
  *
  * Revision 1.11  2002/06/27 00:08:04  msell
- * Kimmotukset palloille myˆs pyˆritettyihin mesheihin
+ * Kimmotukset palloille my√∂s py√∂ritettyihin mesheihin
  *
  * Revision 1.10  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -tˆrm‰ykset, ihan tosi
+ * Nyt toimii sphere -> mesh -t√∂rm√§ykset, ihan tosi
  *
  * Revision 1.9  2002/06/24 04:41:43  jkaarlas
  * tekstuurikoordinaatteja korjattu
@@ -49,13 +49,13 @@
  * #includeiden parantelua
  *
  * Revision 1.5  2002/06/15 17:18:37  msell
- * Toimiva tˆrm‰ystarkastus kiinteille laatikoille
+ * Toimiva t√∂rm√§ystarkastus kiinteille laatikoille
  *
  * Revision 1.4  2002/06/05 18:39:04  msell
- * Jotain pient‰
+ * Jotain pient√§
  *
  * Revision 1.3  2002/06/05 15:00:41  msell
- * Palikoihin lis‰‰ detailia, facet jaetaan halutun kokosiin osiin
+ * Palikoihin lis√§√§ detailia, facet jaetaan halutun kokosiin osiin
  *
  * Revision 1.2  2002/06/04 16:28:32  msell
  * #pragma once
@@ -381,7 +381,7 @@ void FlowerAppearance::prepare(void){
 		glColor3f(r,g,b);
 		createKnob();
 
-    /* Ter‰lehdet tehd‰‰n triangle-fanilla */
+    /* Ter√§lehdet tehd√§√§n triangle-fanilla */
 		glBegin(GL_TRIANGLE_FAN);
 			glNormal3f(0.0,1.0,0.0);
 			glVertex3f(0.0,0.0,0.0);

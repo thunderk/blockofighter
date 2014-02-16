@@ -14,15 +14,15 @@
 int SKYBOX = -1;
 
 /*
- * Luo pyörähdyskappaleen y-akselin ympäri annetuista pisteistä
- * Parametrina taulukollinen pisteitä,
- *             pisteidein määrä,
- *             jakojen määrä pyörähdyssuunnassa,
- *             jakojen määrä "pysty"suunnassa
- * Jos viimeinen parametri on sama kuin pisteiden määrä,
- * niin pyörähdyskappale vastaa suoraan annettujen pisteiden
- * pyörähdyskappaletta. Muulloin pisteet lasketaan kuutiollisella
- * interpoloinnilla annettujen pisteiden välillä.
+ * Luo pyÃ¶rÃ¤hdyskappaleen y-akselin ympÃ¤ri annetuista pisteistÃ¤
+ * Parametrina taulukollinen pisteitÃ¤,
+ *             pisteidein mÃ¤Ã¤rÃ¤,
+ *             jakojen mÃ¤Ã¤rÃ¤ pyÃ¶rÃ¤hdyssuunnassa,
+ *             jakojen mÃ¤Ã¤rÃ¤ "pysty"suunnassa
+ * Jos viimeinen parametri on sama kuin pisteiden mÃ¤Ã¤rÃ¤,
+ * niin pyÃ¶rÃ¤hdyskappale vastaa suoraan annettujen pisteiden
+ * pyÃ¶rÃ¤hdyskappaletta. Muulloin pisteet lasketaan kuutiollisella
+ * interpoloinnilla annettujen pisteiden vÃ¤lillÃ¤.
  */
 void createLathedSurface(point2d *points, point2d *pointderivates, int count, int slices, int stacks){
 	int i, j;
@@ -30,7 +30,7 @@ void createLathedSurface(point2d *points, point2d *pointderivates, int count, in
 	point2d *derivates;
 	if (pointderivates == NULL) derivates = new point2d[count];
 	else derivates = pointderivates;
-	//Derivaatta pisteessä i on (points[i+1]-points[i-1])/2 alkua ja loppua lukuunottamatta
+	//Derivaatta pisteessÃ¤ i on (points[i+1]-points[i-1])/2 alkua ja loppua lukuunottamatta
 	for (i = 0; i < count; i++){
 		if (pointderivates == NULL || (derivates[i].x == 0 && derivates[i].y == 0)){
 			if (i == 0) h1 = &points[0];
@@ -74,9 +74,9 @@ void createLathedSurface(point2d *points, point2d *pointderivates, int count, in
 		p2 = &points[i2];
 		d1 = &derivates[i1];
 		d2 = &derivates[i2];
-		//Hermite-käyrä A*t^3 + B*t^2 + C*t + D
-		//Hermite-käyrän derivaatta 3*A*t^2 + 2*B*t + C
-		//Vakiot A,B,C ja D ovat laskettu siten, että:
+		//Hermite-kÃ¤yrÃ¤ A*t^3 + B*t^2 + C*t + D
+		//Hermite-kÃ¤yrÃ¤n derivaatta 3*A*t^2 + 2*B*t + C
+		//Vakiot A,B,C ja D ovat laskettu siten, ettÃ¤:
 		//1. H(0)=p1;
 		//2. H(1)=p2;
 		//3. H'(0)=d1;

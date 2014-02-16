@@ -4,10 +4,10 @@
  *
  * $Log: legoman.h,v $
  * Revision 1.21  2002/07/22 12:07:36  msell
- * P‰‰ kiinni
+ * P√§√§ kiinni
  *
  * Revision 1.20  2002/07/22 06:08:18  msell
- * Filenimet pienell‰
+ * Filenimet pienell√§
  *
  * Revision 1.19  2002/07/22 01:14:14  msell
  * Lopetussysteemi
@@ -22,43 +22,43 @@
  * no message
  *
  * Revision 1.15  2002/07/21 15:03:12  msell
- * ƒ‰net disabloitu
+ * √Ñ√§net disabloitu
  *
  * Revision 1.14  2002/07/19 20:33:28  msell
  * #pragma once -> #ifndef
  *
  * Revision 1.13  2002/07/19 18:59:46  msell
- * Alkuhommaa ja s‰‰tˆ‰
+ * Alkuhommaa ja s√§√§t√∂√§
  *
  * Revision 1.12  2002/07/18 23:05:31  msell
  * Partikkelit ja kakkospelaajan liike
  *
  * Revision 1.11  2002/07/17 22:45:54  msell
- * ƒ‰ni‰ v‰h‰n
+ * √Ñ√§ni√§ v√§h√§n
  *
  * Revision 1.10  2002/07/17 16:40:33  msell
  * Resoluution vaihto
  *
  * Revision 1.9  2002/07/16 07:27:32  jkaarlas
- * nyt latautuu k‰mmen. paikka ja v‰ri pit‰‰ viel‰ s‰‰t‰‰
+ * nyt latautuu k√§mmen. paikka ja v√§ri pit√§√§ viel√§ s√§√§t√§√§
  *
  * Revision 1.8  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, k‰vely, lyˆnti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, k√§vely, ly√∂nti), uusi areena
  *
  * Revision 1.7  2002/07/14 21:22:39  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.6  2002/07/11 18:33:58  jkaarlas
- * mallit paikoillaan, vaatii s‰‰tˆ‰
+ * mallit paikoillaan, vaatii s√§√§t√∂√§
  *
  * Revision 1.5  2002/07/10 17:13:44  msell
- * Tˆrm‰ystarkastelun parantelua
+ * T√∂rm√§ystarkastelun parantelua
  *
  * Revision 1.4  2002/07/08 22:53:38  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.3  2002/07/08 18:28:47  msell
- * Tˆrm‰yst‰ ja ukkoja
+ * T√∂rm√§yst√§ ja ukkoja
  *
  * Revision 1.2  2002/07/07 23:05:22  msell
  * Osien liimaaminen toisiinsa (kesken)

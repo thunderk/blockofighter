@@ -7,10 +7,10 @@
  * #pragma once -> #ifndef
  *
  * Revision 1.5  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, kävely, lyönti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, kÃ¤vely, lyÃ¶nti), uusi areena
  *
  * Revision 1.4  2002/06/14 00:05:05  msell
- * Törmäyssimulaatio kunnossa toivon mukaan
+ * TÃ¶rmÃ¤yssimulaatio kunnossa toivon mukaan
  *
  * Revision 1.3  2002/06/04 16:28:32  msell
  * #pragma once

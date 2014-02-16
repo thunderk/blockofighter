@@ -16,7 +16,7 @@
  * Fontit ja valikot
  *
  * Revision 1.10  2002/07/16 00:42:43  msell
- * Uusia skyboxeja ja areenan s‰‰tˆ‰
+ * Uusia skyboxeja ja areenan s√§√§t√∂√§
  *
  * Revision 1.9  2002/07/15 20:32:35  msell
  * Uudet valot ja ulkoasun parantelua
@@ -25,7 +25,7 @@
  * Parantelua
  *
  * Revision 1.7  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -tˆrm‰ykset, ihan tosi
+ * Nyt toimii sphere -> mesh -t√∂rm√§ykset, ihan tosi
  *
  * Revision 1.6  2002/06/20 00:21:01  jkaarlas
  * materiaali- ja tekstuurihommia edistetty
@@ -34,10 +34,10 @@
  * free -> SDL_FreeSurface
  *
  * Revision 1.4  2002/06/05 18:39:05  msell
- * Jotain pient‰
+ * Jotain pient√§
  *
  * Revision 1.3  2002/06/05 15:00:41  msell
- * Palikoihin lis‰‰ detailia, facet jaetaan halutun kokosiin osiin
+ * Palikoihin lis√§√§ detailia, facet jaetaan halutun kokosiin osiin
  *
  * Revision 1.2  2002/06/04 16:28:32  msell
  * #pragma once

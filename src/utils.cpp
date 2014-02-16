@@ -4,10 +4,10 @@
  *
  * $Log: utils.cpp,v $
  * Revision 1.3  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, kävely, lyönti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, kÃ¤vely, lyÃ¶nti), uusi areena
  *
  * Revision 1.2  2002/06/14 00:05:05  msell
- * Törmäyssimulaatio kunnossa toivon mukaan
+ * TÃ¶rmÃ¤yssimulaatio kunnossa toivon mukaan
  *
  * Revision 1.1  2002/06/02 16:57:37  msell
  * Objektirakenteen pohja

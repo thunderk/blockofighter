@@ -13,23 +13,23 @@
  * Parantelua
  *
  * Revision 1.6  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, kävely, lyönti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, kÃ¤vely, lyÃ¶nti), uusi areena
  *
  * Revision 1.5  2002/07/10 17:13:44  msell
- * Törmäystarkastelun parantelua
+ * TÃ¶rmÃ¤ystarkastelun parantelua
  *
  * Revision 1.4  2002/07/08 18:28:47  msell
- * Törmäystä ja ukkoja
+ * TÃ¶rmÃ¤ystÃ¤ ja ukkoja
  *
  * Revision 1.3  2002/07/07 23:05:22  msell
  * Osien liimaaminen toisiinsa (kesken)
  *
  * Revision 1.2  2002/07/07 15:29:07  msell
- * Törmäyksien parantelua
+ * TÃ¶rmÃ¤yksien parantelua
  *
  * Revision 1.1  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Törmäystarkistukset siis
+ * TÃ¶rmÃ¤ystarkistukset siis
  *
  *
  *

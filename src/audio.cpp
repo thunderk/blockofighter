@@ -4,10 +4,10 @@
  *
  * $Log: audio.cpp,v $
  * Revision 1.9  2002/07/21 15:03:11  msell
- * Äänet disabloitu
+ * Ã„Ã¤net disabloitu
  *
  * Revision 1.8  2002/07/19 18:59:46  msell
- * Alkuhommaa ja säätöä
+ * Alkuhommaa ja sÃ¤Ã¤tÃ¶Ã¤
  *
  * Revision 1.7  2002/07/18 23:05:31  msell
  * Partikkelit ja kakkospelaajan liike
@@ -16,20 +16,20 @@
  * Objektirakenteen pohja
  *
  * Revision 1.5  2002/05/19 13:40:19  msell
- * Säätöä
+ * SÃ¤Ã¤tÃ¶Ã¤
  *
  * Revision 1.4  2002/05/18 12:29:35  msell
- * Valot ja äänijärjestelmän parantelua
+ * Valot ja Ã¤Ã¤nijÃ¤rjestelmÃ¤n parantelua
  *
  * Revision 1.3  2002/05/15 21:07:23  msell
- * Äänisäätöä
+ * Ã„Ã¤nisÃ¤Ã¤tÃ¶Ã¤
  *
  * Revision 1.2  2002/05/15 15:21:00  msell
- * Äänisäätöä
+ * Ã„Ã¤nisÃ¤Ã¤tÃ¶Ã¤
  *
  * Revision 1.1  2002/05/15 14:36:38  msell
- * Yksinkertainen SDL-runko (Kääntyy toistaiseksi vain windowsissa).
- * Mukana myös musiikinsoitto fmodilla.
+ * Yksinkertainen SDL-runko (KÃ¤Ã¤ntyy toistaiseksi vain windowsissa).
+ * Mukana myÃ¶s musiikinsoitto fmodilla.
  *
  *
  *

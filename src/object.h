@@ -10,48 +10,48 @@
  * Partikkelit ja kakkospelaajan liike
  *
  * Revision 1.18  2002/07/17 22:45:54  msell
- * ƒ‰ni‰ v‰h‰n
+ * √Ñ√§ni√§ v√§h√§n
  *
  * Revision 1.17  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, k‰vely, lyˆnti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, k√§vely, ly√∂nti), uusi areena
  *
  * Revision 1.16  2002/07/07 23:05:22  msell
  * Osien liimaaminen toisiinsa (kesken)
  *
  * Revision 1.15  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Tˆrm‰ystarkistukset siis
+ * T√∂rm√§ystarkistukset siis
  *
  * Revision 1.14  2002/06/30 16:05:04  msell
- * Tˆrm‰yksien parantelua, transformaatioita mukana
+ * T√∂rm√§yksien parantelua, transformaatioita mukana
  *
  * Revision 1.13  2002/06/27 14:39:48  msell
  * Toimiva maila :)
- * Pyˆriv‰t kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin p‰in viel‰)
+ * Py√∂riv√§t kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin p√§in viel√§)
  *
  * Revision 1.12  2002/06/27 00:08:04  msell
- * Kimmotukset palloille myˆs pyˆritettyihin mesheihin
+ * Kimmotukset palloille my√∂s py√∂ritettyihin mesheihin
  *
  * Revision 1.11  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -tˆrm‰ykset, ihan tosi
+ * Nyt toimii sphere -> mesh -t√∂rm√§ykset, ihan tosi
  *
  * Revision 1.10  2002/06/15 22:56:37  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.9  2002/06/14 00:05:05  msell
- * Tˆrm‰yssimulaatio kunnossa toivon mukaan
+ * T√∂rm√§yssimulaatio kunnossa toivon mukaan
  *
  * Revision 1.8  2002/06/11 23:11:45  msell
- * Tˆrm‰ystarkistusta
+ * T√∂rm√§ystarkistusta
  *
  * Revision 1.7  2002/06/07 21:16:51  msell
  * Fysiikkaenginen alkua
  *
  * Revision 1.6  2002/06/05 18:39:05  msell
- * Jotain pient‰
+ * Jotain pient√§
  *
  * Revision 1.5  2002/06/05 15:00:41  msell
- * Palikoihin lis‰‰ detailia, facet jaetaan halutun kokosiin osiin
+ * Palikoihin lis√§√§ detailia, facet jaetaan halutun kokosiin osiin
  *
  * Revision 1.4  2002/06/04 16:28:32  msell
  * #pragma once
@@ -95,7 +95,7 @@ public:
 	/* Linear movement:
 	 * position          <-> paikka        (x)
 	 * velocity          <-> nopeus        (v)
-	 * momentum          <-> liikem‰‰r‰    (p)
+	 * momentum          <-> liikem√§√§r√§    (p)
 	 * force             <-> voima         (F)
 	 *   x' = v
 	 *   p' = F
@@ -117,7 +117,7 @@ public:
 	/* Angular movement:
 	 * rotation             <-> orientaatio                         (R)
 	 * angular velocity     <-> kulmanopeus                         (w)
-	 * angular momentum     <-> pyˆrimisliikem‰‰r‰, v‰‰ntˆmomentti  (L)
+	 * angular momentum     <-> py√∂rimisliikem√§√§r√§, v√§√§nt√∂momentti  (L)
 	 * torque               <-> voiman momentti                     (M,T)
 	 * moment of inertia    <-> hitausmomentti                      (J,I)
 	 * angular acceleration <-> kulmakiihtyvyys                     (a)

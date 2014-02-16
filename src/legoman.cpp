@@ -4,7 +4,7 @@
  *
  * $Log: legoman.cpp,v $
  * Revision 1.26  2002/07/22 12:07:36  msell
- * P‰‰ kiinni
+ * P√§√§ kiinni
  *
  * Revision 1.25  2002/07/22 01:14:14  msell
  * Lopetussysteemi
@@ -19,28 +19,28 @@
  * no message
  *
  * Revision 1.21  2002/07/21 15:12:16  msell
- * ƒ‰net enabloitu :)
+ * √Ñ√§net enabloitu :)
  *
  * Revision 1.20  2002/07/21 15:03:12  msell
- * ƒ‰net disabloitu
+ * √Ñ√§net disabloitu
  *
  * Revision 1.19  2002/07/19 18:59:46  msell
- * Alkuhommaa ja s‰‰tˆ‰
+ * Alkuhommaa ja s√§√§t√∂√§
  *
  * Revision 1.18  2002/07/18 23:05:31  msell
  * Partikkelit ja kakkospelaajan liike
  *
  * Revision 1.17  2002/07/17 22:45:54  msell
- * ƒ‰ni‰ v‰h‰n
+ * √Ñ√§ni√§ v√§h√§n
  *
  * Revision 1.16  2002/07/16 19:52:09  jkaarlas
- * k‰mmenet hienos‰‰detty
+ * k√§mmenet hienos√§√§detty
  *
  * Revision 1.15  2002/07/16 07:27:32  jkaarlas
- * nyt latautuu k‰mmen. paikka ja v‰ri pit‰‰ viel‰ s‰‰t‰‰
+ * nyt latautuu k√§mmen. paikka ja v√§ri pit√§√§ viel√§ s√§√§t√§√§
  *
  * Revision 1.14  2002/07/16 00:42:43  msell
- * Uusia skyboxeja ja areenan s‰‰tˆ‰
+ * Uusia skyboxeja ja areenan s√§√§t√∂√§
  *
  * Revision 1.13  2002/07/15 22:03:23  msell
  * MultiAppearance
@@ -49,13 +49,13 @@
  * Parantelua
  *
  * Revision 1.11  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, k‰vely, lyˆnti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, k√§vely, ly√∂nti), uusi areena
  *
  * Revision 1.10  2002/07/14 21:22:39  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.9  2002/07/11 18:33:58  jkaarlas
- * mallit paikoillaan, vaatii s‰‰tˆ‰
+ * mallit paikoillaan, vaatii s√§√§t√∂√§
  *
  * Revision 1.8  2002/07/10 22:22:53  msell
  * Cartoon-rendaus
@@ -64,16 +64,16 @@
  * Ukon geometrian viilausta
  *
  * Revision 1.6  2002/07/10 17:13:44  msell
- * Tˆrm‰ystarkastelun parantelua
+ * T√∂rm√§ystarkastelun parantelua
  *
  * Revision 1.5  2002/07/08 22:53:38  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.4  2002/07/08 18:28:47  msell
- * Tˆrm‰yst‰ ja ukkoja
+ * T√∂rm√§yst√§ ja ukkoja
  *
  * Revision 1.3  2002/07/07 23:21:11  msell
- * Pient‰ parantelua
+ * Pient√§ parantelua
  *
  * Revision 1.2  2002/07/07 23:05:22  msell
  * Osien liimaaminen toisiinsa (kesken)

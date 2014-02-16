@@ -7,10 +7,10 @@
  * no message
  *
  * Revision 1.5  2002/07/19 18:59:46  msell
- * Alkuhommaa ja s‰‰tˆ‰
+ * Alkuhommaa ja s√§√§t√∂√§
  *
  * Revision 1.4  2002/07/19 14:05:52  msell
- * Damagetextuurit n‰kyy
+ * Damagetextuurit n√§kyy
  *
  * Revision 1.3  2002/07/19 12:10:53  msell
  * Hups

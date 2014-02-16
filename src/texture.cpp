@@ -7,7 +7,7 @@
  * Resoluution vaihto
  *
  * Revision 1.6  2002/06/27 21:43:50  jkaarlas
- * lis‰tty setId-funktio
+ * lis√§tty setId-funktio
  *
  * Revision 1.5  2002/06/20 15:27:48  jkaarlas
  * bindtexture siirretty oikeaan paikkaan
@@ -16,10 +16,10 @@
  * materiaali- ja tekstuurihommia edistetty
  *
  * Revision 1.3  2002/06/19 22:45:29  jkaarlas
- * nyt n‰m‰ menee j‰rkev‰sti
+ * nyt n√§m√§ menee j√§rkev√§sti
  *
  * Revision 1.2  2002/06/15 22:04:01  jkaarlas
- * t‰h‰nkin jotain sis‰ltˆ‰
+ * t√§h√§nkin jotain sis√§lt√∂√§
  *
  *
  *

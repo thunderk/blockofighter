@@ -4,23 +4,23 @@
  *
  * $Log: vector.cpp,v $
  * Revision 1.7  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, kävely, lyönti), uusi areena
+ * Conflictit pois, liikkumiset (hyppy, kÃ¤vely, lyÃ¶nti), uusi areena
  *
  * Revision 1.6  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Törmäystarkistukset siis
+ * TÃ¶rmÃ¤ystarkistukset siis
  *
  * Revision 1.5  2002/06/27 00:08:04  msell
- * Kimmotukset palloille myös pyöritettyihin mesheihin
+ * Kimmotukset palloille myÃ¶s pyÃ¶ritettyihin mesheihin
  *
  * Revision 1.4  2002/06/23 20:12:19  msell
- * Parempi törmäystarkistus palloista mesheihin
+ * Parempi tÃ¶rmÃ¤ystarkistus palloista mesheihin
  *
  * Revision 1.3  2002/06/17 12:42:46  msell
- * Hieman parempi törmäysmallinnus taas
+ * Hieman parempi tÃ¶rmÃ¤ysmallinnus taas
  *
  * Revision 1.2  2002/06/11 23:23:03  msell
- * Törmäystarkistusta
+ * TÃ¶rmÃ¤ystarkistusta
  *
  * Revision 1.1  2002/05/16 18:42:07  msell
  * Vektorifunctioita ja kamera

@@ -4,30 +4,30 @@
  *
  * $Log: sphere.cpp,v $
  * Revision 1.19  2002/07/19 18:59:46  msell
- * Alkuhommaa ja s‰‰tˆ‰
+ * Alkuhommaa ja s√§√§t√∂√§
  *
  * Revision 1.18  2002/07/07 17:53:21  msell
  * Legoukon alku
  *
  * Revision 1.17  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Tˆrm‰ystarkistukset siis
+ * T√∂rm√§ystarkistukset siis
  *
  * Revision 1.16  2002/06/30 16:05:04  msell
- * Tˆrm‰yksien parantelua, transformaatioita mukana
+ * T√∂rm√§yksien parantelua, transformaatioita mukana
  *
  * Revision 1.15  2002/06/27 14:39:48  msell
  * Toimiva maila :)
- * Pyˆriv‰t kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin p‰in viel‰)
+ * Py√∂riv√§t kappaleet siis antaa liike-energiaa liikkuville kappaleille (ei toisin p√§in viel√§)
  *
  * Revision 1.14  2002/06/27 00:08:04  msell
- * Kimmotukset palloille myˆs pyˆritettyihin mesheihin
+ * Kimmotukset palloille my√∂s py√∂ritettyihin mesheihin
  *
  * Revision 1.13  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -tˆrm‰ykset, ihan tosi
+ * Nyt toimii sphere -> mesh -t√∂rm√§ykset, ihan tosi
  *
  * Revision 1.12  2002/06/23 20:12:19  msell
- * Parempi tˆrm‰ystarkistus palloista mesheihin
+ * Parempi t√∂rm√§ystarkistus palloista mesheihin
  *
  * Revision 1.11  2002/06/20 22:50:12  msell
  * Meshit
@@ -39,22 +39,22 @@
  * free -> SDL_FreeSurface
  *
  * Revision 1.8  2002/06/16 01:04:58  jkaarlas
- * tulipa s‰‰detty‰ includejen kanssa. oon tod.n‰k. eri mielt‰ aamulla
+ * tulipa s√§√§detty√§ includejen kanssa. oon tod.n√§k. eri mielt√§ aamulla
  *
  * Revision 1.7  2002/06/15 17:18:37  msell
- * Toimiva tˆrm‰ystarkastus kiinteille laatikoille
+ * Toimiva t√∂rm√§ystarkastus kiinteille laatikoille
  *
  * Revision 1.6  2002/06/14 00:26:17  msell
- * 100 kimpoilevaa palloa ja v‰h‰n vaimennusta
+ * 100 kimpoilevaa palloa ja v√§h√§n vaimennusta
  *
  * Revision 1.5  2002/06/14 00:05:05  msell
- * Tˆrm‰yssimulaatio kunnossa toivon mukaan
+ * T√∂rm√§yssimulaatio kunnossa toivon mukaan
  *
  * Revision 1.4  2002/06/11 23:23:03  msell
- * Tˆrm‰ystarkistusta
+ * T√∂rm√§ystarkistusta
  *
  * Revision 1.3  2002/06/11 23:11:45  msell
- * Tˆrm‰ystarkistusta
+ * T√∂rm√§ystarkistusta
  *
  * Revision 1.2  2002/06/07 21:16:51  msell
  * Fysiikkaenginen alkua

@@ -7,7 +7,7 @@
  * Lopetussysteemi
  *
  * Revision 1.16  2002/07/21 15:03:12  msell
- * ƒ‰net disabloitu
+ * √Ñ√§net disabloitu
  *
  * Revision 1.15  2002/07/19 20:33:28  msell
  * #pragma once -> #ifndef
@@ -16,16 +16,16 @@
  * Linux-porttausta
  *
  * Revision 1.13  2002/07/19 18:59:46  msell
- * Alkuhommaa ja s‰‰tˆ‰
+ * Alkuhommaa ja s√§√§t√∂√§
  *
  * Revision 1.12  2002/07/19 14:05:52  msell
- * Damagetextuurit n‰kyy
+ * Damagetextuurit n√§kyy
  *
  * Revision 1.11  2002/07/18 23:05:31  msell
  * Partikkelit ja kakkospelaajan liike
  *
  * Revision 1.10  2002/07/17 22:45:54  msell
- * ƒ‰ni‰ v‰h‰n
+ * √Ñ√§ni√§ v√§h√§n
  *
  * Revision 1.9  2002/07/16 17:16:34  msell
  * Fontit ja valikot
@@ -34,17 +34,17 @@
  * Parantelua
  *
  * Revision 1.7  2002/07/14 21:22:40  jkaarlas
- * skybox ja ukkojen s‰‰tˆ
+ * skybox ja ukkojen s√§√§t√∂
  *
  * Revision 1.6  2002/07/08 22:53:38  msell
- * S‰‰tˆ‰
+ * S√§√§t√∂√§
  *
  * Revision 1.5  2002/07/07 15:29:07  msell
- * Tˆrm‰yksien parantelua
+ * T√∂rm√§yksien parantelua
  *
  * Revision 1.4  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Tˆrm‰ystarkistukset siis
+ * T√∂rm√§ystarkistukset siis
  *
  * Revision 1.3  2002/06/04 16:28:32  msell
  * #pragma once

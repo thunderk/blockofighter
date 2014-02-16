@@ -16,7 +16,7 @@
  * no message
  *
  * Revision 1.1  2002/05/18 12:29:35  msell
- * Valot ja ‰‰nij‰rjestelm‰n parantelua
+ * Valot ja √§√§nij√§rjestelm√§n parantelua
  *
  *
  *

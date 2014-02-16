@@ -11,25 +11,25 @@
  *
  * Revision 1.9  2002/07/04 21:05:41  msell
  * Se toimii!! =)
- * Törmäystarkistukset siis
+ * TÃ¶rmÃ¤ystarkistukset siis
  *
  * Revision 1.8  2002/06/30 16:05:04  msell
- * Törmäyksien parantelua, transformaatioita mukana
+ * TÃ¶rmÃ¤yksien parantelua, transformaatioita mukana
  *
  * Revision 1.7  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -törmäykset, ihan tosi
+ * Nyt toimii sphere -> mesh -tÃ¶rmÃ¤ykset, ihan tosi
  *
  * Revision 1.6  2002/06/20 22:50:12  msell
  * Meshit
  *
  * Revision 1.5  2002/06/15 17:18:37  msell
- * Toimiva törmäystarkastus kiinteille laatikoille
+ * Toimiva tÃ¶rmÃ¤ystarkastus kiinteille laatikoille
  *
  * Revision 1.4  2002/06/14 00:05:05  msell
- * Törmäyssimulaatio kunnossa toivon mukaan
+ * TÃ¶rmÃ¤yssimulaatio kunnossa toivon mukaan
  *
  * Revision 1.3  2002/06/11 23:11:45  msell
- * Törmäystarkistusta
+ * TÃ¶rmÃ¤ystarkistusta
  *
  * Revision 1.2  2002/06/07 21:16:51  msell
  * Fysiikkaenginen alkua

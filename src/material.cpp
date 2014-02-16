@@ -10,22 +10,22 @@
  * getColor
  *
  * Revision 1.8  2002/06/27 21:43:29  jkaarlas
- * lis‰tty setTexture-funktio
+ * lis√§tty setTexture-funktio
  *
  * Revision 1.7  2002/06/27 00:08:04  msell
- * Kimmotukset palloille myˆs pyˆritettyihin mesheihin
+ * Kimmotukset palloille my√∂s py√∂ritettyihin mesheihin
  *
  * Revision 1.6  2002/06/20 00:21:01  jkaarlas
  * materiaali- ja tekstuurihommia edistetty
  *
  * Revision 1.5  2002/06/19 22:45:29  jkaarlas
- * nyt n‰m‰ menee j‰rkev‰sti
+ * nyt n√§m√§ menee j√§rkev√§sti
  *
  * Revision 1.4  2002/06/17 20:49:05  msell
  * free -> SDL_FreeSurface
  *
  * Revision 1.3  2002/06/16 01:04:58  jkaarlas
- * tulipa s‰‰detty‰ includejen kanssa. oon tod.n‰k. eri mielt‰ aamulla
+ * tulipa s√§√§detty√§ includejen kanssa. oon tod.n√§k. eri mielt√§ aamulla
  *
  * Revision 1.2  2002/06/03 23:06:38  msell
  * no message

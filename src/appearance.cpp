@@ -7,7 +7,7 @@
  * MultiAppearance
  *
  * Revision 1.8  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -tˆrm‰ykset, ihan tosi
+ * Nyt toimii sphere -> mesh -t√∂rm√§ykset, ihan tosi
  *
  * Revision 1.7  2002/06/20 00:21:01  jkaarlas
  * materiaali- ja tekstuurihommia edistetty
@@ -16,7 +16,7 @@
  * free -> SDL_FreeSurface
  *
  * Revision 1.5  2002/06/16 01:04:58  jkaarlas
- * tulipa s‰‰detty‰ includejen kanssa. oon tod.n‰k. eri mielt‰ aamulla
+ * tulipa s√§√§detty√§ includejen kanssa. oon tod.n√§k. eri mielt√§ aamulla
  *
  * Revision 1.4  2002/06/05 23:55:46  msell
  * Pallo
