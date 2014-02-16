@@ -9,7 +9,7 @@ ifeq ($(FMOD), yes)
 endif
 
 CC = c++
-CFLAGS = -I. -O3 $(GFXFLAGS) $(SNDFLAGS) -pg -s
+CFLAGS = -I. -O3 $(GFXFLAGS) $(SNDFLAGS)
 LIBS = $(GFXLIBS) $(SNDLIBS)
 
 

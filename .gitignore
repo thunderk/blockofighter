@@ -1,2 +1,7 @@
 *.o
 *.user
+/CMakeCache.txt
+/CMakeFiles/
+/blockofighter
+/gmon.out
+/*.cmake
