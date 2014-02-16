@@ -3,6 +3,8 @@
 
 #include "mesh.h"
 
+class ObjectLink;
+
 #define COLLISIONGROUP_NONE      0
 #define COLLISIONGROUP_ARENA     1
 #define COLLISIONGROUP_MAN1      2
