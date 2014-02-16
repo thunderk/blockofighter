@@ -2,13 +2,6 @@
 #define __AUDIO_H_INCLUDED__
 
 
-//#define AUDIO_NONE
-#define AUDIO_FMOD
-//Only FMOD and NONE is supported, choose one
-
-
-
-
 #ifdef AUDIO_FMOD
 #include <fmod.h>
 #endif

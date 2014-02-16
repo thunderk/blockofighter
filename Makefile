@@ -4,7 +4,7 @@ GFXFLAGS = `sdl-config --cflags`
 GFXLIBS = `sdl-config --libs` -lGL -lGLU -lSDL_image
 
 ifeq ($(FMOD), yes)
- SNDFLAGS = -DUSEFMOD=1
+ SNDFLAGS = -DAUDIO_FMOD=1
  SNDLIBS = -lfmod-3.5
 endif
 
