@@ -1,20 +1,3 @@
-/*
- * $Id: end.cpp,v 1.2 2002/07/22 11:40:26 msell Exp $
- *
- *
- * $Log: end.cpp,v $
- * Revision 1.2  2002/07/22 11:40:26  msell
- * Loppukuvaan lattia
- *
- * Revision 1.1  2002/07/22 01:14:14  msell
- * Lopetussysteemi
- *
- *
- *
- * $Date: 2002/07/22 11:40:26 $
- *
- */
-
 #include "main.h"
 
 #include <math.h>
@@ -26,7 +9,7 @@
 #include "object.h"
 #include "appearance.h"
 #include "sphere.h"
-#include "vector.h" 
+#include "vector.h"
 #include "collision.h"
 #include "utils.h"
 #include "graphics.h"
@@ -48,114 +31,114 @@ Light endlight, endlight2;
 BasicBlock *endfloor;// = new BasicBlock(20, 1, 15);
 
 void initEnd(void){
-	endlight.setColor(1, 1, 1);
-	endlight.setSpecular(1, 1, 1);
-	endlight.setPosition(-0.5, BLOCKHEIGHT*16, 0.5);
-	endlight.setAttenuation(0, 0.0, 0.005);
+    endlight.setColor(1, 1, 1);
+    endlight.setSpecular(1, 1, 1);
+    endlight.setPosition(-0.5, BLOCKHEIGHT*16, 0.5);
+    endlight.setAttenuation(0, 0.0, 0.005);
 
-	endlight2.setColor(1, 1, 1);
-	endlight2.setSpecular(1, 1, 1);
-	endlight2.setAttenuation(1.0, 0.0, 0.0);
+    endlight2.setColor(1, 1, 1);
+    endlight2.setSpecular(1, 1, 1);
+    endlight2.setAttenuation(1.0, 0.0, 0.0);
 
-	endfloor = new BasicBlock(30, 1, 20);
-	//endfloor->material.setColor(0, 1, 0, 1);
-	endfloor->setColor(0, 1, 0);
-	endfloor->setPosition(-10, -BLOCKHEIGHT*0.5, 0);
-	endfloor->prepare();
+    endfloor = new BasicBlock(30, 1, 20);
+    //endfloor->material.setColor(0, 1, 0, 1);
+    endfloor->setColor(0, 1, 0);
+    endfloor->setPosition(-10, -BLOCKHEIGHT*0.5, 0);
+    endfloor->prepare();
 }
 
 int endingcounter;
 
 void endRestart(void){
-	endingcounter = 0;
-	//initEnd();
-	//endfloor->prepare();
+    endingcounter = 0;
+    //initEnd();
+    //endfloor->prepare();
 }
 
 void stopEnding(void){
-	endlight.setEnabled(false);
-	changeGameMode(MENUMODE);
-	fightmusic->fadeOut(300);
-	menuRestart();
+    endlight.setEnabled(false);
+    changeGameMode(MENUMODE);
+    fightmusic->fadeOut(300);
+    menuRestart();
 }
 
 float endfade;
 
 void calculateEnd(int framecount){
-	endfade = -1;
+    endfade = -1;
 
-	if (endingcounter < 200){
-		endfade = 1-(float)endingcounter/200;
-	}
-	endingcounter++;
+    if (endingcounter < 200){
+        endfade = 1-(float)endingcounter/200;
+    }
+    endingcounter++;
 
-	endlight.setEnabled(true);
-	//endlight2.setEnabled(true);
+    endlight.setEnabled(true);
+    //endlight2.setEnabled(true);
 
-	float target[3] = {0, 13, 0};
-	endcamera.setTarget(target);
-	endcamera.setPosition(10+sin(framecount*0.002)*2, 20+sin(framecount*0.0017)*2, 25+cos(framecount*0.002)*2);
-	//endcamera.setPosition(sin(framecount*0.01)*25, sin(framecount*0.007)*6+20, cos(framecount*0.01)*25);
+    float target[3] = {0, 13, 0};
+    endcamera.setTarget(target);
+    endcamera.setPosition(10+sin(framecount*0.002)*2, 20+sin(framecount*0.0017)*2, 25+cos(framecount*0.002)*2);
+    //endcamera.setPosition(sin(framecount*0.01)*25, sin(framecount*0.007)*6+20, cos(framecount*0.01)*25);
 
-	//endlight.setPosition(40, 20, 0);
-	endlight.setPosition(-sin(framecount*0.007)*10, 15, cos(framecount*0.007)*2+22);
+    //endlight.setPosition(40, 20, 0);
+    endlight.setPosition(-sin(framecount*0.007)*10, 15, cos(framecount*0.007)*2+22);
 
-	if (keys[SDLK_ESCAPE]){
-		stopEnding();
-	}
+    if (keys[SDLK_ESCAPE]){
+        stopEnding();
+    }
 }
 
 void drawEnd(int framecount){
-	glLoadIdentity();
-	glTranslatef(10, 0, 0);
+    glLoadIdentity();
+    glTranslatef(10, 0, 0);
 
-	endcamera.glUpdate();
+    endcamera.glUpdate();
 
-	updateLights();
+    updateLights();
 
-	glEnable(GL_LIGHTING);
-	glDisable(GL_BLEND);
-	glEnable(GL_CULL_FACE);
-	glDisable(GL_TEXTURE_2D);
+    glEnable(GL_LIGHTING);
+    glDisable(GL_BLEND);
+    glEnable(GL_CULL_FACE);
+    glDisable(GL_TEXTURE_2D);
 
-	endfloor->draw();
+    endfloor->draw();
 
-	glColor3f(1, 1, 0);
+    glColor3f(1, 1, 0);
 
-	drawTrophy();
+    drawTrophy();
 
-	glRotatef(270, 0, 1, 0);
-	glTranslatef(2-BLOCKHEIGHT*0.5, 0, 15-BLOCKHEIGHT*0.5);
-	glScalef(3, 3, 3);
+    glRotatef(270, 0, 1, 0);
+    glTranslatef(2-BLOCKHEIGHT*0.5, 0, 15-BLOCKHEIGHT*0.5);
+    glScalef(3, 3, 3);
 
-	winner->head->draw();
-	winner->torso->draw();
-	winner->lefthand->draw();
-	winner->righthand->draw();
-	winner->waist->draw();
-	winner->leftleg->draw();
-	winner->rightleg->draw();
-
-
-	enable2D();
-
-	glColor3f(1, 1, 1);
-
-	if (winner->side == PLAYER1) print(0.05, 0.05, "Player 1 is\nthe winner", 0.09);
-	if (winner->side == PLAYER2) print(0.05, 0.05, "Player 2 is\nthe winner", 0.09);
+    winner->head->draw();
+    winner->torso->draw();
+    winner->lefthand->draw();
+    winner->righthand->draw();
+    winner->waist->draw();
+    winner->leftleg->draw();
+    winner->rightleg->draw();
 
 
-	if (endfade != -1){
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glColor4f(0, 0, 0, endfade);
-		glBegin(GL_QUADS);
-			glVertex2f(0, 0);
-			glVertex2f(1, 0);
-			glVertex2f(1, 1);
-			glVertex2f(0, 1);
-		glEnd();
-	}
+    enable2D();
 
-	disable2D();
+    glColor3f(1, 1, 1);
+
+    if (winner->side == PLAYER1) print(0.05, 0.05, "Player 1 is\nthe winner", 0.09);
+    if (winner->side == PLAYER2) print(0.05, 0.05, "Player 2 is\nthe winner", 0.09);
+
+
+    if (endfade != -1){
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glColor4f(0, 0, 0, endfade);
+        glBegin(GL_QUADS);
+            glVertex2f(0, 0);
+            glVertex2f(1, 0);
+            glVertex2f(1, 1);
+            glVertex2f(0, 1);
+        glEnd();
+    }
+
+    disable2D();
 }

@@ -1,33 +1,3 @@
-/*
- * $Id: texture.cpp,v 1.7 2002/07/17 16:40:33 msell Exp $
- *
- *
- * $Log: texture.cpp,v $
- * Revision 1.7  2002/07/17 16:40:33  msell
- * Resoluution vaihto
- *
- * Revision 1.6  2002/06/27 21:43:50  jkaarlas
- * lisätty setId-funktio
- *
- * Revision 1.5  2002/06/20 15:27:48  jkaarlas
- * bindtexture siirretty oikeaan paikkaan
- *
- * Revision 1.4  2002/06/20 00:21:01  jkaarlas
- * materiaali- ja tekstuurihommia edistetty
- *
- * Revision 1.3  2002/06/19 22:45:29  jkaarlas
- * nyt nämä menee järkevästi
- *
- * Revision 1.2  2002/06/15 22:04:01  jkaarlas
- * tähänkin jotain sisältöä
- *
- *
- *
- *
- * $Date: 2002/07/17 16:40:33 $
- *
- */
-
 #include "texture.h"
 #include "graphics.h"
 
@@ -56,9 +26,9 @@ Texture::Texture(int id){
 }
 
 bool Texture::loadImage(char* path){
-	format = GL_RGB;
+    format = GL_RGB;
 
-	texture = IMG_Load(path);
+    texture = IMG_Load(path);
 
   //texture = SDL_DisplayFormatAlpha(texture);
 
@@ -69,18 +39,18 @@ bool Texture::loadImage(char* path){
 }
 
 bool Texture::loadImage(char* path, float *trans){
-	format = GL_RGBA;
+    format = GL_RGBA;
 
-	texture = IMG_Load(path);
+    texture = IMG_Load(path);
 
-  Uint32 colorKey = SDL_MapRGB(texture->format, 
-                                (Uint8)(trans[0] * 255), 
-                                (Uint8)(trans[1] * 255), 
+  Uint32 colorKey = SDL_MapRGB(texture->format,
+                                (Uint8)(trans[0] * 255),
+                                (Uint8)(trans[1] * 255),
                                 (Uint8)(trans[2] * 255));
   //SDL_SetAlpha(texture, 0, SDL_ALPHA_OPAQUE);
 
   SDL_SetColorKey(texture, SDL_SRCCOLORKEY, colorKey);
-      
+
   //SDL_Surface* alphaSurface = SDL_DisplayFormatAlpha(texture);
   texture = SDL_DisplayFormatAlpha(texture);
 
@@ -90,8 +60,8 @@ bool Texture::loadImage(char* path, float *trans){
 }
 
 void Texture::reload(void){
-	this->textureId = DRUID.loadTexture(texture, -1, format);
-	this->enable();
+    this->textureId = DRUID.loadTexture(texture, -1, format);
+    this->enable();
 }
 
 void Texture::disable(void){

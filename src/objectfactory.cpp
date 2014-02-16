@@ -1,50 +1,3 @@
-/*
- * $Id: objectfactory.cpp,v 1.12 2002/07/22 01:14:14 msell Exp $
- *
- *
- * $Log: objectfactory.cpp,v $
- * Revision 1.12  2002/07/22 01:14:14  msell
- * Lopetussysteemi
- *
- * Revision 1.11  2002/07/15 20:32:35  msell
- * Uudet valot ja ulkoasun parantelua
- *
- * Revision 1.10  2002/07/15 15:22:08  msell
- * Parantelua
- *
- * Revision 1.9  2002/07/14 21:22:39  jkaarlas
- * skybox ja ukkojen säätö
- *
- * Revision 1.8  2002/07/11 18:33:07  jkaarlas
- * ascloaderi palauttaa nyt meshin
- *
- * Revision 1.7  2002/07/10 22:22:53  msell
- * Cartoon-rendaus
- *
- * Revision 1.6  2002/07/10 22:07:23  jkaarlas
- * skaalatut ja käännellyt ruumiinosat
- *
- * Revision 1.5  2002/07/09 19:54:35  msell
- * intit floateiks asc-loaderista
- *
- * Revision 1.4  2002/06/26 22:30:02  jkaarlas
- * lisätty asc-loaderi
- *
- * Revision 1.3  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -törmäykset, ihan tosi
- *
- * Revision 1.2  2002/06/23 20:12:19  msell
- * Parempi törmäystarkistus palloista mesheihin
- *
- * Revision 1.1  2002/06/20 22:50:12  msell
- * Meshit
- *
- *
- *
- * $Date: 2002/07/22 01:14:14 $
- *
- */
-
 #include "main.h"
 
 #include <stdlib.h>
@@ -61,183 +14,183 @@
 
 
 MeshObject *createPyramid(float width, float height){
-	Mesh *mesh = new Mesh();
-	mesh->vertexcount = 5;
-	mesh->vertices = new Vertex[5];
-	vectorSet(mesh->vertices[0].position, width, 0, 0);
-	vectorSet(mesh->vertices[0].normal, 1, 0, 0);
-	vectorSet(mesh->vertices[1].position, -width, 0, 0);
-	vectorSet(mesh->vertices[1].normal, -1, 0, 0);
-	vectorSet(mesh->vertices[2].position, 0, 0, width);
-	vectorSet(mesh->vertices[2].normal, 0, 0, 1);
-	vectorSet(mesh->vertices[3].position, 0, 0, -width);
-	vectorSet(mesh->vertices[3].normal, 0, 0, -1);
-	vectorSet(mesh->vertices[4].position, 0, height, 0);
-	vectorSet(mesh->vertices[4].normal, 0, 1, 0);
+    Mesh *mesh = new Mesh();
+    mesh->vertexcount = 5;
+    mesh->vertices = new Vertex[5];
+    vectorSet(mesh->vertices[0].position, width, 0, 0);
+    vectorSet(mesh->vertices[0].normal, 1, 0, 0);
+    vectorSet(mesh->vertices[1].position, -width, 0, 0);
+    vectorSet(mesh->vertices[1].normal, -1, 0, 0);
+    vectorSet(mesh->vertices[2].position, 0, 0, width);
+    vectorSet(mesh->vertices[2].normal, 0, 0, 1);
+    vectorSet(mesh->vertices[3].position, 0, 0, -width);
+    vectorSet(mesh->vertices[3].normal, 0, 0, -1);
+    vectorSet(mesh->vertices[4].position, 0, height, 0);
+    vectorSet(mesh->vertices[4].normal, 0, 1, 0);
 
-	mesh->polygoncount = 5;
-	mesh->polygons = new class Polygon[5];
+    mesh->polygoncount = 5;
+    mesh->polygons = new class Polygon[5];
 
-	mesh->polygons[0].vertexcount = 3;
-	mesh->polygons[0].vertices = new Vertex *[3];
-	mesh->polygons[0].vertices[0] = &mesh->vertices[4];
-	mesh->polygons[0].vertices[1] = &mesh->vertices[0];
-	mesh->polygons[0].vertices[2] = &mesh->vertices[3];
+    mesh->polygons[0].vertexcount = 3;
+    mesh->polygons[0].vertices = new Vertex *[3];
+    mesh->polygons[0].vertices[0] = &mesh->vertices[4];
+    mesh->polygons[0].vertices[1] = &mesh->vertices[0];
+    mesh->polygons[0].vertices[2] = &mesh->vertices[3];
 
-	mesh->polygons[1].vertexcount = 3;
-	mesh->polygons[1].vertices = new Vertex *[3];
-	mesh->polygons[1].vertices[0] = &mesh->vertices[4];
-	mesh->polygons[1].vertices[1] = &mesh->vertices[3];
-	mesh->polygons[1].vertices[2] = &mesh->vertices[1];
+    mesh->polygons[1].vertexcount = 3;
+    mesh->polygons[1].vertices = new Vertex *[3];
+    mesh->polygons[1].vertices[0] = &mesh->vertices[4];
+    mesh->polygons[1].vertices[1] = &mesh->vertices[3];
+    mesh->polygons[1].vertices[2] = &mesh->vertices[1];
 
-	mesh->polygons[2].vertexcount = 3;
-	mesh->polygons[2].vertices = new Vertex *[3];
-	mesh->polygons[2].vertices[0] = &mesh->vertices[4];
-	mesh->polygons[2].vertices[1] = &mesh->vertices[1];
-	mesh->polygons[2].vertices[2] = &mesh->vertices[2];
+    mesh->polygons[2].vertexcount = 3;
+    mesh->polygons[2].vertices = new Vertex *[3];
+    mesh->polygons[2].vertices[0] = &mesh->vertices[4];
+    mesh->polygons[2].vertices[1] = &mesh->vertices[1];
+    mesh->polygons[2].vertices[2] = &mesh->vertices[2];
 
-	mesh->polygons[3].vertexcount = 3;
-	mesh->polygons[3].vertices = new Vertex *[3];
-	mesh->polygons[3].vertices[0] = &mesh->vertices[4];
-	mesh->polygons[3].vertices[1] = &mesh->vertices[2];
-	mesh->polygons[3].vertices[2] = &mesh->vertices[0];
+    mesh->polygons[3].vertexcount = 3;
+    mesh->polygons[3].vertices = new Vertex *[3];
+    mesh->polygons[3].vertices[0] = &mesh->vertices[4];
+    mesh->polygons[3].vertices[1] = &mesh->vertices[2];
+    mesh->polygons[3].vertices[2] = &mesh->vertices[0];
 
-	mesh->polygons[4].vertexcount = 4;
-	mesh->polygons[4].vertices = new Vertex *[4];
-	mesh->polygons[4].vertices[0] = &mesh->vertices[0];
-	mesh->polygons[4].vertices[1] = &mesh->vertices[2];
-	mesh->polygons[4].vertices[2] = &mesh->vertices[1];
-	mesh->polygons[4].vertices[3] = &mesh->vertices[3];
+    mesh->polygons[4].vertexcount = 4;
+    mesh->polygons[4].vertices = new Vertex *[4];
+    mesh->polygons[4].vertices[0] = &mesh->vertices[0];
+    mesh->polygons[4].vertices[1] = &mesh->vertices[2];
+    mesh->polygons[4].vertices[2] = &mesh->vertices[1];
+    mesh->polygons[4].vertices[3] = &mesh->vertices[3];
 
-	mesh->polygons[0].smooth = false;
-	mesh->polygons[1].smooth = false;
-	mesh->polygons[2].smooth = false;
-	mesh->polygons[3].smooth = false;
-	mesh->polygons[4].smooth = false;
+    mesh->polygons[0].smooth = false;
+    mesh->polygons[1].smooth = false;
+    mesh->polygons[2].smooth = false;
+    mesh->polygons[3].smooth = false;
+    mesh->polygons[4].smooth = false;
 
-	mesh->createPlanes();
+    mesh->createPlanes();
 
-	MeshObject *object = new MeshObject(mesh);
-	return object;
+    MeshObject *object = new MeshObject(mesh);
+    return object;
 }
 
 MeshObject *createSpherePool(float width, float height){
-	int grid = 16;
+    int grid = 16;
 
-	Mesh *mesh = new Mesh();
-	mesh->vertexcount = (grid+1)*(grid+1);
-	mesh->vertices = new Vertex[mesh->vertexcount];
+    Mesh *mesh = new Mesh();
+    mesh->vertexcount = (grid+1)*(grid+1);
+    mesh->vertices = new Vertex[mesh->vertexcount];
 
-	int x, z;
-	for (z = 0; z < grid; z++){
-		float pz = (2.0*z/(grid-1) - 1)*width;
-		for (x = 0; x < grid; x++){
-			float px = (2.0*x/(grid-1) - 1)*width;
+    int x, z;
+    for (z = 0; z < grid; z++){
+        float pz = (2.0*z/(grid-1) - 1)*width;
+        for (x = 0; x < grid; x++){
+            float px = (2.0*x/(grid-1) - 1)*width;
 
-			//float py = randomf(1);
-			float l = sqrt(pz*pz + px*px)*1;
-			if (l > width) l = width;
-			l = l/width;
-			//l = l*l;
-			float py = height*(sin(PI*(1.5+l*2))+1)/2;
-			vectorSet(mesh->vertices[z * grid + x].position, px, py, pz);
-		}
-	}
+            //float py = randomf(1);
+            float l = sqrt(pz*pz + px*px)*1;
+            if (l > width) l = width;
+            l = l/width;
+            //l = l*l;
+            float py = height*(sin(PI*(1.5+l*2))+1)/2;
+            vectorSet(mesh->vertices[z * grid + x].position, px, py, pz);
+        }
+    }
 
-	mesh->polygoncount = (grid-1)*(grid-1);
-	mesh->polygons = new class Polygon[mesh->polygoncount];
-	for (z = 0; z < grid-1; z++){
-		for (x = 0; x < grid-1; x++){
-			class Polygon *poly = &mesh->polygons[z * (grid-1) + x];
-			poly->vertexcount = 4;
-			poly->vertices = new Vertex *[4];
+    mesh->polygoncount = (grid-1)*(grid-1);
+    mesh->polygons = new class Polygon[mesh->polygoncount];
+    for (z = 0; z < grid-1; z++){
+        for (x = 0; x < grid-1; x++){
+            class Polygon *poly = &mesh->polygons[z * (grid-1) + x];
+            poly->vertexcount = 4;
+            poly->vertices = new Vertex *[4];
 
-			poly->vertices[0] = &mesh->vertices[z * grid + x + 1];
-			poly->vertices[1] = &mesh->vertices[z * grid + x ];
-			poly->vertices[2] = &mesh->vertices[(z + 1) * grid + x];
-			poly->vertices[3] = &mesh->vertices[(z + 1) * grid + x + 1];
+            poly->vertices[0] = &mesh->vertices[z * grid + x + 1];
+            poly->vertices[1] = &mesh->vertices[z * grid + x ];
+            poly->vertices[2] = &mesh->vertices[(z + 1) * grid + x];
+            poly->vertices[3] = &mesh->vertices[(z + 1) * grid + x + 1];
 
-			poly->smooth = true;
-		}
-	}
+            poly->smooth = true;
+        }
+    }
 
 
-	mesh->createPlanes();
-	mesh->createVertexnormals();
+    mesh->createPlanes();
+    mesh->createVertexnormals();
 
-	MeshObject *object = new MeshObject(mesh);
-	return object;
+    MeshObject *object = new MeshObject(mesh);
+    return object;
 }
 
 Mesh *createBox(float x1, float x2, float y1, float y2, float z1, float z2){
-	Mesh *mesh = new Mesh();
-	mesh->vertexcount = 8;
-	mesh->vertices = new Vertex[8];
-	vectorSet(mesh->vertices[0].position, x1, y1, z1);
-	vectorSet(mesh->vertices[1].position, x2, y1, z1);
-	vectorSet(mesh->vertices[2].position, x1, y2, z1);
-	vectorSet(mesh->vertices[3].position, x2, y2, z1);
-	vectorSet(mesh->vertices[4].position, x1, y1, z2);
-	vectorSet(mesh->vertices[5].position, x2, y1, z2);
-	vectorSet(mesh->vertices[6].position, x1, y2, z2);
-	vectorSet(mesh->vertices[7].position, x2, y2, z2);
+    Mesh *mesh = new Mesh();
+    mesh->vertexcount = 8;
+    mesh->vertices = new Vertex[8];
+    vectorSet(mesh->vertices[0].position, x1, y1, z1);
+    vectorSet(mesh->vertices[1].position, x2, y1, z1);
+    vectorSet(mesh->vertices[2].position, x1, y2, z1);
+    vectorSet(mesh->vertices[3].position, x2, y2, z1);
+    vectorSet(mesh->vertices[4].position, x1, y1, z2);
+    vectorSet(mesh->vertices[5].position, x2, y1, z2);
+    vectorSet(mesh->vertices[6].position, x1, y2, z2);
+    vectorSet(mesh->vertices[7].position, x2, y2, z2);
 
-	mesh->polygoncount = 6;
-	mesh->polygons = new class Polygon[6];
+    mesh->polygoncount = 6;
+    mesh->polygons = new class Polygon[6];
 
-	//Back
-	mesh->polygons[0].vertexcount = 4;
-	mesh->polygons[0].vertices = new Vertex *[4];
-	mesh->polygons[0].vertices[0] = &mesh->vertices[0];
-	mesh->polygons[0].vertices[1] = &mesh->vertices[2];
-	mesh->polygons[0].vertices[2] = &mesh->vertices[3];
-	mesh->polygons[0].vertices[3] = &mesh->vertices[1];
+    //Back
+    mesh->polygons[0].vertexcount = 4;
+    mesh->polygons[0].vertices = new Vertex *[4];
+    mesh->polygons[0].vertices[0] = &mesh->vertices[0];
+    mesh->polygons[0].vertices[1] = &mesh->vertices[2];
+    mesh->polygons[0].vertices[2] = &mesh->vertices[3];
+    mesh->polygons[0].vertices[3] = &mesh->vertices[1];
 
-	//Front
-	mesh->polygons[1].vertexcount = 4;
-	mesh->polygons[1].vertices = new Vertex *[4];
-	mesh->polygons[1].vertices[0] = &mesh->vertices[4];
-	mesh->polygons[1].vertices[1] = &mesh->vertices[5];
-	mesh->polygons[1].vertices[2] = &mesh->vertices[7];
-	mesh->polygons[1].vertices[3] = &mesh->vertices[6];
+    //Front
+    mesh->polygons[1].vertexcount = 4;
+    mesh->polygons[1].vertices = new Vertex *[4];
+    mesh->polygons[1].vertices[0] = &mesh->vertices[4];
+    mesh->polygons[1].vertices[1] = &mesh->vertices[5];
+    mesh->polygons[1].vertices[2] = &mesh->vertices[7];
+    mesh->polygons[1].vertices[3] = &mesh->vertices[6];
 
-	//Left
-	mesh->polygons[2].vertexcount = 4;
-	mesh->polygons[2].vertices = new Vertex *[4];
-	mesh->polygons[2].vertices[0] = &mesh->vertices[0];
-	mesh->polygons[2].vertices[1] = &mesh->vertices[4];
-	mesh->polygons[2].vertices[2] = &mesh->vertices[6];
-	mesh->polygons[2].vertices[3] = &mesh->vertices[2];
+    //Left
+    mesh->polygons[2].vertexcount = 4;
+    mesh->polygons[2].vertices = new Vertex *[4];
+    mesh->polygons[2].vertices[0] = &mesh->vertices[0];
+    mesh->polygons[2].vertices[1] = &mesh->vertices[4];
+    mesh->polygons[2].vertices[2] = &mesh->vertices[6];
+    mesh->polygons[2].vertices[3] = &mesh->vertices[2];
 
-	//Right
-	mesh->polygons[3].vertexcount = 4;
-	mesh->polygons[3].vertices = new Vertex *[4];
-	mesh->polygons[3].vertices[0] = &mesh->vertices[1];
-	mesh->polygons[3].vertices[1] = &mesh->vertices[3];
-	mesh->polygons[3].vertices[2] = &mesh->vertices[7];
-	mesh->polygons[3].vertices[3] = &mesh->vertices[5];
+    //Right
+    mesh->polygons[3].vertexcount = 4;
+    mesh->polygons[3].vertices = new Vertex *[4];
+    mesh->polygons[3].vertices[0] = &mesh->vertices[1];
+    mesh->polygons[3].vertices[1] = &mesh->vertices[3];
+    mesh->polygons[3].vertices[2] = &mesh->vertices[7];
+    mesh->polygons[3].vertices[3] = &mesh->vertices[5];
 
-	//Top
-	mesh->polygons[4].vertexcount = 4;
-	mesh->polygons[4].vertices = new Vertex *[4];
-	mesh->polygons[4].vertices[0] = &mesh->vertices[2];
-	mesh->polygons[4].vertices[1] = &mesh->vertices[6];
-	mesh->polygons[4].vertices[2] = &mesh->vertices[7];
-	mesh->polygons[4].vertices[3] = &mesh->vertices[3];
+    //Top
+    mesh->polygons[4].vertexcount = 4;
+    mesh->polygons[4].vertices = new Vertex *[4];
+    mesh->polygons[4].vertices[0] = &mesh->vertices[2];
+    mesh->polygons[4].vertices[1] = &mesh->vertices[6];
+    mesh->polygons[4].vertices[2] = &mesh->vertices[7];
+    mesh->polygons[4].vertices[3] = &mesh->vertices[3];
 
-	//Bottom
-	mesh->polygons[5].vertexcount = 4;
-	mesh->polygons[5].vertices = new Vertex *[4];
-	mesh->polygons[5].vertices[0] = &mesh->vertices[0];
-	mesh->polygons[5].vertices[1] = &mesh->vertices[1];
-	mesh->polygons[5].vertices[2] = &mesh->vertices[5];
-	mesh->polygons[5].vertices[3] = &mesh->vertices[4];
+    //Bottom
+    mesh->polygons[5].vertexcount = 4;
+    mesh->polygons[5].vertices = new Vertex *[4];
+    mesh->polygons[5].vertices[0] = &mesh->vertices[0];
+    mesh->polygons[5].vertices[1] = &mesh->vertices[1];
+    mesh->polygons[5].vertices[2] = &mesh->vertices[5];
+    mesh->polygons[5].vertices[3] = &mesh->vertices[4];
 
-	mesh->createPlanes();
-	mesh->createEdges();
-	//mesh->createVertexnormals();
+    mesh->createPlanes();
+    mesh->createEdges();
+    //mesh->createVertexnormals();
 
-	return mesh;
+    return mesh;
 }
 
 
@@ -259,14 +212,14 @@ char* findStringEnd(char* data, char* findstring){
 }
 
 Mesh* loadAscModel(char *filename, float scale){
-	float zeroOffset[3] = {0.0, 0.0, 0.0};
-	return loadAscModel(filename, scale, (float*)zeroOffset);
+    float zeroOffset[3] = {0.0, 0.0, 0.0};
+    return loadAscModel(filename, scale, (float*)zeroOffset);
 }
 
 Mesh* loadAscModel(char *filename, float scale, float* offset){
-  
+
   Mesh* target = new Mesh();
-  
+
 
   FILE* file;
   float x, y, z;
@@ -287,7 +240,7 @@ Mesh* loadAscModel(char *filename, float scale, float* offset){
   target->polygoncount=getValueFromString(face);
   target->vertices = new Vertex[target->vertexcount];
   target->polygons = new class Polygon[target->polygoncount];
-  
+
 
   int i;
 
@@ -311,7 +264,7 @@ Mesh* loadAscModel(char *filename, float scale, float* offset){
   }
   int vnum;
   face=findStringEnd(data,"Face list:");
-  
+
 
   for (i=0;i<target->polygoncount;i++){
     face=findStringEnd(face,"Face");
@@ -320,25 +273,25 @@ Mesh* loadAscModel(char *filename, float scale, float* offset){
     target->polygons[i].vertexcount = 3;
     target->polygons[i].vertices = new Vertex *[3];
     target->polygons[i].vertices[0]=&(target->vertices[vnum]);
-    target->polygons[i].vertices[0]->setTexCoords(target->vertices[vnum].texcoords[0], 
+    target->polygons[i].vertices[0]->setTexCoords(target->vertices[vnum].texcoords[0],
                                                   target->vertices[vnum].texcoords[1]);
     face=findStringEnd(face,"B:");
     vnum=getValueFromString(face);
     target->polygons[i].vertices[1]=&(target->vertices[vnum]);
-    target->polygons[i].vertices[1]->setTexCoords(target->vertices[vnum].texcoords[0], 
+    target->polygons[i].vertices[1]->setTexCoords(target->vertices[vnum].texcoords[0],
                                                   target->vertices[vnum].texcoords[1]);
     face=findStringEnd(face,"C:");
     vnum=getValueFromString(face);
     target->polygons[i].vertices[2]=&(target->vertices[vnum]);
-    target->polygons[i].vertices[2]->setTexCoords(target->vertices[vnum].texcoords[0], 
+    target->polygons[i].vertices[2]->setTexCoords(target->vertices[vnum].texcoords[0],
                                                   target->vertices[vnum].texcoords[1]);
     char *face2=findStringEnd(face,"Nosmooth");
-		char *face3=findStringEnd(face,"Smoothing");
-		if (face2 > face && face2 < face3) target->polygons[i].realsmooth = true;
+        char *face3=findStringEnd(face,"Smoothing");
+        if (face2 > face && face2 < face3) target->polygons[i].realsmooth = true;
   }
   free(data);
   data = NULL;
-	//target->createEdges();
+    //target->createEdges();
   target->createPlanes();
   target->createVertexnormals();
   //return new MeshObject(target);
@@ -346,26 +299,26 @@ Mesh* loadAscModel(char *filename, float scale, float* offset){
 }
 
 void drawTrophy(void){
-	point2d points[14];
+    point2d points[14];
 
-	int width = 3;
+    int width = 3;
 
-	int i = 0;
+    int i = 0;
 
-	points[i].x = 0.0;     points[i].y = 0.0; i++;
-	points[i].x = width;   points[i].y = 0.0; i++;
-	points[i].x = width-2; points[i].y = 2.0; i++;
-	points[i].x = width-2; points[i].y = 3.0; i++;
-	points[i].x = width-1; points[i].y = 4.0; i++;
-	points[i].x = width-2; points[i].y = 5.0; i++;
-	points[i].x = width-2; points[i].y = 6.0; i++;
-	points[i].x = width-1; points[i].y = 8.0; i++;
-	points[i].x = width;   points[i].y = 9.0; i++;
-	points[i].x = width+1; points[i].y = 11.0; i++;
-	points[i].x = width+2; points[i].y = 15.0; i++;
-	points[i].x = width+3; points[i].y = 21.0; i++;
-	points[i].x = width+2; points[i].y = 21.0; i++;
-	points[i].x = 0.0;     points[i].y = 8.0; i++;
+    points[i].x = 0.0;     points[i].y = 0.0; i++;
+    points[i].x = width;   points[i].y = 0.0; i++;
+    points[i].x = width-2; points[i].y = 2.0; i++;
+    points[i].x = width-2; points[i].y = 3.0; i++;
+    points[i].x = width-1; points[i].y = 4.0; i++;
+    points[i].x = width-2; points[i].y = 5.0; i++;
+    points[i].x = width-2; points[i].y = 6.0; i++;
+    points[i].x = width-1; points[i].y = 8.0; i++;
+    points[i].x = width;   points[i].y = 9.0; i++;
+    points[i].x = width+1; points[i].y = 11.0; i++;
+    points[i].x = width+2; points[i].y = 15.0; i++;
+    points[i].x = width+3; points[i].y = 21.0; i++;
+    points[i].x = width+2; points[i].y = 21.0; i++;
+    points[i].x = 0.0;     points[i].y = 8.0; i++;
 
-	createLathedSurface(points, NULL, i, i*5, i*10);
+    createLathedSurface(points, NULL, i, i*5, i*10);
 }

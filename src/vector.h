@@ -1,38 +1,3 @@
-/*
- * $Id: vector.h,v 1.8 2002/07/19 20:33:29 msell Exp $
- *
- *
- * $Log: vector.h,v $
- * Revision 1.8  2002/07/19 20:33:29  msell
- * #pragma once -> #ifndef
- *
- * Revision 1.7  2002/07/14 21:40:43  msell
- * Conflictit pois, liikkumiset (hyppy, kävely, lyönti), uusi areena
- *
- * Revision 1.6  2002/06/27 00:08:04  msell
- * Kimmotukset palloille myös pyöritettyihin mesheihin
- *
- * Revision 1.5  2002/06/23 20:12:19  msell
- * Parempi törmäystarkistus palloista mesheihin
- *
- * Revision 1.4  2002/06/17 12:42:46  msell
- * Hieman parempi törmäysmallinnus taas
- *
- * Revision 1.3  2002/06/11 23:23:03  msell
- * Törmäystarkistusta
- *
- * Revision 1.2  2002/06/04 16:28:32  msell
- * #pragma once
- *
- * Revision 1.1  2002/05/16 18:42:07  msell
- * Vektorifunctioita ja kamera
- *
- *
- *
- * $Date: 2002/07/19 20:33:29 $
- *
- */
-
 #ifndef __VECTOR_H_INCLUDED__
 #define __VECTOR_H_INCLUDED__
 
@@ -67,9 +32,9 @@ void vectorMatrixMultiply(float *target, float *source, float *matrix);
 
 
 void matrixSet(float *matrix,
-							 float x1, float y1, float z1,
-							 float x2, float y2, float z2,
-							 float x3, float y3, float z3);
+                             float x1, float y1, float z1,
+                             float x2, float y2, float z2,
+                             float x3, float y3, float z3);
 void matrixSet(float *matrix, float *r1, float *r2, float *r3);
 void matrixCopy(float *target, float *source);
 void matrixIdentity(float *matrix);

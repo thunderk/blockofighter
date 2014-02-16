@@ -1,41 +1,3 @@
-/*
- * $Id: appearance.cpp,v 1.9 2002/07/15 22:03:23 msell Exp $
- *
- *
- * $Log: appearance.cpp,v $
- * Revision 1.9  2002/07/15 22:03:23  msell
- * MultiAppearance
- *
- * Revision 1.8  2002/06/24 14:12:15  msell
- * Nyt toimii sphere -> mesh -törmäykset, ihan tosi
- *
- * Revision 1.7  2002/06/20 00:21:01  jkaarlas
- * materiaali- ja tekstuurihommia edistetty
- *
- * Revision 1.6  2002/06/17 20:49:04  msell
- * free -> SDL_FreeSurface
- *
- * Revision 1.5  2002/06/16 01:04:58  jkaarlas
- * tulipa säädettyä includejen kanssa. oon tod.näk. eri mieltä aamulla
- *
- * Revision 1.4  2002/06/05 23:55:46  msell
- * Pallo
- *
- * Revision 1.3  2002/06/03 23:20:43  msell
- * no message
- *
- * Revision 1.2  2002/06/03 23:06:38  msell
- * no message
- *
- * Revision 1.1  2002/06/02 16:57:37  msell
- * Objektirakenteen pohja
- *
- *
- *
- * $Date: 2002/07/15 22:03:23 $
- *
- */
-
 #include "main.h"
 
 
@@ -53,19 +15,19 @@ void Appearance::prepare(void){
 
 
 /*BoxAppearance::BoxAppearance(void){
-	setDimension(-1, 1, -1, 1, -1, 1);
+    setDimension(-1, 1, -1, 1, -1, 1);
 }
 
 BoxAppearance::setDimension(float x1, float x2, float y1, float y2, float z1, float z2){
-	if (x1 > x2) swapFloat(&x1, &x2);
-	if (y1 > y2) swapFloat(&y1, &y2);
-	if (z1 > z2) swapFloat(&z1, &z2);
-	this->x1 = x1;
-	this->x2 = x2;
-	this->y1 = y1;
-	this->y2 = y2;
-	this->z1 = z1;
-	this->z2 = z2;
+    if (x1 > x2) swapFloat(&x1, &x2);
+    if (y1 > y2) swapFloat(&y1, &y2);
+    if (z1 > z2) swapFloat(&z1, &z2);
+    this->x1 = x1;
+    this->x2 = x2;
+    this->y1 = y1;
+    this->y2 = y2;
+    this->z1 = z1;
+    this->z2 = z2;
 }
 
 void BoxAppearance::draw(void){
@@ -74,43 +36,43 @@ void BoxAppearance::draw(void){
 
   glBegin(GL_QUADS);
 
-		//Front Face
-		glNormal3f(0, 0, 1);
-		glVertex3f(x1, y1, z2);
-		glVertex3f(x2, y1, z2);	
-		glVertex3f(x2, y2, z2);	
-		glVertex3f(x1, y2, z2);
-		// Back Face
-		glNormal3f(0, 0, -1);
-		glVertex3f(x1, y1, z1);	
-		glVertex3f(x1, y2, z1);	
-		glVertex3f(x2, y2, z1);	
-		glVertex3f(x2, y1, z1);	
-		// Top Face
-		glNormal3f(0, 1, 0);
-		glVertex3f(x1, y2, z1);	
-		glVertex3f(x1, y2, z2);	
-		glVertex3f(x2, y2, z2);	
-		glVertex3f(x2, y2, z1);	
-		// Bottom Face
-		glNormal3f(0, -1, 0);
-		glVertex3f(x1, y1, z1);
-		glVertex3f(x2, y1, z1);
-		glVertex3f(x2, y1, z2);	
-		glVertex3f(x1, y1, z2);
-		// Right face
-		glNormal3f(x2, 0, 0);
-		glVertex3f(x2, y1, z1);
-		glVertex3f(x2, y2, z1);
-		glVertex3f(x2, y2, z2);	
-		glVertex3f(x2, y1, z2);
-		// Left Face
-		glNormal3f(x1, 0, 0);
-		glVertex3f(x1, y1, z1);
-		glVertex3f(x1, y1, z2);
-		glVertex3f(x1, y2, z2);	
-		glVertex3f(x1, y2, z1);
-	glEnd();
+        //Front Face
+        glNormal3f(0, 0, 1);
+        glVertex3f(x1, y1, z2);
+        glVertex3f(x2, y1, z2);
+        glVertex3f(x2, y2, z2);
+        glVertex3f(x1, y2, z2);
+        // Back Face
+        glNormal3f(0, 0, -1);
+        glVertex3f(x1, y1, z1);
+        glVertex3f(x1, y2, z1);
+        glVertex3f(x2, y2, z1);
+        glVertex3f(x2, y1, z1);
+        // Top Face
+        glNormal3f(0, 1, 0);
+        glVertex3f(x1, y2, z1);
+        glVertex3f(x1, y2, z2);
+        glVertex3f(x2, y2, z2);
+        glVertex3f(x2, y2, z1);
+        // Bottom Face
+        glNormal3f(0, -1, 0);
+        glVertex3f(x1, y1, z1);
+        glVertex3f(x2, y1, z1);
+        glVertex3f(x2, y1, z2);
+        glVertex3f(x1, y1, z2);
+        // Right face
+        glNormal3f(x2, 0, 0);
+        glVertex3f(x2, y1, z1);
+        glVertex3f(x2, y2, z1);
+        glVertex3f(x2, y2, z2);
+        glVertex3f(x2, y1, z2);
+        // Left Face
+        glNormal3f(x1, 0, 0);
+        glVertex3f(x1, y1, z1);
+        glVertex3f(x1, y1, z2);
+        glVertex3f(x1, y2, z2);
+        glVertex3f(x1, y2, z1);
+    glEnd();
 
   this->material.disable();
 }*/
@@ -128,28 +90,28 @@ void Appearance::setMaterial(Material matsku){
 
 
 MultiAppearance::MultiAppearance(void){
-	appearances = NULL;
+    appearances = NULL;
 }
 
 void MultiAppearance::addAppearance(Appearance *appearance){
-	appearancelist *node = new appearancelist;
-	node->data = appearance;
-	node->next = appearances;
-	appearances = node;
+    appearancelist *node = new appearancelist;
+    node->data = appearance;
+    node->next = appearances;
+    appearances = node;
 }
 
 void MultiAppearance::prepare(void){
-	appearancelist *node = appearances;
-	while (node != NULL){
-		node->data->prepare();
-		node = node->next;
-	}
+    appearancelist *node = appearances;
+    while (node != NULL){
+        node->data->prepare();
+        node = node->next;
+    }
 }
 
 void MultiAppearance::draw(void){
-	appearancelist *node = appearances;
-	while (node != NULL){
-		node->data->draw();
-		node = node->next;
-	}
+    appearancelist *node = appearances;
+    while (node != NULL){
+        node->data->draw();
+        node = node->next;
+    }
 }

@@ -1,20 +1,3 @@
-/*
- * $Id: particle.h,v 1.2 2002/07/19 20:33:28 msell Exp $
- *
- *
- * $Log: particle.h,v $
- * Revision 1.2  2002/07/19 20:33:28  msell
- * #pragma once -> #ifndef
- *
- * Revision 1.1  2002/07/19 12:10:53  msell
- * Hups
- *
- *
- *
- * $Date: 2002/07/19 20:33:28 $
- *
- */
-
 #ifndef __PARTICLE_H_INCLUDED__
 #define __PARTICLE_H_INCLUDED__
 
@@ -27,26 +10,26 @@ class BloodAppearance;
 
 class Particle : public MeshObject{
 private:
-	int bounces;
-	bool enabled;
+    int bounces;
+    bool enabled;
 
-	World *world;
+    World *world;
 
-	bool alive;
+    bool alive;
 
 public:
-	int lifetime;
-	int id;
+    int lifetime;
+    int id;
 
-	Particle(World *world, Mesh *mesh);
+    Particle(World *world, Mesh *mesh);
 
-	void move(void);
+    void move(void);
 
-	void hitForce(float speed, Object *source);
+    void hitForce(float speed, Object *source);
 
 
-	void create(float *position, float *velocity);
-	void destroy(void);
+    void create(float *position, float *velocity);
+    void destroy(void);
 };
 
 
@@ -57,12 +40,12 @@ public:
 
 class BloodAppearance : public BasicBlockAppearance{
 private:
-	int *lifetime;
+    int *lifetime;
 
 public:
-	BloodAppearance(int *lifetime);
+    BloodAppearance(int *lifetime);
 
-	void draw(void);
+    void draw(void);
 };
 
 void initBloods(World *world);
