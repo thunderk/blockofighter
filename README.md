@@ -3,9 +3,7 @@ BlockoFighter
 
 A 3D two-player arena combat game, featuring characters similar to a popular construction toy.
 
-![ScreenShot1](screens/screenshot1.jpg)
-![ScreenShot2](screens/screenshot2.jpg)
-![ScreenShot3](screens/screenshot3.jpg)
+![ScreenShot1](screens/screenshot1.jpg) ![ScreenShot2](screens/screenshot2.jpg) ![ScreenShot3](screens/screenshot3.jpg)
 
 About
 -----
