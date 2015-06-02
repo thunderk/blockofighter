@@ -46,5 +46,6 @@ public:
 void initBloods(World *world);
 void createBlood(float *position, float *velocity);
 void removeBlood(int id);
+void removeAllBlood();
 
 #endif

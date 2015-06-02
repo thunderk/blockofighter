@@ -79,18 +79,19 @@ void Sound::load(char *filename, int type, bool loops) {
     this->loops = false;
   } else if (type == SOUNDTYPE_SAMPLE) {
     if (loops) {
-      sample = FSOUND_Sample_Load(FSOUND_FREE, filename, FSOUND_LOOP_NORMAL, 0);
-      FSOUND_Sample_SetLoopMode(sample, FSOUND_LOOP_NORMAL);
+      sample =
+          FSOUND_Sample_Load(FSOUND_FREE, filename, FSOUND_LOOP_NORMAL, 0, 0);
+      FSOUND_Sample_SetMode(sample, FSOUND_LOOP_NORMAL);
     } else {
-      sample = FSOUND_Sample_Load(FSOUND_FREE, filename, FSOUND_LOOP_OFF, 0);
-      FSOUND_Sample_SetLoopMode(sample, FSOUND_LOOP_OFF);
+      sample = FSOUND_Sample_Load(FSOUND_FREE, filename, FSOUND_LOOP_OFF, 0, 0);
+      FSOUND_Sample_SetMode(sample, FSOUND_LOOP_OFF);
     }
     this->loops = loops;
   } else if (type == SOUNDTYPE_STREAM) {
     if (loops) {
-      stream = FSOUND_Stream_OpenFile(filename, FSOUND_LOOP_NORMAL, 0);
+      stream = FSOUND_Stream_Open(filename, FSOUND_LOOP_NORMAL, 0, 0);
     } else {
-      stream = FSOUND_Stream_OpenFile(filename, FSOUND_LOOP_OFF, 0);
+      stream = FSOUND_Stream_Open(filename, FSOUND_LOOP_OFF, 0, 0);
     }
     this->loops = loops;
   }
@@ -116,17 +117,17 @@ bool Sound::play() {
 #ifdef AUDIO_FMOD
   if (type == SOUNDTYPE_MODULE) {
     FMUSIC_PlaySong(module);
-    FMUSIC_SetMasterVolume(module, volume * 256);
+    FMUSIC_SetMasterVolume(module, (int)(volume * 256));
   } else if (type == SOUNDTYPE_SAMPLE) {
     channel = FSOUND_PlaySound(FSOUND_FREE, sample);
-    FSOUND_SetVolume(channel, volume * 256);
+    FSOUND_SetVolume(channel, (int)(volume * 256));
     if (!loops) {
       running = false;
       finished = false;
     }
   } else if (type == SOUNDTYPE_STREAM) {
     channel = FSOUND_Stream_Play(FSOUND_FREE, stream);
-    FSOUND_SetVolume(channel, volume * 256);
+    FSOUND_SetVolume(channel, (int)(volume * 256));
   }
 #endif
   // printf("Done: %f\n", volume);
@@ -151,14 +152,13 @@ void Sound::stop() {
 }
 
 void Sound::setVolume(float volume) {
-// printf("Volume %s: %f\n", filename, volume);
 #ifdef AUDIO_FMOD
   if (type == SOUNDTYPE_MODULE) {
-    FMUSIC_SetMasterVolume(module, volume * 256);
+    FMUSIC_SetMasterVolume(module, (int)(volume * 256));
   } else if (type == SOUNDTYPE_SAMPLE) {
-    FSOUND_SetVolume(channel, volume * 256);
+    FSOUND_SetVolume(channel, (int)(volume * 256));
   } else if (type == SOUNDTYPE_STREAM) {
-    FSOUND_SetVolume(channel, volume * 256);
+    FSOUND_SetVolume(channel, (int)(volume * 256));
   }
 #endif
   this->volume = volume;
@@ -180,7 +180,8 @@ void Sound::setStopCallback(STOPCALLBACK callback) {
   } else if (type == SOUNDTYPE_SAMPLE) {
     // NOT SUPPORTED
   } else if (type == SOUNDTYPE_STREAM) {
-    FSOUND_Stream_SetEndCallback(stream, streamendcallback, (int)this);
+    // FSOUND_Stream_SetEndCallback(stream,
+    // (FSOUND_STREAMCALLBACK)streamendcallback, (int)this);
   }
 #endif
 }
@@ -240,7 +241,7 @@ void Sound::fadeIn(int length) {
 void Sound::fadeOut(int length) {
   if (fademode == SOUND_FADEIN) {
     float percent = 1.0 - (float)fadepos / fadetarget;
-    fadepos = fadetarget * percent;
+    fadepos = (int)(fadetarget * percent);
   }
   fadepos = 0;
   fadetarget = length;

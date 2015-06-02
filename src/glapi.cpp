@@ -58,5 +58,7 @@ void setupOpengl(int width, int height) {
 
   gluPerspective(60.0, ratio, 1.0, 1024.0);
 
+  glColorMask(true, true, true, true);
+
   // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }

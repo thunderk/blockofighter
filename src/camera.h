@@ -1,6 +1,8 @@
 #ifndef __CAMERA_H_INCLUDED__
 #define __CAMERA_H_INCLUDED__
 
+#include "object.h"
+
 class Camera {
 private:
   float position[3];
@@ -8,11 +10,23 @@ private:
   float matrix[9];
   float *right, *up, *forward;
 
+  float positionang[3]; // position angulaire actuelle
+  float optimalposition[3]; // position angulaire que doit atteindre la caméra
+  // desc: {angh, dist, h}
+
+  bool end; // controle si c'est une caméra placée pour la mort
+
   void calculateMatrix(void);
 
 public:
   Camera(void);
 
+  void setStart();
+
+  void setAutoNormal(Object *obj1, Object *obj2, bool finish);
+  void setAutoCastOut(Object *obj);
+  void setAutoBeheaded(Object *head, float angle);
+  void setAutoFallHead(Object *head, Object *torso);
   void setPosition(float position[3]);
   void setPosition(float x, float y, float z);
   void getPosition(float *position);

@@ -37,7 +37,7 @@ void Particle::move(void) {
   int i;
   vectorSet(contact->normal, 0, 1, 0);
   contact->object2 = NULL;
-  bool die = false;
+  // UNUSED//bool die = false;
   for (i = 0; i < mesh->vertexcount; i++) {
     float point[3];
     transformPoint(point, mesh->vertices[i].position);
@@ -149,4 +149,10 @@ void removeBlood(int id) {
   bloodparticles[id]->id = id;
   bloodparticles[bloodcount - 1] = particle;
   bloodcount--;
+}
+
+void removeAllBlood() {
+  while (bloodcount > 0) {
+    removeBlood(0);
+  }
 }

@@ -2,6 +2,7 @@
 
 #include "font.h"
 #include "glapi.h"
+#include <string.h>
 
 Texture *fonttexture;
 
@@ -62,7 +63,7 @@ void print(float x, float y, char *text, float size) {
   float px = x;
   float py = y;
   for (i = 0; i < textlength; i++) {
-    char ch = text[i];
+    unsigned char ch = text[i];
     if (ch == '\n') {
       px = x;
       py += size * 1.2;

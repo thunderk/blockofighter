@@ -284,7 +284,7 @@ bool handleLink(ObjectLink *link) {
 bool checkCollisions(Object *object, float *contactnormal) {
   // bool collision = false;
   int group = object->getCollisionGroup();
-  int groups = collisionlinks[group];
+  // UNUSED//int groups = collisionlinks[group];
   group = 0;
   int collisions = 0;
   /*float oldmomentum[3];
@@ -652,8 +652,8 @@ bool checkEdgeMeshCollision(float *p1, float *p2, Mesh *mesh, float *normal,
   float ray[3];
   vectorSub(ray, p2, p1);
 
-  float maxdist = 0;
-  bool collision = false;
+  // UNUSED//float maxdist = 0;
+  // UNUSED//bool collision = false;
 
   int i, j;
 
@@ -688,7 +688,7 @@ bool checkEdgeMeshCollision(float *p1, float *p2, Mesh *mesh, float *normal,
   int negative = -1, positive = -1;
 
   for (i = 0; i < hitcount; i++) {
-    float t = hits[i].t;
+    // UNUSED//float t = hits[i].t;
     class Polygon *polygon = hits[i].polygon;
 
     float dot = vectorDot(ray, polygon->planenormal);

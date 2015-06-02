@@ -69,9 +69,9 @@ void Light::setEnabled(bool enabled) {
 
 void Light::glUpdate(void) { glLightfv(glnum, GL_POSITION, position); }
 
-extern Camera camera;
+// extern Camera camera;
 
-void Light::createFlare(void) {
+void Light::createFlare(Camera *camera) {
   glPushMatrix();
 
   GLint viewport[4];
@@ -94,8 +94,8 @@ void Light::createFlare(void) {
   cz/=len;*/
   float dir[3];
   float cameratarget[3], cameraposition[3];
-  camera.getTarget(cameratarget);
-  camera.getPosition(cameraposition);
+  camera->getTarget(cameratarget);
+  camera->getPosition(cameraposition);
   vectorSub(dir, cameratarget, cameraposition);
   vectorNormalize(dir);
 

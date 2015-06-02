@@ -2,8 +2,7 @@
 #define __COLLISION_H_INCLUDED__
 
 #include "mesh.h"
-
-class ObjectLink;
+#include "world.h"
 
 #define COLLISIONGROUP_NONE 0
 #define COLLISIONGROUP_ARENA 1

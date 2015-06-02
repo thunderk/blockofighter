@@ -37,6 +37,8 @@ private:
 public:
   World(void);
 
+  void setGravity(float grav);
+
   void prepare(void);
   void move(void);
   void draw(void);

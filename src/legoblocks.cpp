@@ -312,7 +312,7 @@ void FlowerAppearance::prepare(void) {
     glRotatef(90, 1, 0, 0);
     glTranslatef(0, BLOCKHEIGHT * (3 + i * 0.7), 0);
 
-    float r, g, b;
+    float r = 0.0, g = 0.0, b = 0.0;
     switch (colors[i]) {
     case FLOWER_RED:
       r = 1.0;

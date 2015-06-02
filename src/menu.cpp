@@ -213,7 +213,7 @@ int rletter[5][4] = {
     float z = 0.5;
     int i, j;
     int dx = -15;
-    int dy = BLOCKHEIGHT * (4 * 3 + 1);
+    int dy = (int)(BLOCKHEIGHT * (4 * 3 + 1));
     int dz = -5;
     for (i = 0; i < LETTERCOUNT; i++) {
       int size = lettersizes[i];
@@ -277,7 +277,7 @@ int rletter[5][4] = {
 
     changesound = new Sound(DATAPATH "menuchange.wav");
     selectsound = new Sound(DATAPATH "menuselect.wav");
-    menumusic = new Sound(DATAPATH "menu.mp3", true);
+    menumusic = new Sound(DATAPATH "menu.ogg", true);
   }
 
   titleworld->prepare();
@@ -311,15 +311,16 @@ int oldresolution;
 int resolution = 2;
 bool fullscreen = false;
 int olddetail;
-int detail = 2;
+int detail = 3;
 
-#define RESOLUTIONCOUNT 6
+#define RESOLUTIONCOUNT 7
 int resolutions[RESOLUTIONCOUNT][2] = {{640, 480},
                                        {800, 600},
                                        {1024, 768},
                                        {1280, 960},
                                        {1280, 1024},
-                                       {1600, 1200}};
+                                       {1600, 1200},
+                                       {1920, 1080}};
 
 #define DETAILCOUNT 4
 char *details[DETAILCOUNT] = {"Off", "Low", "Medium", "High"};
@@ -434,6 +435,9 @@ void calculateMenu(int framecount) {
                           sin(framecount * 0.0033) * 2 + 15,
                           cos(framecount * 0.001) * 2 + 25);
   titlecamera.setTarget(cameratarget);
+
+  // titlelight.setPosition(sin(framecount*0.01)*5-4, sin(framecount*0.017)*5+5,
+  // cos(framecount*0.01)*5+5);
 
   titleworld->move();
 
@@ -605,7 +609,7 @@ void drawMenu(int framecount) {
   titleworld->draw();
 
   flaretexture->enable();
-  titlelight.createFlare();
+  titlelight.createFlare(&titlecamera);
   flaretexture->disable();
 
   /*//2D-view
@@ -622,7 +626,7 @@ void drawMenu(int framecount) {
   enable2D();
 
   glColor3f(1, 1, 1);
-  print(0.73, 0.55, "Programming:\n"
+  print(0.73, 0.58, "Programming:\n"
                     "  Miika Sell\n"
                     "  Juha Kaarlas\n"
                     "\n"
@@ -636,7 +640,7 @@ void drawMenu(int framecount) {
 
   print(0.35, 0.965, "http://blockofighter.kicks-ass.net/", 0.02);
 
-  print(0.88, 0.96, "Version 2.0", 0.02);
+  print(0.86, 0.96, "Version 2.0", 0.02);
 
   tuxtexture->enable();
   glEnable(GL_BLEND);
@@ -663,7 +667,7 @@ void drawMenu(int framecount) {
   tuxtexture->disable();
 
   glColor3f(1, 1, 1);
-  print(0.88, 0.12, "supported", 0.02);
+  print(0.88, 0.12, "powaaaaaa", 0.02);
 
   glEnable(GL_BLEND);
   glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);

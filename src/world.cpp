@@ -4,6 +4,8 @@
 #include "collision.h"
 #include "vector.h"
 
+float GRAVITY = 9.81;
+
 World::World(void) {
   childlist = NULL;
   linklist = NULL;
@@ -35,8 +37,9 @@ void World::prepare(void) {
   contacts = new Contact[MAXCONTACTS]; // childcount*childcount];
 }
 
-#define GRAVITY 9.81
-//#define GRAVITY 15
+//#define GRAVITY 1
+
+void World::setGravity(float grav) { GRAVITY = grav; };
 
 void World::move(void) {
   int i, j;

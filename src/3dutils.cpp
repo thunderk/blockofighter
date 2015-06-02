@@ -214,11 +214,14 @@ void createSkyBox(float x, float y, float z, float w, float h, float l) {
   glEnable(GL_TEXTURE_2D);
   glClear(GL_DEPTH_BUFFER_BIT);
   glDisable(GL_DEPTH_TEST);
-  glDisable(GL_BLEND);
   glDisable(GL_CULL_FACE);
   glDisable(GL_ALPHA_TEST);
   glDisable(GL_LIGHTING);
   glShadeModel(GL_FLAT);
+
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  glColor4f(1.0, 1.0, 1.0, 0.5);
 
   float modelview[16];
 
@@ -243,8 +246,6 @@ void createSkyBox(float x, float y, float z, float w, float h, float l) {
     skybacktexture->enable();
 
     glBegin(GL_QUADS);
-    glColor4f(1, 1, 1, 1.0);
-
     glTexCoord2f(1 - d, 1 - d);
     glVertex3f(x + w, y, z);
     glTexCoord2f(1 - d, 0 + d);
@@ -260,9 +261,6 @@ void createSkyBox(float x, float y, float z, float w, float h, float l) {
     skyfronttexture->enable();
 
     glBegin(GL_QUADS);
-
-    glColor4f(1, 1, 1, 1.0);
-
     glTexCoord2f(1 - d, 1 - d);
     glVertex3f(x, y, z + l);
     glTexCoord2f(1 - d, 0 + d);
@@ -277,8 +275,6 @@ void createSkyBox(float x, float y, float z, float w, float h, float l) {
     skytoptexture->enable();
 
     glBegin(GL_QUADS);
-    glColor4f(1, 1, 1, 1.0);
-
     glTexCoord2f(0 + d, 0 + d);
     glVertex3f(x + w, y + h, z + l);
     glTexCoord2f(1 - d, 0 + d);
@@ -298,8 +294,6 @@ void createSkyBox(float x, float y, float z, float w, float h, float l) {
     skybottomtexture->enable();
 
     glBegin(GL_QUADS);
-    glColor4f(1, 1, 1, 1.0);
-
     glTexCoord2f(1 - d, 0 + d);
     glVertex3f(x, y, z);
     glTexCoord2f(1 - d, 1 - d);
@@ -315,7 +309,6 @@ void createSkyBox(float x, float y, float z, float w, float h, float l) {
     skylefttexture->enable();
 
     glBegin(GL_QUADS);
-    glColor4f(1, 1, 1, 1.0);
     glTexCoord2f(1 - d, 0 + d);
     glVertex3f(x, y + h, z);
     glTexCoord2f(0 + d, 0 + d);
@@ -331,7 +324,6 @@ void createSkyBox(float x, float y, float z, float w, float h, float l) {
     skyrighttexture->enable();
 
     glBegin(GL_QUADS);
-    glColor4f(1, 1, 1, 1.0);
     glTexCoord2f(0 + d, 1 - d);
     glVertex3f(x + w, y, z);
     glTexCoord2f(1 - d, 1 - d);
@@ -351,6 +343,7 @@ void createSkyBox(float x, float y, float z, float w, float h, float l) {
   glDisable(GL_TEXTURE_2D);
   glEnable(GL_LIGHTING);
   glShadeModel(GL_SMOOTH);
+  glDisable(GL_BLEND);
 }
 
 void enable2D(void) {

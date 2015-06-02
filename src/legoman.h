@@ -45,8 +45,12 @@ private:
 
   int immortal;
 
+  bool isInContact();
+
 public:
   BodyPart(Legoman *parent, float strength);
+
+  inline bool isAttached() { return attached; }
 
   void move(void);
 
@@ -117,7 +121,6 @@ private:
   int hitside;
 
   bool jumpenabled;
-  int hitcounter;
 
   World *world;
 
@@ -133,6 +136,12 @@ private:
 
 public:
   Legoman(int side);
+
+  inline Object *getMainObject() { return (Object *)torso; }
+  inline Object *getHead() { return (Object *)head; }
+  inline bool isBeheaded() { return not(Object *)head->isAttached(); }
+
+  bool isOutOfRing(void); // TK
 
   void insertToWorld(World *world);
   void heal(void);
@@ -161,6 +170,7 @@ public:
 
   bool isAlive(void);
   Legoman *getOpponent(void);
+  int hitcounter;
 
   void drawVisuals();
 

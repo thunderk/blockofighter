@@ -4,6 +4,10 @@
 #include <SDL.h>
 #include "audio.h"
 #include "legoman.h"
+#include "camera.h"
+
+#define ARENASIZE 10
+#define ARENAHEIGHT 10
 
 extern Sound *fightmusic;
 extern Sound *hitsound1;

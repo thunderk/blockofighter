@@ -5,6 +5,7 @@
 #include "run.h"
 #include "fight.h"
 #include "menu.h"
+#include "camera.h"
 #include "end.h"
 #include "graphics.h"
 #include "3dutils.h"
@@ -74,7 +75,7 @@ void drawFrame(int framecount) {
   if (changed)
     calculateFrame(framecount);
 
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  /*glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);*/
 
   glMatrixMode(GL_MODELVIEW);
 
@@ -86,6 +87,7 @@ void drawFrame(int framecount) {
     drawFight(framecount);
     break;
   case ENDMODE:
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     drawEnd(framecount);
     break;
   }

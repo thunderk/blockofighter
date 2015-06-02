@@ -17,7 +17,8 @@ SRC = 3dutils.cpp appearance.cpp audio.cpp camera.cpp collision.cpp \
 		fight.cpp font.cpp glapi.cpp graphics.cpp legoblocks.cpp \
 		legoman.cpp light.cpp main.cpp material.cpp menu.cpp mesh.cpp \
 		object.cpp objectfactory.cpp particle.cpp run.cpp shape.cpp \
-		sphere.cpp texture.cpp utils.cpp vector.cpp world.cpp end.cpp
+		sphere.cpp texture.cpp utils.cpp vector.cpp world.cpp end.cpp \
+		fonct.cpp
 
 		
 OBJ = $(SRC:%.cpp=src/%.o)

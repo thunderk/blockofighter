@@ -234,9 +234,9 @@ Mesh *loadAscModel(char *filename, float scale, float *offset) {
   fread(data, size, 1, file);
   fclose(file);
   char *vert = findStringEnd(data, "Vertices:");
-  target->vertexcount = getValueFromString(vert);
+  target->vertexcount = (int)getValueFromString(vert);
   char *face = findStringEnd(data, "Faces:");
-  target->polygoncount = getValueFromString(face);
+  target->polygoncount = (int)getValueFromString(face);
   target->vertices = new Vertex[target->vertexcount];
   target->polygons = new class Polygon[target->polygoncount];
 
@@ -267,7 +267,7 @@ Mesh *loadAscModel(char *filename, float scale, float *offset) {
   for (i = 0; i < target->polygoncount; i++) {
     face = findStringEnd(face, "Face");
     face = findStringEnd(face, "A:");
-    vnum = getValueFromString(face);
+    vnum = (int)getValueFromString(face);
     target->polygons[i].vertexcount = 3;
     target->polygons[i].vertices = new Vertex *[3];
     target->polygons[i].vertices[0] = &(target->vertices[vnum]);
@@ -275,13 +275,13 @@ Mesh *loadAscModel(char *filename, float scale, float *offset) {
         target->vertices[vnum].texcoords[0],
         target->vertices[vnum].texcoords[1]);
     face = findStringEnd(face, "B:");
-    vnum = getValueFromString(face);
+    vnum = (int)getValueFromString(face);
     target->polygons[i].vertices[1] = &(target->vertices[vnum]);
     target->polygons[i].vertices[1]->setTexCoords(
         target->vertices[vnum].texcoords[0],
         target->vertices[vnum].texcoords[1]);
     face = findStringEnd(face, "C:");
-    vnum = getValueFromString(face);
+    vnum = (int)getValueFromString(face);
     target->polygons[i].vertices[2] = &(target->vertices[vnum]);
     target->polygons[i].vertices[2]->setTexCoords(
         target->vertices[vnum].texcoords[0],

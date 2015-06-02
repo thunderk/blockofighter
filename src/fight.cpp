@@ -1,5 +1,6 @@
 #include "main.h"
 
+#include <stdlib.h>
 #include <math.h>
 
 #include "legoblocks.h"
@@ -39,12 +40,21 @@ Sound *fightsound;
 Sound *victorysound;
 
 Legoman *man1, *man2;
+Legoman *manout = NULL;
+Legoman *beheaded = NULL;
 int points1, points2;
 
-#define ARENASIZE 10
-#define ARENAHEIGHT 10
+int startcounter, endcounter, rockcounter = 0;
+
+float fightfade;
+
+bool dead;
+
+Legoman *winner;
 
 bool fightinitialized = false;
+
+void resetFight(void); // prototype
 
 void initFight(void) {
   if (!fightinitialized) {
@@ -70,8 +80,8 @@ void initFight(void) {
     addCollisionLink(COLLISIONGROUP_MAN1HAND, COLLISIONGROUP_MAN2HAND);
 
     // Sound* backgroundsong = new Sound("mixdown.mp3");
-    Sound *backgroundsong = new Sound(BGSONG, true);
-    camera.setPosition(-5, 8, 18);
+    // UNUSED//Sound* backgroundsong = new Sound(BGSONG, true);
+    // camera.setPosition(-5, 8, 18);
 
     arenaworld = new World();
 
@@ -174,7 +184,7 @@ void initFight(void) {
     Mesh *linegeometry;
     MultiAppearance *lineappearance;
     BasicBlockAppearance *line;
-    int geometryheight = BLOCKHEIGHT * ARENAHEIGHT;
+    int geometryheight = (int)(BLOCKHEIGHT * ARENAHEIGHT);
 
     linegeometry =
         createBox(-0.5, 0.5, -geometryheight / 2,
@@ -286,17 +296,19 @@ void initFight(void) {
     fightsound = new Sound(DATAPATH "fight.wav");
     victorysound = new Sound(DATAPATH "victory.wav");
 
-    fightmusic = new Sound(DATAPATH "fight.mp3", true);
+    fightmusic = new Sound(DATAPATH "fight.ogg", true);
   }
 
-  float cameraTarget[3] = {0, 6, 0};
-  camera.setTarget(cameraTarget);
+  // float cameraTarget[3] = {0, 6, 0};
+  // camera.setTarget(cameraTarget);
+  // camera.setStart();
   arenaworld->prepare();
+
+  resetFight();
 
   points1 = 0;
   points2 = 0;
 
-  winner = man1;
 }
 
 #define MAXSCORE 3
@@ -304,6 +316,7 @@ void initFight(void) {
 int trophycounter = -1;
 
 void resetFight(void) {
+  arenaworld->setGravity(9.81);
   float movement[3];
   man1->heal();
   man2->heal();
@@ -315,15 +328,20 @@ void resetFight(void) {
 
   man1->lockPart(LEFTLEG | RIGHTLEG);
   man2->lockPart(LEFTLEG | RIGHTLEG);
+
+  man1->getMainObject()->setGravity(true);
+  man1->getHead()->setGravity(true);
+  man2->getMainObject()->setGravity(true);
+  man2->getHead()->setGravity(true);
+
+  manout = NULL;
+  beheaded = NULL;
+
+  rockcounter = 0;
+
+  camera.setStart();
+  removeAllBlood();
 }
-
-int startcounter, endcounter;
-
-float fightfade;
-
-bool dead;
-
-Legoman *winner;
 
 void gameOver(Legoman *loser) {
   endcounter = 0;
@@ -351,12 +369,12 @@ SDLKey player1backward = SDLK_DOWN;
 SDLKey player1jump = SDLK_RSHIFT;
 SDLKey player1hit = SDLK_RCTRL;
 
-SDLKey player2left = SDLK_a;
-SDLKey player2right = SDLK_d;
-SDLKey player2forward = SDLK_w;
-SDLKey player2backward = SDLK_s;
-SDLKey player2jump = SDLK_LSHIFT;
-SDLKey player2hit = SDLK_LCTRL;
+SDLKey player2left = SDLK_f;
+SDLKey player2right = SDLK_h;
+SDLKey player2forward = SDLK_t;
+SDLKey player2backward = SDLK_g;
+SDLKey player2jump = SDLK_s;
+SDLKey player2hit = SDLK_x;
 
 void stopGame(void) {
   light1.setEnabled(false);
@@ -401,6 +419,7 @@ void calculateFight(int framecount) {
 
   if (endcounter == VICTORY) {
     victorysound->play();
+    setSpeedFactor(1.0); // TK
     if (winner == man1)
       points1++;
     if (winner == man2)
@@ -418,9 +437,39 @@ void calculateFight(int framecount) {
       dead = false;
       endcounter = 0;
     }
+  } else if (endcounter == 1) // ralenti au début de la mort
+  {
+    // Wythel
+    // arenaworld->setGravity(2.0);
+    if (man1->isBeheaded() &&
+        man1->getHead()->position[1] > ARENAHEIGHT / 2.0 - 2.0) {
+      man1->getMainObject()->setGravity(false);
+      man1->getHead()->setGravity(false);
+      beheaded = man1;
+      setSpeedFactor(0.0);
+    } else if (man2->isBeheaded() &&
+               man2->getHead()->position[1] > ARENAHEIGHT / 2.0 - 2.0) {
+      man2->getMainObject()->setGravity(false);
+      man2->getHead()->setGravity(false);
+      beheaded = man2;
+      setSpeedFactor(0.0);
+    } else {
+      setSpeedFactor(0.3);
+    }
+  } else if (endcounter == VICTORY / 4) {
+    setSpeedFactor(0.5);
+  } else if (endcounter == VICTORY / 2) {
+    setSpeedFactor(0.5); // au cas ou ca ait été modifié
+    man1->getMainObject()->setGravity(true);
+    man1->getHead()->setGravity(true);
+    man2->getMainObject()->setGravity(true);
+    man2->getHead()->setGravity(true);
   }
-  if (dead)
+
+  if (dead) {
     endcounter++;
+  }
+
   if (trophycounter != -1) {
     fightfade = (float)trophycounter / TROPHYFADE;
     trophycounter++;
@@ -433,13 +482,9 @@ void calculateFight(int framecount) {
       float vel[3] = {randomf(2)-1, randomf(2)-1, randomf(2)-1};
       createBlood(pos, vel);
   }*/
-  // arenalight.setPosition(sin(framecount*0.01)*6, 3, cos(framecount*0.01)*4);
   // light2.setPosition(sin(framecount*0.017)*6, 2, cos(framecount*0.027)*5);
   // light3.setPosition(sin(framecount*0.023)*3, 4, cos(framecount*0.013)*3);
 
-  camera.setPosition(sin(framecount * 0.0005) * 20,
-                     sin(framecount * 0.0013) * 5 + 15,
-                     cos(framecount * 0.0005) * 20);
 
   // camera.setPosition(8, 5, 5);
 
@@ -462,8 +507,12 @@ void calculateFight(int framecount) {
         man1->walk(-0.03);
       if (keys[player1jump])
         man1->jump();
-      if (keys[player1hit])
+      if (keys[player1hit]) {
         man1->hit();
+        man1->hitcounter = 1;
+      } else {
+        man1->hitcounter = 0;
+      }
     }
 
     if (man2->isAlive()) {
@@ -477,12 +526,17 @@ void calculateFight(int framecount) {
         man2->walk(-0.03);
       if (keys[player2jump])
         man2->jump();
-      if (keys[player2hit])
+      if (keys[player2hit]) {
         man2->hit();
+        man2->hitcounter = 1;
+      } else {
+        man2->hitcounter = 0;
+      }
     }
   }
 
   if (keys[SDLK_ESCAPE]) {
+    setSpeedFactor(1.0);
     stopGame();
   }
 
@@ -541,10 +595,10 @@ void drawFight(int framecount) {
   drawDamageMeters();
 
   flaretexture->enable();
-  light1.createFlare();
-  light2.createFlare();
-  light3.createFlare();
-  light4.createFlare();
+  light1.createFlare(&camera);
+  light2.createFlare(&camera);
+  light3.createFlare(&camera);
+  light4.createFlare(&camera);
   flaretexture->disable();
 
   enable2D();
@@ -598,6 +652,39 @@ void drawFight(int framecount) {
       glColor4f(0, 0, alpha, alpha);
       print(x, y, "Victory!", size);
     }
+
+    if (beheaded != NULL) {
+      /*            camera.setAutoBeheaded(((Legoman *)beheaded)->getHead(),
+         (float)M_PI * (float)(rockcounter++ % 80) / 40.0);
+                  if (rockcounter == 80)
+                  {
+                      beheaded = NULL;
+                      setSpeedFactor(0.25);
+                  }*/
+      if (rockcounter < 80) {
+        camera.setAutoBeheaded(((Legoman *)beheaded)->getHead(),
+                               (float)M_PI * (float)(rockcounter++ % 80) /
+                                   40.0);
+      } else if (rockcounter == 80) {
+        setSpeedFactor(0.25);
+        rockcounter++;
+      } else {
+        // camera.setAutoNormal(((Legoman *)beheaded)->getHead(), ((Legoman
+        // *)beheaded)->getOpponent()->getMainObject(), true);
+        camera.setAutoFallHead(((Legoman *)beheaded)->getHead(),
+                               ((Legoman *)beheaded)->getMainObject());
+      }
+    } else if (manout != NULL) {
+      camera.setAutoCastOut(manout->getMainObject());
+    } else if (man1->isOutOfRing()) {
+      manout = man1;
+    } else if (man2->isOutOfRing()) {
+      manout = man2;
+    } else {
+      camera.setAutoNormal(man1->getMainObject(), man2->getMainObject(), true);
+    }
+  } else {
+    camera.setAutoNormal(man1->getMainObject(), man2->getMainObject(), false);
   }
 
   disable2D();

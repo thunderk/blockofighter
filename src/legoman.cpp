@@ -13,6 +13,7 @@
 #include "utils.h"
 #include "particle.h"
 #include "fight.h"
+#include "fonct.h"
 #include "glapi.h"
 
 BodyPart::BodyPart(Legoman *parent, float strength) {
@@ -29,6 +30,8 @@ void BodyPart::reset(void) {
   vectorSet(momentum, 0, 0, 0);
   matrixIdentity(rotation);
   vectorSet(angularmomentum, 0, 0, 0);
+  vectorSet(velocity, 0, 0, 0);
+  vectorSet(angularvelocity, 0, 0, 0);
 }
 
 void BodyPart::move(void) {
@@ -87,6 +90,25 @@ void BodyPart::makeDamage(float amount) {
   immortal = 30;
 }
 
+bool BodyPart::isInContact() {
+  if (!isAttached())
+    return false;
+
+  Object *obj = (Object *)this;
+  int collgroup = obj->getCollisionGroup();
+
+  for (int i = 0; i < contactcount; i++) {
+    if (contacts[i].object1 == obj) {
+      if (contacts[i].object2->getCollisionGroup() != collgroup)
+        return true;
+    } else if (contacts[i].object2 == obj) {
+      if (contacts[i].object1->getCollisionGroup() != collgroup)
+        return true;
+    }
+  }
+  return false;
+}
+
 Sensor::Sensor() {}
 
 void Sensor::attach(Object *object, float *relativeposition) {
@@ -138,7 +160,7 @@ float leftLegOffset[3] = {0.1, 0.4, 0.0};
 Legoman::Legoman(int side) {
   this->side = side;
 
-  int collisiongroup, collisiongrouphand;
+  int collisiongroup = 0, collisiongrouphand = 0;
   if (side == PLAYER1) {
     collisiongroup = COLLISIONGROUP_MAN1;
     collisiongrouphand = COLLISIONGROUP_MAN1HAND;
@@ -161,11 +183,11 @@ Legoman::Legoman(int side) {
   // Legs
   Mesh *geomLegMesh = createBox(-0.45, 0.45, -BLOCKHEIGHT * LEGHEIGHT / 2.0,
                                 BLOCKHEIGHT * LEGHEIGHT / 2.0, -0.5, 0.5);
-  float tmpScale = 1.0;
+  // UNUSED//float tmpScale = 1.0;
 
   // Left leg
   {
-    leftleg = new BodyPart(this, 8);
+    leftleg = new BodyPart(this, 3);
     Mesh *leftLegMesh =
         loadAscModel((char *)LEFTLEGASC, MODELSCALE, leftLegOffset);
     MeshShape *leftLegGeom = new MeshShape(leftleg, geomLegMesh);
@@ -182,7 +204,7 @@ Legoman::Legoman(int side) {
 
   // Right leg
   {
-    rightleg = new BodyPart(this, 8);
+    rightleg = new BodyPart(this, 3);
     Mesh *rightLegMesh =
         loadAscModel((char *)RIGHTLEGASC, MODELSCALE, rightLegOffset);
     MeshShape *rightLegGeom = new MeshShape(rightleg, geomLegMesh);
@@ -219,7 +241,7 @@ Legoman::Legoman(int side) {
 
   // Torso
   {
-    torso = new BodyPart(this, 4);
+    torso = new BodyPart(this, 3);
     Mesh *torsoMesh = loadAscModel((char *)TORSOASC, TORSOSCALE);
     // int i;
     // for (i = 0; i < torsoMesh->polygoncount; i++)
@@ -248,7 +270,7 @@ Legoman::Legoman(int side) {
 
   // Left hand
   {
-    lefthand = new BodyPart(this, 5);
+    lefthand = new BodyPart(this, 2);
 
     Mesh *leftHandMesh =
         loadAscModel((char *)LEFTARMASC, MODELSCALE, leftHandOffset);
@@ -277,7 +299,7 @@ Legoman::Legoman(int side) {
 
   // Right hand
   {
-    righthand = new BodyPart(this, 5);
+    righthand = new BodyPart(this, 2);
     Mesh *rightHandMesh =
         loadAscModel((char *)RIGHTARMASC, MODELSCALE, rightHandOffset);
     Mesh *rightPalmMesh =
@@ -494,6 +516,9 @@ void Legoman::heal(void) {
                 (LEGHEIGHT + WAISTHEIGHT + TORSOHEIGHT + HEADHEIGHT / 2 + 0.5),
             0);
 
+  walkphase = 0;
+  jumpphase = 0;
+
   headsensor->attach(head);
   torsosensor->attach(torso);
 
@@ -657,12 +682,19 @@ void Legoman::update(void) {
   }
 
   /*if (jumpphase > 0){
-      jumpphase--;
+          jumpphase--;
   }*/
-  if (torso->momentum[1] < 0 && isOnGround()) {
+
+  // if (torso->momentum[1] < 0 && isOnGround()){
+  // if (torso->momentum[1] < 0 && (isStanding() || isOnGround())){
+  if (leftleg->isInContact() || rightleg->isInContact() ||
+      (torso->momentum[1] < 0 && isOnGround())) {
     jumpphase--;
-    if (jumpphase == 0)
+    if (jumpphase == 0) {
       jumpenabled = true;
+      leftleg->setGravity(true);
+      rightleg->setGravity(true);
+    }
   }
 
   if (hitside < 10)
@@ -690,7 +722,7 @@ void Legoman::updateLegs(void) {
   float temp[3];
   float angle;
 
-  walkphase = sfmod(walkphase, PI / LEGSPEED);
+  walkphase = (int)sfmod(walkphase, PI / LEGSPEED);
 
   // Left leg
   angle = sfmod(walkphase * LEGSPEED, PI);
@@ -722,9 +754,16 @@ void Legoman::walk(float amount) {
   else
     sign = -1;
 
-  walkphase += sign;
+  walkphase += (int)sign;
 
   updateLegs();
+
+  if (hitcounter && (jumpphase > 0)) {
+    float axis[3];
+    vectorScale(axis, &torso->rotation[0], -100.0 * amount);
+    vectorAdd(torso->angularmomentum, axis);
+    vectorSaturate(torso->angularmomentum, 0.0, 18.0);
+  }
 
   if (!isStanding())
     return;
@@ -750,7 +789,8 @@ void Legoman::walk(float amount) {
 
   vectorScale(xmove, 0.5);
   float wh = waist->position[1];
-  if (wh < WAISTHEIGHT + 1.0) {
+  if (wh < WAISTHEIGHT + 1.0 &&
+      (!isOutOfRing() || leftleg->isInContact() || rightleg->isInContact())) {
     float hd = WAISTHEIGHT + 1.0 - wh;
     vectorScale(ymove, ydir, hd * 10);
   }
@@ -767,90 +807,104 @@ void Legoman::walk(float amount) {
   vectorAdd(movement, ymove);
   vectorAdd(movement, zmove);
 
-  // if (isStanding() && isOnGround())
+  // if (!isOnGround() || isOutOfRing()) return;
 
   vectorCopy(torso->momentum, movement);
   vectorScale(movement, torso->invmass * waist->getMass());
   vectorCopy(waist->momentum, movement);
 
-  /*float speed = vectorDot(oldmomentum, movement);
-  float speedadd = 1;
-  float maxspeed = 5;
-  /*speed += speedadd;
-  if (speed > maxspeed) speed = maxspeed;
-  if (speed + speedadd > maxspeed){
-      speedadd = maxspeed - speed;
-  }
+  // TK: pour conserver le moment éventuel d'un saut
+  torso->momentum[1] = MAX(oldmomentum[1], torso->momentum[1]);
 
-  vectorScale(movement, speedadd);
-  if (waist->position[1] < WAISTHEIGHT + 1.0){
-      movement[1] = 3;
-  }
-  vectorAdd(torso->momentum, movement);*/
+// Wythel pour faire des saltos
+/*	if (jumpphase == 2 && hitcounter){
+            float axis[3];
+            vectorScale(axis, &torso->rotation[0], amount*-500);
+            vectorAdd(torso->angularmomentum, axis);
+    }*/
 
-  /*float proj[3];
-  vectorProject(proj, oldmomentum, movement);
-  float len = vectorLength(proj);
-  vectorAdd(movement, proj);
-  vectorSaturate(movement, 0,
+#if 0
+	float speed = vectorDot(oldmomentum, movement);
+	float speedadd = 1;
+	float maxspeed = 5;
+	/*speed += speedadd;
+	if (speed > maxspeed) speed = maxspeed;
+	if (speed + speedadd > maxspeed){
+		speedadd = maxspeed - speed;
+	}
 
-  movement[1] = 300;
-  //torso->addExternalForce(movement);
-}*/
+	vectorScale(movement, speedadd);
+	if (waist->position[1] < WAISTHEIGHT + 1.0){
+		movement[1] = 3;
+	}
+	vectorAdd(torso->momentum, movement);*/
 
-  /*float linkpoint[3];
-  vectorScale(linkpoint, &leftleg->rotation[3], -1);
-  vectorAdd(linkpoint, leftleg->position);*/
+		/*float proj[3];
+		vectorProject(proj, oldmomentum, movement);
+		float len = vectorLength(proj);
+		vectorAdd(movement, proj);
+		vectorSaturate(movement, 0, 
+		
+		movement[1] = 300;
+		//torso->addExternalForce(movement);
+	}*/
+	
+	/*float linkpoint[3];
+	vectorScale(linkpoint, &leftleg->rotation[3], -1);
+	vectorAdd(linkpoint, leftleg->position);*/
 
-  /*float movement[3];
-float temp[3];
-vectorScale(temp, &torso->rotation[3], amount*0.1);
-vectorScale(movement, &torso->rotation[6], amount);
-vectorAdd(movement, temp);
+		/*float movement[3];
+	float temp[3];
+	vectorScale(temp, &torso->rotation[3], amount*0.1);
+	vectorScale(movement, &torso->rotation[6], amount);
+	vectorAdd(movement, temp);
 
-if (walkphase == 0){
-  walkphase = 40;
-  vectorAdd(leftleg->momentum, movement);
-}
-if (walkphase == 20){
-  walkphase = 19;
-  vectorAdd(rightleg->momentum, movement);
-}*/
+	if (walkphase == 0){
+		walkphase = 40;
+		vectorAdd(leftleg->momentum, movement);
+	}
+	if (walkphase == 20){
+		walkphase = 19;
+		vectorAdd(rightleg->momentum, movement);
+	}*/
 
-  /*float axis[3];
-  vectorScale(axis, &leftleg->rotation[0], amount);
+	/*float axis[3];
+	vectorScale(axis, &leftleg->rotation[0], amount);
 
-  if (walkphase == 0){
-      //walkphase = 40;
-      vectorAdd(leftleg->angularmomentum, axis);
-      vectorAdd(rightleg->angularmomentum, axis);
-  }*/
-  /*if (walkphase == 0){
-      walkphase = 1;
-      vectorAdd(rightleg->momentum, movement);
-  }*/
-  /*float axis[3];
-  float movement[3];
+	if (walkphase == 0){
+		//walkphase = 40;
+		vectorAdd(leftleg->angularmomentum, axis);
+		vectorAdd(rightleg->angularmomentum, axis);
+	}*/
+	/*if (walkphase == 0){
+		walkphase = 1;
+		vectorAdd(rightleg->momentum, movement);
+	}*/
+	/*float axis[3];
+	float movement[3];
 
-  if (walkphase == 0){
-      unlockPart(LEFTLEG);
+	if (walkphase == 0){
+		unlockPart(LEFTLEG);
 
-      vectorScale(axis, &leftleg->rotation[0], 5);
-      vectorAdd(leftleg->angularmomentum, axis);
+		vectorScale(axis, &leftleg->rotation[0], 5);
+		vectorAdd(leftleg->angularmomentum, axis);
+		
+		float temp[3];
+		vectorScale(temp, &torso->rotation[6], -10);
+		vectorScale(movement, &torso->rotation[3], 5);
+		vectorAdd(movement, temp);
+		vectorAdd(torso->momentum, movement);
+		vectorAdd(leftleg->momentum, movement);
 
-      float temp[3];
-      vectorScale(temp, &torso->rotation[6], -10);
-      vectorScale(movement, &torso->rotation[3], 5);
-      vectorAdd(movement, temp);
-      vectorAdd(torso->momentum, movement);
-      vectorAdd(leftleg->momentum, movement);
+		walkphase = 40;
+	}*/
 
-      walkphase = 40;
-  }*/
+#endif
 }
 
 void Legoman::turn(float amount) {
   float axis[3];
+
   if (isStanding()) {
     vectorScale(axis, &torso->rotation[3], amount);
     vectorCopy(torso->angularmomentum, axis);
@@ -858,6 +912,13 @@ void Legoman::turn(float amount) {
     vectorScale(axis, &torso->rotation[3], amount * 0.3);
     vectorAdd(torso->angularmomentum, axis);
   }
+
+  if (hitcounter && (jumpphase == 2)) {
+    vectorScale(axis, &torso->rotation[6], amount * 2.0);
+    vectorAdd(torso->angularmomentum, axis);
+  }
+
+  vectorSaturate(torso->angularmomentum, 0.0, 18.0);
 }
 
 void Legoman::hit(void) {
@@ -883,10 +944,15 @@ void Legoman::hit(void) {
 
   float axis[3];
   if (hitside & 1) {
-    vectorScale(axis, &lefthand->rotation[0], 20);
+    // vectorScale(axis, &lefthand->rotation[0], 20.0);
+    // du bras à l'horizontal
+    vectorScale(axis, &lefthand->rotation[0],
+                20.0 / (1 + 3.0 * fabs(lefthand->rotation[1])));
     vectorCopy(lefthand->angularmomentum, axis);
   } else {
-    vectorScale(axis, &righthand->rotation[0], 20);
+    // vectorScale(axis, &righthand->rotation[0], 20.0);
+    vectorScale(axis, &righthand->rotation[0],
+                20.0 / (1 + 3.0 * fabs(righthand->rotation[1])));
     vectorCopy(righthand->angularmomentum, axis);
   }
 }
@@ -894,20 +960,49 @@ void Legoman::hit(void) {
 void Legoman::jump(void) {
   if (!leftleg->attached && !rightleg->attached)
     return;
-  if (jumpenabled) { // == 0 && isOnGround()){
+  if (jumpenabled &&
+      (!isOutOfRing() || leftleg->isInContact() || rightleg->isInContact())) {
     float r = BLOCKHEIGHT * HEADHEIGHT / 2;
     float strength = (2 * LEGHEIGHT + 2 * WAISTHEIGHT + 2 * TORSOHEIGHT +
                       2 * HANDHEIGHT + 4.0 * PI * r * r * r) /
                      3.0 * getInvMass();
     float jumpvector[3] = {0, 100.0 / strength, 0};
 
-    // vectorCopy(torso->momentum, jumpvector);
-    torso->momentum[1] = jumpvector[1];
-    head->momentum[1] = 0;      // jumpvector[1];
-    waist->momentum[1] = 0;     // jumpvector[1];
-    leftleg->momentum[1] = 0;   // jumpvector[1];
-    rightleg->momentum[1] = 0;  // jumpvector[1];
-    lefthand->momentum[1] = 0;  // jumpvector[1];
+    jumpvector[0] =
+        3.0 * ((float)opponent->torso->position[0] - (float)torso->position[0]);
+    jumpvector[2] =
+        3.0 * ((float)opponent->torso->position[2] - (float)torso->position[2]);
+
+    if (hitcounter) {
+      jumpvector[0] *= 3.0;
+      jumpvector[2] *= 3.0;
+      if (!isOnGround()) {
+        jumpvector[1] =
+            ((float)opponent->torso->position[1] - (float)torso->position[1]);
+      }
+      //          leftleg->setGravity(false);
+      //          rightleg->setGravity(false);
+    }
+
+    //#if 0
+    if ((!isOnGround()) && ((torso->position[0] < -(float)ARENASIZE + 1.0) ||
+                            (torso->position[0] > (float)ARENASIZE - 1.0) ||
+                            (torso->position[2] < -(float)ARENASIZE + 1.0) ||
+                            (torso->position[2] > (float)ARENASIZE - 1.0))) {
+      // le blocko est à peu près sur le rebord, on autorise le jump du dernier
+      // recours
+      jumpvector[0] += -5.0 * (float)torso->position[0];
+      jumpvector[2] += -5.0 * (float)torso->position[2];
+    }
+    //#endif
+
+    vectorCopy(torso->momentum, jumpvector);
+    // torso->momentum[1] = jumpvector[1];
+    head->momentum[1] = 0; // jumpvector[1];
+    waist->momentum[1] = 0; // jumpvector[1];
+    leftleg->momentum[1] = 0; // jumpvector[1];
+    rightleg->momentum[1] = 0; // jumpvector[1];
+    lefthand->momentum[1] = 0; // jumpvector[1];
     righthand->momentum[1] = 0; // jumpvector[1];
     // vectorSet(head->momentum, 0, 0, 0);
     // jumpphase = 150;
@@ -926,7 +1021,14 @@ bool Legoman::isOnGround(void) {
     return false;
   // if (fabs(head->momentum[1]) > 10) return false;
   // if (fabs(waist->momentum[1]) > 3) return false;
-  return true;
+  return not isOutOfRing();
+}
+
+bool Legoman::isOutOfRing(void) {
+  return ((torso->position[0] < -(float)ARENASIZE - 0.5) ||
+          (torso->position[0] > (float)ARENASIZE + 0.5) ||
+          (torso->position[2] < -(float)ARENASIZE - 0.5) ||
+          (torso->position[2] > (float)ARENASIZE + 0.5));
 }
 
 bool Legoman::isStanding(void) {

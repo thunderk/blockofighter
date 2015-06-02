@@ -1,6 +1,8 @@
 #ifndef __LIGHT_H_INCLUDED__
 #define __LIGHT_H_INCLUDED__
 
+#include "camera.h"
+
 class Light {
 private:
   float position[4];
@@ -21,7 +23,7 @@ public:
   void setAttenuation(float constant, float linear, float quadratic);
   void setEnabled(bool enabled);
   void glUpdate(void);
-  void createFlare(void);
+  void createFlare(Camera *camera);
 };
 
 void updateLights(void);
