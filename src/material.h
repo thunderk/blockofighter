@@ -4,26 +4,24 @@
 #include <SDL_image.h>
 #include "texture.h"
 
-class Material{
+class Material {
 private:
-  Texture* texture;
-    float color[4];
+  Texture *texture;
+  float color[4];
   bool enabled;
 
 public:
-    Material(void);
-    bool loadTexture(char *path);
+  Material(void);
+  bool loadTexture(char *path);
   void freeTexture(void);
 
-    void setColor(float red, float green, float blue, float alpha);
-    const float* getColor(void);
-    void enable(void);
+  void setColor(float red, float green, float blue, float alpha);
+  const float *getColor(void);
+  void enable(void);
   void disable(void);
   bool isEnabled(void);
-  Texture* getTexture(void);
-  void setTexture(Texture* tex);
-
+  Texture *getTexture(void);
+  void setTexture(Texture *tex);
 };
 
 #endif
-

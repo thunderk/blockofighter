@@ -6,5 +6,3 @@
 void setupOpengl(int width, int height);
 
 #endif
-
-

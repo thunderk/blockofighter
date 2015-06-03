@@ -10,22 +10,20 @@ class MeshShape;
 /*
  * Abstract class for object geometry
  */
-class Shape{
+class Shape {
 protected:
-    Object *object;
+  Object *object;
 
 public:
-    Shape(Object *object);
+  Shape(Object *object);
 
+  virtual float calculateMomentOfInertia(float *rotationvector) = 0;
 
-    virtual float calculateMomentOfInertia(float *rotationvector) = 0;
+  virtual bool checkCollision(Object *target);
 
-    virtual bool checkCollision(Object *target);
-
-    virtual bool checkCollisionPeer(Shape *target);
-    virtual bool checkCollisionPeer(SphereShape *target);
-    virtual bool checkCollisionPeer(MeshShape *target);
+  virtual bool checkCollisionPeer(Shape *target);
+  virtual bool checkCollisionPeer(SphereShape *target);
+  virtual bool checkCollisionPeer(MeshShape *target);
 };
 
 #endif
-

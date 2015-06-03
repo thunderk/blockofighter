@@ -25,4 +25,3 @@ void handleKeydownFight(SDLKey key);
 void addGraphicsVector(float *p1, float *p2, float size);
 
 #endif
-

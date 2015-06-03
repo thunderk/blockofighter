@@ -3,36 +3,33 @@
 
 #include <SDL_image.h>
 #include "main.h"
-class Texture{
+class Texture {
 
 public:
-
   Texture(void);
   Texture(int id);
   ~Texture(void);
 
-  bool loadImage(char* path);
-  bool loadImage(char* path, float *trans);
+  bool loadImage(char *path);
+  bool loadImage(char *path, float *trans);
   void enable(void);
   void disable(void);
   bool isEnabled(void);
   int getId(void);
   void setId(int id);
   bool isValidId(void);
-    void reload(void);
+  void reload(void);
 
-  //int* getOGLTexture(void);
-  //int* getModifiableOGLTexture(void);
+  // int* getOGLTexture(void);
+  // int* getModifiableOGLTexture(void);
 
 private:
-
   int textureId;
-  //int* modTexture;
+  // int* modTexture;
   bool enabled;
 
-    SDL_Surface *texture;
-    int format;
+  SDL_Surface *texture;
+  int format;
 };
 
 #endif
-

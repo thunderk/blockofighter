@@ -1,7 +1,6 @@
 #ifndef __UTILS_H_INCLUDED__
 #define __UTILS_H_INCLUDED__
 
-
 #define PI 3.14159265358979323846
 
 void swapInt(int *a, int *b);
@@ -13,4 +12,3 @@ double sdes(double val);
 double sfmod(double val, double mod);
 
 #endif
-

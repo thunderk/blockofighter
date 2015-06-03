@@ -23,175 +23,168 @@ class DamageVisual;
 #define LEFTHAND 4
 #define RIGHTHAND 8
 
-
-const char LEFTLEGASC[] = DATAPATH"blockolegscaled.asc";
-const char RIGHTLEGASC[] = DATAPATH"blockolegscaled.asc";
-const char WAISTASC[] = DATAPATH"blockowaistscaled.asc";
-const char TORSOASC[] = DATAPATH"blockotorsoscaled.asc";
-const char LEFTARMASC[] = DATAPATH"leftarm.asc";
-const char RIGHTARMASC[] = DATAPATH"rightarm.asc";
-const char LEFTPALMASC[] = DATAPATH"leftpalm.asc";
-const char RIGHTPALMASC[] = DATAPATH"rightpalm.asc";
-
+const char LEFTLEGASC[] = DATAPATH "blockolegscaled.asc";
+const char RIGHTLEGASC[] = DATAPATH "blockolegscaled.asc";
+const char WAISTASC[] = DATAPATH "blockowaistscaled.asc";
+const char TORSOASC[] = DATAPATH "blockotorsoscaled.asc";
+const char LEFTARMASC[] = DATAPATH "leftarm.asc";
+const char RIGHTARMASC[] = DATAPATH "rightarm.asc";
+const char LEFTPALMASC[] = DATAPATH "leftpalm.asc";
+const char RIGHTPALMASC[] = DATAPATH "rightpalm.asc";
 
 #define MODELSCALE 0.12
 #define TORSOSCALE 0.115
 
-
-class BodyPart : public Object{
+class BodyPart : public Object {
 private:
-    float energy;
-    float strength;
-    Legoman *parent;
+  float energy;
+  float strength;
+  Legoman *parent;
 
-    bool attached;
+  bool attached;
 
-    int immortal;
+  int immortal;
 
 public:
-    BodyPart(Legoman *parent, float strength);
+  BodyPart(Legoman *parent, float strength);
 
-    void move(void);
+  void move(void);
 
-    void hitForce(float speed, float *speed2, Object *source);
+  void hitForce(float speed, float *speed2, Object *source);
 
-    void makeDamage(float amount);
+  void makeDamage(float amount);
 
-    void reset(void);
+  void reset(void);
 
-    friend class DamageVisual;
-    friend class Legoman;
+  friend class DamageVisual;
+  friend class Legoman;
 };
 
-class Sensor{
+class Sensor {
 private:
-    float relativeposition[3];
-    Object *object;
+  float relativeposition[3];
+  Object *object;
 
-    float position[3], oldposition[3];
-    float velocity[3], oldvelocity[3];
-    float acceleration[3];
+  float position[3], oldposition[3];
+  float velocity[3], oldvelocity[3];
+  float acceleration[3];
 
 public:
-    Sensor();
+  Sensor();
 
-    void attach(Object *object, float *relativeposition);
-    void attach(Object *object);
-    void update(void);
+  void attach(Object *object, float *relativeposition);
+  void attach(Object *object);
+  void update(void);
 
-    void getPosition(float *target);
-    void getVelocity(float *target);
-    void getAcceleration(float *target);
+  void getPosition(float *target);
+  void getVelocity(float *target);
+  void getAcceleration(float *target);
 };
 
-class Legoman{
+class Legoman {
 private:
-    int side;
+  int side;
 
-    bool alive;
+  bool alive;
 
-    BodyPart *head;
-    BodyPart *torso;
-    BodyPart *waist;
-    BodyPart *lefthand, *righthand;
-    BodyPart *leftleg, *rightleg;
+  BodyPart *head;
+  BodyPart *torso;
+  BodyPart *waist;
+  BodyPart *lefthand, *righthand;
+  BodyPart *leftleg, *rightleg;
 
-    DamageVisual *headvisual;
-    DamageVisual *torsovisual;
-    DamageVisual *lefthandvisual, *righthandvisual;
-    DamageVisual *leftlegvisual, *rightlegvisual;
+  DamageVisual *headvisual;
+  DamageVisual *torsovisual;
+  DamageVisual *lefthandvisual, *righthandvisual;
+  DamageVisual *leftlegvisual, *rightlegvisual;
 
-    ObjectLink *leftleglink, *rightleglink;
-    ObjectLink *lefthandlink, *righthandlink;
-    ObjectLink *lll, *rll;
+  ObjectLink *leftleglink, *rightleglink;
+  ObjectLink *lefthandlink, *righthandlink;
+  ObjectLink *lll, *rll;
 
-    ObjectLink *leftleglinks[3], *rightleglinks[3];
-    ObjectLink *lefthandlinks[3], *righthandlinks[3];
-    ObjectLink *headlinks[3];
+  ObjectLink *leftleglinks[3], *rightleglinks[3];
+  ObjectLink *lefthandlinks[3], *righthandlinks[3];
+  ObjectLink *headlinks[3];
 
-    objectlist *harmfulobjects;
+  objectlist *harmfulobjects;
 
-    Legoman *opponent;
+  Legoman *opponent;
 
-    Sensor *headsensor, *torsosensor;
+  Sensor *headsensor, *torsosensor;
 
-    int walkphase, walkdelay;
-    int jumpphase;
-    int hitside;
+  int walkphase, walkdelay;
+  int jumpphase;
+  int hitside;
 
-    bool jumpenabled;
-    int hitcounter;
+  bool jumpenabled;
+  int hitcounter;
 
-    World *world;
+  World *world;
 
-    void balance(void);
-    void updateLegs(void);
-    bool isStanding(void);
-    bool isOnGround(void);
-    float getInvMass(void);
+  void balance(void);
+  void updateLegs(void);
+  bool isStanding(void);
+  bool isOnGround(void);
+  float getInvMass(void);
 
-    void fallOff(void);
-    void releasePart(BodyPart *part);
-    void die(void);
+  void fallOff(void);
+  void releasePart(BodyPart *part);
+  void die(void);
 
 public:
-    Legoman(int side);
+  Legoman(int side);
 
-    void insertToWorld(World *world);
-    void heal(void);
+  void insertToWorld(World *world);
+  void heal(void);
 
-    void addHarmfulObject(Object *object);
-    bool isHarmfulObject(Object *object);
+  void addHarmfulObject(Object *object);
+  bool isHarmfulObject(Object *object);
 
-    void addOpponent(Legoman *opponent);
+  void addOpponent(Legoman *opponent);
 
-    //Call once per frame
-    void update(void);
+  // Call once per frame
+  void update(void);
 
-    //Lock both legs at the same time by calling
-    //lockLeg(LEFTLEG | RIGHTLEG);
-    void lockPart(int part);
-    void unlockPart(int part);
+  // Lock both legs at the same time by calling
+  // lockLeg(LEFTLEG | RIGHTLEG);
+  void lockPart(int part);
+  void unlockPart(int part);
 
-    //Relative movement
-    void move(float *movement);
+  // Relative movement
+  void move(float *movement);
 
-    void turn(float amount);
-    void walk(float amount);
+  void turn(float amount);
+  void walk(float amount);
 
-    void jump(void);
-    void hit(void);
+  void jump(void);
+  void hit(void);
 
-    bool isAlive(void);
-    Legoman *getOpponent(void);
+  bool isAlive(void);
+  Legoman *getOpponent(void);
 
-    void drawVisuals();
+  void drawVisuals();
 
-    friend class BodyPart;
-    friend void drawEnd(int framecount);
+  friend class BodyPart;
+  friend void drawEnd(int framecount);
 };
-
-
 
 extern Texture *damageHead;
 extern Texture *damageTorso;
 extern Texture *damageHand;
 extern Texture *damageLeg;
 
-
-class DamageVisual{
+class DamageVisual {
 private:
-    BodyPart *object;
-    float x1, y1, x2, y2;
-    float tx1, ty1, tx2, ty2;
-    Texture *texture;
+  BodyPart *object;
+  float x1, y1, x2, y2;
+  float tx1, ty1, tx2, ty2;
+  Texture *texture;
 
 public:
-    DamageVisual(BodyPart *object, Texture *texture, bool mirror,
-        float x1, float y1, float x2, float y2);
+  DamageVisual(BodyPart *object, Texture *texture, bool mirror, float x1,
+               float y1, float x2, float y2);
 
-    void draw(void);
+  void draw(void);
 };
 
 #endif
-

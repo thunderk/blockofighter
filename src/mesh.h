@@ -3,119 +3,104 @@
 
 #include "object.h"
 
-
 #define X_AXIS 0
 #define Y_AXIS 1
 #define Z_AXIS 2
 
-
-class Vertex{
+class Vertex {
 public:
-    float position[3];
-    float oldposition[3];
-    float normal[3];
+  float position[3];
+  float oldposition[3];
+  float normal[3];
   float texcoords[2];
 
-    Vertex(void);
-    Vertex(float x, float y, float z);
-    Vertex(float x, float y, float z, float nx, float ny, float nz);
+  Vertex(void);
+  Vertex(float x, float y, float z);
+  Vertex(float x, float y, float z, float nx, float ny, float nz);
 
-    void setTexCoords(float u, float v);
+  void setTexCoords(float u, float v);
 };
-
 
 class Edge;
 
-class Polygon{
+class Polygon {
 public:
-    float planenormal[3];
-    float planedistance;
-    bool smooth;
-    bool realsmooth;
+  float planenormal[3];
+  float planedistance;
+  bool smooth;
+  bool realsmooth;
 
-    int vertexcount;
-    Vertex **vertices;
-    int edgecount;
-    Edge **edges;
+  int vertexcount;
+  Vertex **vertices;
+  int edgecount;
+  Edge **edges;
 
-    Polygon(void);
+  Polygon(void);
 };
 
-
-
-class Edge{
+class Edge {
 public:
-    Vertex *v1, *v2;
-    class Polygon *p1, *p2;
+  Vertex *v1, *v2;
+  class Polygon *p1, *p2;
 };
 
-
-
-class Mesh{
+class Mesh {
 public:
-    int vertexcount;
-    Vertex *vertices;
+  int vertexcount;
+  Vertex *vertices;
 
-    int polygoncount;
-    class Polygon *polygons;
+  int polygoncount;
+  class Polygon *polygons;
 
-    Edge *edges;
-    int edgecount;
+  Edge *edges;
+  int edgecount;
 
+  Mesh(void);
+  ~Mesh(void);
 
-    Mesh(void);
-    ~Mesh(void);
-
-    void createPlanes(void);
-    void createVertexnormals(void);
-    void createEdges(void);
-    float calculateScale(float targetLength, int axis);
-    void scale(float targetLength, int axis);
+  void createPlanes(void);
+  void createVertexnormals(void);
+  void createEdges(void);
+  float calculateScale(float targetLength, int axis);
+  void scale(float targetLength, int axis);
   void scale(float scale);
 };
 
-
-
-class MeshObject : public Object{
+class MeshObject : public Object {
 public:
-    Mesh *mesh;
+  Mesh *mesh;
 
-    MeshObject(Mesh *mesh);
+  MeshObject(Mesh *mesh);
 };
 
-
-
-class MeshAppearance : public Appearance{
+class MeshAppearance : public Appearance {
 private:
-    Mesh *mesh;
+  Mesh *mesh;
 
 public:
-    MeshAppearance(Mesh *mesh);
+  MeshAppearance(Mesh *mesh);
 
-    void draw(void);
+  void draw(void);
 };
 
+// Geometry of sphere
 
-
-//Geometry of sphere
-
-class MeshShape : public Shape{
+class MeshShape : public Shape {
 private:
-    Mesh *mesh;
+  Mesh *mesh;
 
 public:
-    MeshShape(MeshObject *meshobject);
-    MeshShape(Object *object, Mesh *mesh);
+  MeshShape(MeshObject *meshobject);
+  MeshShape(Object *object, Mesh *mesh);
 
-    float calculateMomentOfInertia(float *rotationvector);
+  float calculateMomentOfInertia(float *rotationvector);
 
-    bool checkCollision(Object *target);
+  bool checkCollision(Object *target);
 
-    bool checkCollisionPeer(SphereShape *target);
-    bool checkCollisionPeer(MeshShape *target);
+  bool checkCollisionPeer(SphereShape *target);
+  bool checkCollisionPeer(MeshShape *target);
 
-    friend class SphereShape;
+  friend class SphereShape;
 };
 
 #endif
-

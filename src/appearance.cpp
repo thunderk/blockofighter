@@ -1,24 +1,20 @@
 #include "main.h"
 
-
 #include "appearance.h"
 #include "utils.h"
 #include "3dutils.h"
 #include "glapi.h"
 
-Appearance::Appearance(void){
-}
+Appearance::Appearance(void) {}
 
-void Appearance::prepare(void){
-}
-
-
+void Appearance::prepare(void) {}
 
 /*BoxAppearance::BoxAppearance(void){
     setDimension(-1, 1, -1, 1, -1, 1);
 }
 
-BoxAppearance::setDimension(float x1, float x2, float y1, float y2, float z1, float z2){
+BoxAppearance::setDimension(float x1, float x2, float y1, float y2, float z1,
+float z2){
     if (x1 > x2) swapFloat(&x1, &x2);
     if (y1 > y2) swapFloat(&y1, &y2);
     if (z1 > z2) swapFloat(&z1, &z2);
@@ -77,41 +73,31 @@ void BoxAppearance::draw(void){
   this->material.disable();
 }*/
 
+Material *Appearance::getMaterial(void) { return &this->material; }
 
-Material* Appearance::getMaterial(void){
-  return &this->material;
+void Appearance::setMaterial(Material matsku) { material = matsku; }
+
+MultiAppearance::MultiAppearance(void) { appearances = NULL; }
+
+void MultiAppearance::addAppearance(Appearance *appearance) {
+  appearancelist *node = new appearancelist;
+  node->data = appearance;
+  node->next = appearances;
+  appearances = node;
 }
 
-void Appearance::setMaterial(Material matsku){
-  material = matsku;
+void MultiAppearance::prepare(void) {
+  appearancelist *node = appearances;
+  while (node != NULL) {
+    node->data->prepare();
+    node = node->next;
+  }
 }
 
-
-
-
-MultiAppearance::MultiAppearance(void){
-    appearances = NULL;
-}
-
-void MultiAppearance::addAppearance(Appearance *appearance){
-    appearancelist *node = new appearancelist;
-    node->data = appearance;
-    node->next = appearances;
-    appearances = node;
-}
-
-void MultiAppearance::prepare(void){
-    appearancelist *node = appearances;
-    while (node != NULL){
-        node->data->prepare();
-        node = node->next;
-    }
-}
-
-void MultiAppearance::draw(void){
-    appearancelist *node = appearances;
-    while (node != NULL){
-        node->data->draw();
-        node = node->next;
-    }
+void MultiAppearance::draw(void) {
+  appearancelist *node = appearances;
+  while (node != NULL) {
+    node->data->draw();
+    node = node->next;
+  }
 }
