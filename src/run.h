@@ -13,4 +13,3 @@ void initTextures(void);
 void setDetail(int detail);
 
 #endif
-

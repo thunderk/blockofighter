@@ -10,60 +10,50 @@
 #include "collision.h"
 #include "glapi.h"
 
-
-Sphere::Sphere(void){
-    appearance = new SphereAppearance();
-    Object::appearance = appearance;
-    geometry = new SphereShape(this);
-    Object::geometry = geometry;
+Sphere::Sphere(void) {
+  appearance = new SphereAppearance();
+  Object::appearance = appearance;
+  geometry = new SphereShape(this);
+  Object::geometry = geometry;
 }
 
-void Sphere::setRadius(float r){
-    if (r < 0) r = -r;
-    this->r = r;
-    appearance->setRadius(r);
-    geometry->setRadius(r);
+void Sphere::setRadius(float r) {
+  if (r < 0)
+    r = -r;
+  this->r = r;
+  appearance->setRadius(r);
+  geometry->setRadius(r);
 }
 
-SphereAppearance::SphereAppearance(void){
-    setRadius(1);
+SphereAppearance::SphereAppearance(void) { setRadius(1); }
+
+void SphereAppearance::setRadius(float r) {
+  if (r < 0)
+    r = -r;
+  this->r = r;
 }
 
-void SphereAppearance::setRadius(float r){
-    if (r < 0) r = -r;
-    this->r = r;
+void Sphere::setColor(float red, float green, float blue) {
+  appearance->getMaterial()->setColor(red, green, blue, 1);
 }
 
-void Sphere::setColor(float red, float green, float blue){
-    appearance->getMaterial()->setColor(red, green, blue, 1);
+void SphereAppearance::draw(void) {
+  material.enable();
+  createSphere(r);
 }
 
-void SphereAppearance::draw(void){
-    material.enable();
-    createSphere(r);
+SphereShape::SphereShape(Object *sphere) : Shape(sphere) { setRadius(1); }
+
+void SphereShape::setRadius(float r) { this->r = r; }
+
+float SphereShape::getRadius(void) { return r; }
+
+bool SphereShape::checkCollision(Object *target) {
+  return target->geometry->checkCollisionPeer(this);
 }
 
-
-
-
-SphereShape::SphereShape(Object *sphere) : Shape(sphere){
-    setRadius(1);
-}
-
-void SphereShape::setRadius(float r){
-    this->r = r;
-}
-
-float SphereShape::getRadius(void){
-    return r;
-}
-
-bool SphereShape::checkCollision(Object *target){
-    return target->geometry->checkCollisionPeer(this);
-}
-
-float SphereShape::calculateMomentOfInertia(float *rotationvector){
-    return 2.0/3.0*r*r;
+float SphereShape::calculateMomentOfInertia(float *rotationvector) {
+  return 2.0 / 3.0 * r * r;
 }
 
 /*bool SphereShape::checkCollisionPeer(PlaneShape *target){
@@ -84,46 +74,47 @@ float SphereShape::calculateMomentOfInertia(float *rotationvector){
     return false;
 }*/
 
-bool SphereShape::checkCollisionPeer(SphereShape *target){
-    /*float sourceposition[3], targetposition[3];
-    object->getPosition(sourceposition);
-    target->object->getPosition(targetposition);
-    float impact[3];
-    vectorSub(impact, sourceposition, targetposition);*/
-    float impact[3] = {0, 0, 0};
-    object->transformPoint(impact, impact);
-    target->object->unTransformPoint(impact, impact);
-    float distance2 = vectorDot(impact, impact);
+bool SphereShape::checkCollisionPeer(SphereShape *target) {
+  /*float sourceposition[3], targetposition[3];
+  object->getPosition(sourceposition);
+  target->object->getPosition(targetposition);
+  float impact[3];
+  vectorSub(impact, sourceposition, targetposition);*/
+  float impact[3] = {0, 0, 0};
+  object->transformPoint(impact, impact);
+  target->object->unTransformPoint(impact, impact);
+  float distance2 = vectorDot(impact, impact);
 
-    if (distance2 < (r + target->r)*(r + target->r)){
-        /*float temp[3], temp2[3], temp3[3];
-        object->getMomentum(temp2);
-        target->object->getMomentum(temp3);
-        vectorSub(temp, temp2, temp3);
-        shotsound->setVolume(1.0-1/(1+vectorLength(temp)*0.5));
-        shotsound->play();*/
-        float normal[3];
-        vectorNormalize(normal, impact);
+  if (distance2 < (r + target->r) * (r + target->r)) {
+    /*float temp[3], temp2[3], temp3[3];
+    object->getMomentum(temp2);
+    target->object->getMomentum(temp3);
+    vectorSub(temp, temp2, temp3);
+    shotsound->setVolume(1.0-1/(1+vectorLength(temp)*0.5));
+    shotsound->play();*/
+    float normal[3];
+    vectorNormalize(normal, impact);
 
-        float contactpoint[3];
-        vectorScale(contactpoint, normal, target->r);
+    float contactpoint[3];
+    vectorScale(contactpoint, normal, target->r);
 
-        target->object->transformVector(normal, normal);
-        target->object->transformPoint(contactpoint, contactpoint);
+    target->object->transformVector(normal, normal);
+    target->object->transformPoint(contactpoint, contactpoint);
 
-        addCollision(object, target->object, normal, contactpoint);
+    addCollision(object, target->object, normal, contactpoint);
 
-        //vectorAdd(contactnormal, normal);
+    // vectorAdd(contactnormal, normal);
 
-        return true;
-    }
+    return true;
+  }
 
-    return false;
+  return false;
 }
 
-bool between(float x, float x1, float x2){
-    if ((x >= x1 && x <=x2) || (x >= x2 && x <=x1)) return true;
-    return false;
+bool between(float x, float x1, float x2) {
+  if ((x >= x1 && x <= x2) || (x >= x2 && x <= x1))
+    return true;
+  return false;
 }
 
 /*bool SphereShape::checkCollisionPeer(BoxShape *target){
@@ -238,26 +229,24 @@ bool between(float x, float x1, float x2){
     return false;
 }*/
 
+bool SphereShape::checkCollisionPeer(MeshShape *target) {
+  float position[3] = {0, 0, 0};
+  object->transformPoint(position, position);
+  target->object->unTransformPoint(position, position);
+  Mesh *mesh = target->mesh;
 
+  float normal[3];
+  float contactpoint[3];
 
-bool SphereShape::checkCollisionPeer(MeshShape *target){
-    float position[3] = {0, 0, 0};
-    object->transformPoint(position, position);
-    target->object->unTransformPoint(position, position);
-    Mesh *mesh = target->mesh;
+  if (checkSphereMeshCollision(position, r, mesh, normal, contactpoint)) {
+    target->object->transformVector(normal, normal);
+    target->object->transformPoint(contactpoint, contactpoint);
 
-    float normal[3];
-    float contactpoint[3];
+    addCollision(object, target->object, normal, contactpoint);
 
-    if (checkSphereMeshCollision(position, r, mesh, normal, contactpoint)){
-        target->object->transformVector(normal, normal);
-        target->object->transformPoint(contactpoint, contactpoint);
+    // vectorAdd(contactnormal, normal);
 
-        addCollision(object, target->object, normal, contactpoint);
-
-        //vectorAdd(contactnormal, normal);
-
-        return true;
-    }
-    return false;
+    return true;
+  }
+  return false;
 }

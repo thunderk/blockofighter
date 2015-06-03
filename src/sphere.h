@@ -5,63 +5,57 @@
 #include "material.h"
 #include "mesh.h"
 
-
 class SphereAppearance;
 
-//Object for sphere
+// Object for sphere
 
-class Sphere : public Object{
+class Sphere : public Object {
 private:
-    float r;
-    SphereAppearance *appearance;
-    SphereShape *geometry;
+  float r;
+  SphereAppearance *appearance;
+  SphereShape *geometry;
 
 public:
-    Sphere(void);
+  Sphere(void);
 
-    void setRadius(float r);
-    void setColor(float red, float green, float blue);
+  void setRadius(float r);
+  void setColor(float red, float green, float blue);
 };
 
+// Appearance of sphere
 
-
-//Appearance of sphere
-
-class SphereAppearance : public Appearance{
+class SphereAppearance : public Appearance {
 private:
-    float r;
+  float r;
 
 public:
-    SphereAppearance(void);
+  SphereAppearance(void);
 
-    void setRadius(float r);
-    void draw(void);
+  void setRadius(float r);
+  void draw(void);
 };
 
+// Geometry of sphere
 
-
-//Geometry of sphere
-
-class SphereShape : public Shape{
+class SphereShape : public Shape {
 private:
-    float r;
+  float r;
 
 public:
-    SphereShape(Object *sphere);
+  SphereShape(Object *sphere);
 
-    void setRadius(float r);
-    float getRadius(void);
+  void setRadius(float r);
+  float getRadius(void);
 
-    float calculateMomentOfInertia(float *rotationvector);
+  float calculateMomentOfInertia(float *rotationvector);
 
-    bool checkCollision(Object *target);
+  bool checkCollision(Object *target);
 
-    bool checkCollisionPeer(SphereShape *target);
-    bool checkCollisionPeer(MeshShape *target);
+  bool checkCollisionPeer(SphereShape *target);
+  bool checkCollisionPeer(MeshShape *target);
 
-    friend class Sphere;
-    friend class MeshShape;
+  friend class Sphere;
+  friend class MeshShape;
 };
 
 #endif
-

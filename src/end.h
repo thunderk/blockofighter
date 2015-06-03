@@ -6,11 +6,9 @@
 #include "texture.h"
 #include "audio.h"
 
-
 void initEnd(void);
 void endRestart(void);
 void calculateEnd(int framecount);
 void drawEnd(int framecount);
 
 #endif
-
