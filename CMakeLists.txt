@@ -1,27 +1,26 @@
+cmake_minimum_required(VERSION 3.10)
+
 project(blockofighter)
-cmake_minimum_required(VERSION 2.8)
+
 aux_source_directory(src SRC_LIST)
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
-find_package(SDL REQUIRED)
-find_package(SDL_image REQUIRED)
+include(FindPkgConfig)
+pkg_search_module(SDL2 REQUIRED sdl2)
+pkg_search_module(SDL2IMAGE REQUIRED SDL2_image>=2.0.0)
+pkg_search_module(SDL2MIXER REQUIRED SDL2_mixer>=2.0.0)
 
-if(NOT SDL_FOUND)
-    message(FATAL_ERROR "SDL not found!")
-endif(NOT SDL_FOUND)
-
-if(NOT SDLIMAGE_FOUND)
-    message(FATAL_ERROR "SDL not found!")
-endif(NOT SDLIMAGE_FOUND)
+find_package(OpenGL)
 
 include_directories(
-    ${SDL_INCLUDE_DIR}
-    ${SDLIMAGE_INCLUDE_DIR}
+    ${SDL2_INCLUDE_DIRS}
+    ${SDL2IMAGE_INCLUDE_DIRS}
+    ${SDL2MIXER_INCLUDE_DIRS}
+    ${OPENGL_INCLUDE_DIRS}
 )
 target_link_libraries(blockofighter
-    ${SDL_LIBRARY}
-    ${SDLIMAGE_LIBRARY}
-    SDLmain
-    GL
-    GLU
+    ${SDL2_LIBRARIES}
+    ${SDL2IMAGE_LIBRARIES}
+    ${SDL2MIXER_LIBRARIES}
+    ${OPENGL_LIBRARIES}
 )

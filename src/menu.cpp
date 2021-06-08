@@ -469,7 +469,7 @@ void calculateMenu(int framecount) {
   } else {
     interpolator = 1.0;
     if (menufade == -1) {
-      if (keys[SDLK_DOWN]) {
+      if (keys.count(SDLK_DOWN)) {
         if (!pressed) {
           /*if (menuoption < maxoption){
               menuoption++;
@@ -479,7 +479,7 @@ void calculateMenu(int framecount) {
           changesound->play();
           pressed = true;
         }
-      } else if (keys[SDLK_UP]) {
+      } else if (keys.count(SDLK_UP)) {
         if (!pressed) {
           /*if (menuoption > 0){
               menuoption--;
@@ -489,7 +489,7 @@ void calculateMenu(int framecount) {
           changesound->play();
           pressed = true;
         }
-      } else if (keys[SDLK_LEFT]) {
+      } else if (keys.count(SDLK_LEFT)) {
         if (!pressed) {
           switch (menumode) {
           case MODEOPTIONS:
@@ -507,7 +507,7 @@ void calculateMenu(int framecount) {
           selectsound->play();
           pressed = true;
         }
-      } else if (keys[SDLK_RIGHT]) {
+      } else if (keys.count(SDLK_RIGHT)) {
         if (!pressed) {
           switch (menumode) {
           case MODEOPTIONS:
@@ -525,7 +525,7 @@ void calculateMenu(int framecount) {
           selectsound->play();
           pressed = true;
         }
-      } else if (keys[SDLK_ESCAPE]) {
+      } else if (keys.count(SDLK_ESCAPE)) {
         if (!pressed) {
           switch (menumode) {
           case MODEMAIN:
@@ -544,7 +544,7 @@ void calculateMenu(int framecount) {
           }
           pressed = true;
         }
-      } else if (keys[SDLK_RETURN]) {
+      } else if (keys.count(SDLK_RETURN)) {
         if (!pressed) {
           switch (menumode) {
           case MODEMAIN:

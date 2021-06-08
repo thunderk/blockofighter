@@ -30,13 +30,13 @@ void initScenes(void) {
   enable2D();
 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  SDL_GL_SwapBuffers();
+  SDL_GL_SwapWindow(window);
 
   initFontTexture();
 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   print(0.08, 0.4, "Loading...", 0.2);
-  SDL_GL_SwapBuffers();
+  SDL_GL_SwapWindow(window);
 
   disable2D();
 
@@ -92,7 +92,7 @@ void drawFrame(int framecount) {
     break;
   }
 
-  SDL_GL_SwapBuffers();
+  SDL_GL_SwapWindow(window);
 }
 
 /*int SKY_FRONT_ID;

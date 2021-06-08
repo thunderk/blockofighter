@@ -1,6 +1,8 @@
 #include "graphics.h"
 #include <stdlib.h>
 
+#include "texture.h"
+
 GraphicsDruid *GraphicsDruid::instance = 0;
 
 GraphicsDruid::GraphicsDruid(void) { this->reserved = 0; }
@@ -178,7 +180,7 @@ int GraphicsDruid::loadTranspTexture(char *path, float *transpColor, int id) {
                  (Uint8)(transpColor[1] * 255), (Uint8)(transpColor[2] * 255));
   // SDL_SetAlpha(texture, 0, SDL_ALPHA_OPAQUE);
 
-  SDL_SetColorKey(texture, SDL_SRCCOLORKEY, colorKey);
+  SDL_SetColorKey(texture, SDL_TRUE, colorKey);
 
   // SDL_Surface* alphaSurface = SDL_DisplayFormatAlpha(texture);
   texture = SDL_DisplayFormatAlpha(texture);

@@ -87,7 +87,7 @@ void calculateEnd(int framecount) {
   endlight.setPosition(-sin(framecount * 0.007) * 10, 15,
                        cos(framecount * 0.007) * 2 + 22);
 
-  if (keys[SDLK_ESCAPE]) {
+  if (keys.count(SDLK_ESCAPE)) {
     stopEnding();
   }
 }

@@ -1,6 +1,12 @@
 #include "texture.h"
 #include "graphics.h"
 
+SDL_Surface *SDL_DisplayFormatAlpha(SDL_Surface *surf) {
+  SDL_Surface *alpha_surf = SDL_ConvertSurfaceFormat(surf, SDL_PIXELFORMAT_ARGB8888, 0);
+  SDL_FreeSurface(surf);
+  return alpha_surf;
+}
+
 Texture::Texture(void) {
   this->textureId = -1;
   this->enabled = false;
@@ -47,7 +53,7 @@ bool Texture::loadImage(char *path, float *trans) {
                  (Uint8)(trans[1] * 255), (Uint8)(trans[2] * 255));
   // SDL_SetAlpha(texture, 0, SDL_ALPHA_OPAQUE);
 
-  SDL_SetColorKey(texture, SDL_SRCCOLORKEY, colorKey);
+  SDL_SetColorKey(texture, SDL_TRUE, colorKey);
 
   // SDL_Surface* alphaSurface = SDL_DisplayFormatAlpha(texture);
   texture = SDL_DisplayFormatAlpha(texture);

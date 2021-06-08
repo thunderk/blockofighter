@@ -1,5 +1,7 @@
 *.o
 *.user
+.vscode
+Makefile
 /CMakeCache.txt
 /CMakeFiles/
 /blockofighter

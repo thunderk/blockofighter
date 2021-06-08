@@ -17,9 +17,9 @@
 
 #include "glapi.h"
 
+SDL_Window *window;
 int screenwidth = 1024;
 int screenheight = 768;
-int screenbpp = 32;
 
 // static float speedfactor = 1.0;
 
@@ -36,12 +36,19 @@ void exitProgram(int code) {
 }
 
 void changeResolution(int width, int height, bool fullscreen) {
-  int mode = SDL_OPENGL;
+  int mode = SDL_WINDOW_OPENGL;
   if (fullscreen)
-    mode |= SDL_FULLSCREEN;
-  if (!SDL_SetVideoMode(width, height, screenbpp, mode)) {
-    fprintf(stderr, "Couldn't set %i*%i*%i opengl video mode: %s\n",
-            screenwidth, screenheight, screenbpp, SDL_GetError());
+    mode |= SDL_WINDOW_FULLSCREEN;
+
+  window = SDL_CreateWindow("BlockoFighter 2", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, mode);
+  if (!window) {
+    fprintf(stderr, "Couldn't set %i*%i opengl video mode: %s\n",
+            screenwidth, screenheight, SDL_GetError());
+    exitProgram(-1);
+  }
+
+  if (!SDL_GL_CreateContext(window)) {
+    fprintf(stderr, "Couldn't create OpenGL context: %s\n", SDL_GetError());
     exitProgram(-1);
   }
 
@@ -58,11 +65,20 @@ void changeResolution(int width, int height, bool fullscreen) {
   initScenes();
 }
 
-bool keys[SDLK_LAST] = {false};
+std::set<SDL_Keycode> keys;
 
-void handleKeydown(SDL_keysym *keysym) { keys[keysym->sym] = true; }
+void handleKeydown(SDL_Keysym *keysym) {
+  if (!keys.count(keysym->sym)) {
+    keys.insert(keysym->sym);
+  }
+}
 
-void handleKeyup(SDL_keysym *keysym) { keys[keysym->sym] = false; }
+void handleKeyup(SDL_Keysym *keysym) {
+  auto it = keys.find(keysym->sym);
+  if (it != keys.end()) {
+    keys.erase(it);
+  }
+}
 
 void processEvents(void) {
   SDL_Event event;
@@ -74,9 +90,9 @@ void processEvents(void) {
     case SDL_KEYUP:
       handleKeyup(&event.key.keysym);
       break;
-    case SDL_VIDEORESIZE:
-      screenwidth = event.resize.w;
-      screenheight = event.resize.h;
+    case SDL_WINDOWEVENT_RESIZED:
+      screenwidth = event.window.data1;
+      screenheight = event.window.data2;
       setupOpengl(screenwidth, screenheight);
       break;
     case SDL_QUIT:
@@ -106,12 +122,11 @@ int main(int argc, char *argv[]) {
     exitProgram(-1);
   }
 
-  const SDL_VideoInfo *info = SDL_GetVideoInfo();
+  /*const SDL_VideoInfo *info = SDL_GetVideoInfo();
   if (!info) {
     printf("Could not get video info with SDL: %s.\n", SDL_GetError());
     exitProgram(-1);
-  }
-  screenbpp = info->vfmt->BitsPerPixel;
+  }*/
   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 5);
   SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 5);
   SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 5);
@@ -119,8 +134,6 @@ int main(int argc, char *argv[]) {
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
   atexit(SDL_Quit);
-
-  SDL_WM_SetCaption("BlockoFighter 2", NULL);
 
   initAudio();
 

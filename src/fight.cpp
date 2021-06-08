@@ -362,19 +362,19 @@ void startFight(void) {
   points2 = 0;
 }
 
-SDLKey player1left = SDLK_LEFT;
-SDLKey player1right = SDLK_RIGHT;
-SDLKey player1forward = SDLK_UP;
-SDLKey player1backward = SDLK_DOWN;
-SDLKey player1jump = SDLK_RSHIFT;
-SDLKey player1hit = SDLK_RCTRL;
+SDL_Keycode player1left = SDLK_LEFT;
+SDL_Keycode player1right = SDLK_RIGHT;
+SDL_Keycode player1forward = SDLK_UP;
+SDL_Keycode player1backward = SDLK_DOWN;
+SDL_Keycode player1jump = SDLK_RSHIFT;
+SDL_Keycode player1hit = SDLK_RCTRL;
 
-SDLKey player2left = SDLK_f;
-SDLKey player2right = SDLK_h;
-SDLKey player2forward = SDLK_t;
-SDLKey player2backward = SDLK_g;
-SDLKey player2jump = SDLK_s;
-SDLKey player2hit = SDLK_x;
+SDL_Keycode player2left = SDLK_f;
+SDL_Keycode player2right = SDLK_h;
+SDL_Keycode player2forward = SDLK_t;
+SDL_Keycode player2backward = SDLK_g;
+SDL_Keycode player2jump = SDLK_s;
+SDL_Keycode player2hit = SDLK_x;
 
 void stopGame(void) {
   light1.setEnabled(false);
@@ -497,17 +497,17 @@ void calculateFight(int framecount) {
   if (startcounter >= FIGHT) {
 
     if (man1->isAlive()) {
-      if (keys[player1left])
+      if (keys.count(player1left))
         man1->turn(5);
-      if (keys[player1right])
+      if (keys.count(player1right))
         man1->turn(-5);
-      if (keys[player1forward])
+      if (keys.count(player1forward))
         man1->walk(0.03);
-      if (keys[player1backward])
+      if (keys.count(player1backward))
         man1->walk(-0.03);
-      if (keys[player1jump])
+      if (keys.count(player1jump))
         man1->jump();
-      if (keys[player1hit]) {
+      if (keys.count(player1hit)) {
         man1->hit();
         man1->hitcounter = 1;
       } else {
@@ -516,17 +516,17 @@ void calculateFight(int framecount) {
     }
 
     if (man2->isAlive()) {
-      if (keys[player2left])
+      if (keys.count(player2left))
         man2->turn(5);
-      if (keys[player2right])
+      if (keys.count(player2right))
         man2->turn(-5);
-      if (keys[player2forward])
+      if (keys.count(player2forward))
         man2->walk(0.03);
-      if (keys[player2backward])
+      if (keys.count(player2backward))
         man2->walk(-0.03);
-      if (keys[player2jump])
+      if (keys.count(player2jump))
         man2->jump();
-      if (keys[player2hit]) {
+      if (keys.count(player2hit)) {
         man2->hit();
         man2->hitcounter = 1;
       } else {
@@ -535,7 +535,7 @@ void calculateFight(int framecount) {
     }
   }
 
-  if (keys[SDLK_ESCAPE]) {
+  if (keys.count(SDLK_ESCAPE)) {
     setSpeedFactor(1.0);
     stopGame();
   }

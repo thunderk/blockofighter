@@ -8,6 +8,7 @@
     disable : 4305) // Disable: truncation from 'const double' to 'double'
 #endif
 
+#include <set>
 #include "SDL.h"
 
 #ifdef DEBUG
@@ -25,7 +26,8 @@
 #endif
 
 #define DATAPATH "data/"
-extern bool keys[SDLK_LAST];
+extern std::set<SDL_Keycode> keys;  // TODO move in proper place
+extern SDL_Window *window;
 
 void exitProgram(int code);
 void changeResolution(int width, int height, bool fullscreen);

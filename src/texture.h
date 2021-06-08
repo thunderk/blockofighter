@@ -32,4 +32,6 @@ private:
   int format;
 };
 
+SDL_Surface *SDL_DisplayFormatAlpha(SDL_Surface *surf);
+
 #endif
