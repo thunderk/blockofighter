@@ -2,6 +2,7 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <functional>
 
 #include "audio.h"
 
@@ -15,6 +16,7 @@ struct soundlist {
 };
 
 soundlist *allsounds = NULL;
+Sound *current_music = NULL;
 
 Sound::Sound(Sound *source) {
   memcpy(this, source, sizeof(Sound));
@@ -56,46 +58,29 @@ bool endsWith(char *str1, char *str2) {
 void Sound::load(char *filename, int type, bool loops) {
   this->filename = filename;
   if (type == SOUNDTYPE_AUTODETECT) {
-    if (endsWith(filename, "mp3") || endsWith(filename, "mp2") ||
-        endsWith(filename, "ogg"))
+    if (endsWith(filename, "mp3") || endsWith(filename, "ogg"))
       type = SOUNDTYPE_STREAM;
 
     if (endsWith(filename, "wav") || endsWith(filename, "raw"))
       type = SOUNDTYPE_SAMPLE;
+  }
 
-    if (endsWith(filename, "s3m") || endsWith(filename, "xm") ||
-        endsWith(filename, "it") || endsWith(filename, "mid") ||
-        endsWith(filename, "rmi") || endsWith(filename, "sgr") ||
-        endsWith(filename, "mod"))
-      type = SOUNDTYPE_MODULE;
-  }
-#ifdef AUDIO_FMOD
-  sample = NULL;
-  module = NULL;
-  stream = NULL;
-  this->type = type;
-  if (type == SOUNDTYPE_MODULE) {
-    module = FMUSIC_LoadSong(filename);
-    this->loops = false;
-  } else if (type == SOUNDTYPE_SAMPLE) {
-    if (loops) {
-      sample =
-          FSOUND_Sample_Load(FSOUND_FREE, filename, FSOUND_LOOP_NORMAL, 0, 0);
-      FSOUND_Sample_SetMode(sample, FSOUND_LOOP_NORMAL);
+  this->chunk = NULL;
+  this->music = NULL;
+  if (type == SOUNDTYPE_SAMPLE) {
+    this->chunk = Mix_LoadWAV(filename);
+    if (this->chunk) {
     } else {
-      sample = FSOUND_Sample_Load(FSOUND_FREE, filename, FSOUND_LOOP_OFF, 0, 0);
-      FSOUND_Sample_SetMode(sample, FSOUND_LOOP_OFF);
+      printf("Error while loading sample %s: %s\n", filename, Mix_GetError());
     }
-    this->loops = loops;
   } else if (type == SOUNDTYPE_STREAM) {
-    if (loops) {
-      stream = FSOUND_Stream_Open(filename, FSOUND_LOOP_NORMAL, 0, 0);
-    } else {
-      stream = FSOUND_Stream_Open(filename, FSOUND_LOOP_OFF, 0, 0);
+    this->music = Mix_LoadMUS(filename);
+    if (!this->music) {
+      printf("Error while loading music %s: %s\n", filename, Mix_GetError());
     }
-    this->loops = loops;
   }
-#endif
+
+  this->loops = loops;
   stopcallback = NULL;
   soundlist *node = new soundlist;
   node->sound = this;
@@ -114,22 +99,22 @@ bool Sound::play() {
   finished = false;
   fademode = SOUND_FADENONE;
   minduration = 0;
-#ifdef AUDIO_FMOD
-  if (type == SOUNDTYPE_MODULE) {
-    FMUSIC_PlaySong(module);
-    FMUSIC_SetMasterVolume(module, (int)(volume * 256));
-  } else if (type == SOUNDTYPE_SAMPLE) {
-    channel = FSOUND_PlaySound(FSOUND_FREE, sample);
+  if (chunk) {
+    channel = -1;
+    /*channel = FSOUND_PlaySound(FSOUND_FREE, sample);
     FSOUND_SetVolume(channel, (int)(volume * 256));
     if (!loops) {
       running = false;
       finished = false;
+    }*/
+  } else if (music) {
+    if (Mix_PlayMusic(music, loops)) {
+      printf("Failed to play music\n");
+    } else {
+      current_music = this;
     }
-  } else if (type == SOUNDTYPE_STREAM) {
-    channel = FSOUND_Stream_Play(FSOUND_FREE, stream);
-    FSOUND_SetVolume(channel, (int)(volume * 256));
+    Mix_VolumeMusic((int)(volume * MIX_MAX_VOLUME));
   }
-#endif
   // printf("Done: %f\n", volume);
   return true;
 }
@@ -140,50 +125,34 @@ void Sound::play(int minduration) {
 }
 
 void Sound::stop() {
-#ifdef AUDIO_FMOD
-  if (type == SOUNDTYPE_MODULE) {
-    FMUSIC_StopSong(module);
-  } else if (type == SOUNDTYPE_SAMPLE) {
-    FSOUND_StopSound(channel);
-  } else if (type == SOUNDTYPE_STREAM) {
-    FSOUND_Stream_Stop(stream);
+  if (chunk && channel >= 0) {
+    Mix_HaltChannel(channel);
+  } else if (music && current_music == this) {
+    // FIXME only if it is THIS music playing
+    Mix_HaltMusic();
   }
-#endif
 }
 
 void Sound::setVolume(float volume) {
-#ifdef AUDIO_FMOD
-  if (type == SOUNDTYPE_MODULE) {
-    FMUSIC_SetMasterVolume(module, (int)(volume * 256));
-  } else if (type == SOUNDTYPE_SAMPLE) {
-    FSOUND_SetVolume(channel, (int)(volume * 256));
-  } else if (type == SOUNDTYPE_STREAM) {
-    FSOUND_SetVolume(channel, (int)(volume * 256));
+  if (chunk && channel >= 0) {
+    Mix_Volume(channel, (int)(volume * MIX_MAX_VOLUME));
+  } else if (music && current_music == this) {
+    Mix_VolumeMusic((int)(volume * MIX_MAX_VOLUME));
   }
-#endif
   this->volume = volume;
 }
 
-#ifdef AUDIO_FMOD
-signed char streamendcallback(FSOUND_STREAM *stream, void *buff, int len,
-                              int param) {
-  Sound *sound = (Sound *)param;
+void streamendcallback(Sound* sound) {
   sound->setFinished();
-  return true;
 }
-#endif
 
 void Sound::setStopCallback(STOPCALLBACK callback) {
   stopcallback = callback;
-#ifdef AUDIO_FMOD
-  if (type == SOUNDTYPE_MODULE) {
-  } else if (type == SOUNDTYPE_SAMPLE) {
+  if (chunk && channel >= 0) {
     // NOT SUPPORTED
-  } else if (type == SOUNDTYPE_STREAM) {
-    // FSOUND_Stream_SetEndCallback(stream,
-    // (FSOUND_STREAMCALLBACK)streamendcallback, (int)this);
+  } else if (music) {
+    //Mix_HookMusicFinished(std::bind(callback, this));
   }
-#endif
 }
 
 void Sound::setFinished(void) { finished = true; }
@@ -249,15 +218,13 @@ void Sound::fadeOut(int length) {
 }
 
 void initAudio(void) {
-#ifdef AUDIO_FMOD
-  FSOUND_Init(44100, 32, 0);
-#endif
+  Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
+  Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 1024);
 }
 
 void uninitAudio(void) {
-#ifdef AUDIO_FMOD
-  FSOUND_Close();
-#endif
+  Mix_CloseAudio();
+  Mix_Quit();
 }
 
 void updateAudio(void) {

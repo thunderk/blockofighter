@@ -1,30 +1,24 @@
 #ifndef __AUDIO_H_INCLUDED__
 #define __AUDIO_H_INCLUDED__
 
-#ifdef AUDIO_FMOD
-#include <fmod.h>
-#endif
+#include "SDL_mixer.h"
 
 class Sound;
 
 typedef void (*STOPCALLBACK)(Sound *sound);
 
 #define SOUNDTYPE_AUTODETECT 0
-#define SOUNDTYPE_MODULE 1
-#define SOUNDTYPE_STREAM 2
-#define SOUNDTYPE_SAMPLE 3
+#define SOUNDTYPE_STREAM 1
+#define SOUNDTYPE_SAMPLE 2
 
 #define BGSONG DATAPATH "boom.mp3"
 
 class Sound {
 private:
-#ifdef AUDIO_FMOD
-  int type;
-  FMUSIC_MODULE *module;
-  FSOUND_STREAM *stream;
-  FSOUND_SAMPLE *sample;
+  Mix_Chunk *chunk;
+  Mix_Music *music;
   int channel;
-#endif
+
   bool loops;
   bool finished;
   bool running;
